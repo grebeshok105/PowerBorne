@@ -220,5 +220,20 @@
   "bifrost_end": {
     "category": "player",
     "sounds": ["powerborne:bifrost_end1", "powerborne:bifrost_end2"]
+  },
+  "unibeam_charge": {
+    "category": "player",
+    "sounds": ["powerborne:unibeam/unibeam_charge"],
+    "subtitle": "subtitles.unibeam_charge"
+  },
+  "unibeam_beam": {
+    "category": "player",
+    "sounds": ["powerborne:unibeam/unibeam_beam"],
+    "subtitle": "subtitles.unibeam_beam"
+  },
+  "unibeam_blast": {
+    "category": "player",
+    "sounds": ["powerborne:unibeam/unibeam_blast"],
+    "subtitle": "subtitles.unibeam_blast"
   }
 }

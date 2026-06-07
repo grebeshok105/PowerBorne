@@ -6,6 +6,10 @@ PalladiumEvents.registerProperties((event) => {
         event.registerProperty("energy_bar_solar_max", 'integer', 100);
         event.registerProperty("energy_bar_blood_v", 'integer', 0);
         event.registerProperty("energy_bar_blood_v_max", 'integer', 500);
+        event.registerProperty("energy_bar_arc", 'integer', 0);
+        event.registerProperty("energy_bar_arc_max", 'integer', 1000);
+        event.registerProperty("iron_man_reactor_swap_ticks", 'integer', 0);
+        event.registerProperty("iron_man_reactor_status", 'integer', 0);
         event.registerProperty("mjolnir_throw_mode", 'integer', 0);
         event.registerProperty("flight_boost_ticks", 'integer', 0);
         event.registerProperty("screen_shake_timer", 'integer', 0);
@@ -24,6 +28,10 @@ PalladiumEvents.registerProperties((event) => {
         event.registerProperty("homelander_level", 'integer', 0);
         event.registerProperty("homelander_xp", 'integer', 0);
         event.registerProperty("homelander_skill_points", 'integer', 0);
+
+        event.registerProperty("iron_man_level", 'integer', 0);
+        event.registerProperty("iron_man_xp", 'integer', 0);
+        event.registerProperty("iron_man_skill_points", 'integer', 0);
 
         event.registerProperty("thor_level", 'integer', 0);
         event.registerProperty("thor_xp", 'integer', 0);
@@ -97,14 +105,15 @@ global.handleSpaceBreathing = (player, heroPower) => {
     }
 };
 
-global.handleFlightBoost = (player, heroPower) => {
+global.handleFlightBoost = (player, heroPower, abilityKey) => {
+    if (abilityKey === undefined) abilityKey = "flight_boost";
     let flightBoostTicks = palladium.getProperty(player, "flight_boost_ticks") || 0;
 
     if (flightBoostTicks <= 0) {
         player.removeAttribute("palladium:flight_speed", "flight_boost");
     }
 
-    if (abilityUtil.isEnabled(player, heroPower, "flight_boost")) {
+    if (abilityUtil.isEnabled(player, heroPower, abilityKey)) {
         if (flightBoostTicks === 0) {
             player.level.spawnParticles("minecraft:poof", true, player.x, player.y, player.z, 0, 0, 0, 3, 0.1);
             player.level.spawnParticles("minecraft:flash", true, player.x, player.y, player.z, 0, 0, 0, 1, 0.1);
@@ -346,6 +355,10 @@ ServerEvents.commandRegistry(event => {
         'energy_bar_solar_max': { min: 0, max: 500 },
         'energy_bar_blood_v': { min: 0, max: 500 },
         'energy_bar_blood_v_max': { min: 0, max: 500 },
+        'energy_bar_arc': { min: 0, max: 1000 },
+        'energy_bar_arc_max': { min: 0, max: 1000 },
+        'iron_man_reactor_swap_ticks': { min: 0, max: 100 },
+        'iron_man_reactor_status': { min: 0, max: 3 },
         'sentry_level': { min: 0, max: 10 },
         'sentry_xp': { min: 0, max: 9999 },
         'sentry_skill_points': { min: 0, max: 99 },
@@ -355,6 +368,9 @@ ServerEvents.commandRegistry(event => {
         'homelander_level': { min: 0, max: 10 },
         'homelander_xp': { min: 0, max: 9999 },
         'homelander_skill_points': { min: 0, max: 99 },
+        'iron_man_level': { min: 0, max: 10 },
+        'iron_man_xp': { min: 0, max: 9999 },
+        'iron_man_skill_points': { min: 0, max: 99 },
         'thor_level': { min: 0, max: 10 },
         'thor_xp': { min: 0, max: 9999 },
         'thor_skill_points': { min: 0, max: 99 },
@@ -430,7 +446,7 @@ ServerEvents.commandRegistry(event => {
         return builder.buildFuture();
     };
 
-    const HERO_COMMAND_NAMES = ['all', 'sentry', 'superman', 'homelander', 'thor', 'captain_america'];
+    const HERO_COMMAND_NAMES = ['all', 'sentry', 'superman', 'homelander', 'iron_man', 'thor', 'captain_america'];
 
     let getHeroCommandSuggestions = function (context, builder) {
         HERO_COMMAND_NAMES.forEach(hero => builder.suggest(hero));
@@ -537,7 +553,7 @@ ServerEvents.commandRegistry(event => {
                                                 let message = 'Set property ' + propertyName + ' for ' + targetPlayer.name.string + ' to ' + newValue;
 
                                                 // Sync leveling properties (no effects for direct set)
-                                                const heroNames = ['sentry', 'superman', 'homelander', 'thor', 'captain_america'];
+                                                const heroNames = ['sentry', 'superman', 'homelander', 'iron_man', 'thor', 'captain_america'];
                                                 let synced = false;
                                                 if (propertyName.endsWith('_xp')) {
                                                     const heroName = propertyName.slice(0, -3);
@@ -570,7 +586,7 @@ ServerEvents.commandRegistry(event => {
                             .then(
                                 Commands.argument('hero', Arguments.STRING.create(event))
                                     .suggests((context, builder) => {
-                                        ['sentry', 'superman', 'homelander', 'thor', 'captain_america'].forEach(hero => {
+                                        ['sentry', 'superman', 'homelander', 'iron_man', 'thor', 'captain_america'].forEach(hero => {
                                             builder.suggest(hero);
                                         });
                                         return builder.buildFuture();
@@ -583,8 +599,8 @@ ServerEvents.commandRegistry(event => {
                                                 let heroName = String(Arguments.STRING.getResult(ctx, 'hero'));
                                                 let amount = Arguments.INTEGER.getResult(ctx, 'amount');
 
-                                                if (!['sentry', 'superman', 'homelander', 'thor', 'captain_america'].includes(heroName)) {
-                                                    ctx.source.playerOrException.tell('§cInvalid hero: ' + heroName + '. Valid heroes: sentry, superman, homelander, thor, captain_america');
+                                                if (!['sentry', 'superman', 'homelander', 'iron_man', 'thor', 'captain_america'].includes(heroName)) {
+                                                    ctx.source.playerOrException.tell('§cInvalid hero: ' + heroName + '. Valid heroes: sentry, superman, homelander, iron_man, thor, captain_america');
                                                     return 0;
                                                 }
 
@@ -659,6 +675,7 @@ global.hasLockArmorEnabled = (player) => {
         "powerborne:god_of_thunder",
         "powerborne:superman",
         "powerborne:homelander",
+        "powerborne:iron_man",
         "powerborne:sentry",
         "powerborne:void"
     ];

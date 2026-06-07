@@ -48,6 +48,8 @@ StartupEvents.modifyCreativeTab('powerborne:powerborne', event => {
     event.addAfter('powerborne:sun_totem', Item.of('powerborne:sun_totem', { energy: 5000 }))
     event.addAfter('powerborne:superman_suit', Item.of('powerborne:homelander_suit'))
     event.addAfter('powerborne:homelander_suit', Item.of('powerborne:blood_v'))
+    event.addAfter('powerborne:homelander_suit', Item.of('powerborne:iron_man_suit'))
+    event.addAfter('powerborne:iron_man_suit', Item.of('powerborne:iron_man_reactor'))
     event.addAfter('powerborne:thor_suit', Item.of('powerborne:mjolnir', { Unbreakable: 1, RepairCost: $Integer.valueOf("2147483647") }))
     event.addAfter('powerborne:thor_suit', Item.of('powerborne:stormbreaker', { Unbreakable: 1, RepairCost: $Integer.valueOf("2147483647") }))
     event.addAfter('powerborne:captain_america_suit', Item.of('powerborne:vibranium_shield', '{Color1:"ffffff",Color2:"dfdfdf",Color3:"ffffff",Color4:"dfdfdf",Color5:"ffffff"}'))
@@ -228,6 +230,7 @@ StartupEvents.modifyCreativeTab('kubejs:tab', event => {
     event.remove('powerborne:vibranium_shield')
     event.remove('powerborne:super_soldier_serum')
     event.remove('powerborne:blood_v')
+    event.remove('powerborne:iron_man_reactor')
 });
 
 StartupEvents.registry('sound_event', event => {
@@ -260,4 +263,7 @@ StartupEvents.registry('sound_event', event => {
     event.create('powerborne:shield_spin')
     event.create('powerborne:bifrost_start')
     event.create('powerborne:bifrost_end')
+    event.create('powerborne:unibeam_charge')
+    event.create('powerborne:unibeam_beam')
+    event.create('powerborne:unibeam_blast')
 })
