@@ -230,14 +230,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/captain_america/shield_throw.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "captain_america_root"
-          }
-        ]
       }
     },
     "enhanced_physiology_buy": {
@@ -255,14 +247,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "minecraft:textures/mob_effect/speed.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "captain_america_root"
-          }
-        ]
       }
     },
     "rising_uppercut_buy": {
@@ -280,14 +264,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/captain_america/uppercut.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "captain_america_root"
-          }
-        ]
       }
     },
     "shield_bounce_buy": {
@@ -305,23 +281,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/captain_america/shield_bounce.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "throw_shield_buy"
-          }
-        ]
       }
     },
     "super_soldier_u1": {
@@ -339,23 +298,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/item/super_soldier_serum.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "enhanced_physiology_buy"
-          }
-        ]
       }
     },
     "shield_rush_buy": {
@@ -373,23 +315,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/captain_america/shield_rush.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "rising_uppercut_buy"
-          }
-        ]
       }
     },
     "punch_damage_buy": {
@@ -407,23 +332,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/damage.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "shield_bounce_buy"
-          }
-        ]
       }
     },
     "super_soldier_u2": {
@@ -441,23 +349,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/item/super_soldier_serum.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_soldier_u1"
-          }
-        ]
       }
     },
     "defense_upgrade": {
@@ -475,23 +366,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/defense.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "shield_rush_buy"
-          }
-        ]
       }
     },
     "spinning_shield_buy": {
@@ -509,31 +383,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/captain_america/spinning_shield.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "vibranium_absorption_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_soldier_u3"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "shield_slam_buy"
-          }
-        ]
       }
     },
     "super_soldier_u3": {
@@ -546,28 +395,11 @@
       },
       "gui_position": [
         0,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/item/super_soldier_serum.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_soldier_u2"
-          }
-        ]
       }
     },
     "shield_slam_buy": {
@@ -580,28 +412,11 @@
       },
       "gui_position": [
         -1,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/captain_america/shield_slam.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "punch_damage_buy"
-          }
-        ]
       }
     },
     "vibranium_absorption_buy": {
@@ -614,28 +429,11 @@
       },
       "gui_position": [
         1,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:item",
         "item": "palladium:vibranium_ingot"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "captain_america_skill_points",
-            "icon": "powerborne:captain_america_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "defense_upgrade"
-          }
-        ]
       }
     },
     "throw_shield": {
@@ -662,10 +460,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "throw_shield_buy"
-          },
           {
             "type": "palladium:ability_enabled",
             "ability": "shield_ready_common"
@@ -703,20 +497,31 @@
                 {
                   "type": "palladium:or",
                   "conditions": [
-                    { "type": "palladium:ability_enabled", "ability": "rising_uppercut" },
-                    { "type": "palladium:ability_enabled", "ability": "rising_uppercut_u3" }
+                    {
+                      "type": "palladium:ability_enabled",
+                      "ability": "rising_uppercut"
+                    },
+                    {
+                      "type": "palladium:ability_enabled",
+                      "ability": "rising_uppercut_u3"
+                    }
                   ]
                 },
                 {
                   "type": "palladium:or",
                   "conditions": [
-                    { "type": "palladium:ability_enabled", "ability": "shield_rush" },
-                    { "type": "palladium:ability_enabled", "ability": "shield_rush_u3" }
+                    {
+                      "type": "palladium:ability_enabled",
+                      "ability": "shield_rush"
+                    },
+                    {
+                      "type": "palladium:ability_enabled",
+                      "ability": "shield_rush_u3"
+                    }
                   ]
                 }
               ]
             }
-       
           }
         ]
       }
@@ -745,17 +550,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "rising_uppercut_buy"
-          },
-          {
-            "type": "palladium:not",
-            "conditions": {
-              "type": "palladium:ability_unlocked",
-              "ability": "super_soldier_u3"
-            }
-          },
           {
             "type": "palladium:or",
             "conditions": [
@@ -821,14 +615,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "rising_uppercut_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_soldier_u3"
-          },
           {
             "type": "palladium:or",
             "conditions": [
@@ -923,17 +709,6 @@
         ],
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "shield_rush_buy"
-          },
-          {
-            "type": "palladium:not",
-            "conditions": {
-              "type": "palladium:ability_unlocked",
-              "ability": "super_soldier_u3"
-            }
-          },
-          {
             "type": "palladium:ability_enabled",
             "ability": "shield_ready_common"
           }
@@ -971,14 +746,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "shield_rush_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_soldier_u3"
-          },
           {
             "type": "palladium:ability_enabled",
             "ability": "shield_ready_common"
@@ -1084,10 +851,6 @@
         ],
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "spinning_shield_buy"
-          },
-          {
             "type": "palladium:or",
             "conditions": [
               {
@@ -1139,17 +902,6 @@
             "conditions": {
               "type": "palladium:ability_enabled",
               "ability": "throw_shield"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "shield_slam_buy"
-          },
-          {
-            "type": "palladium:not",
-            "conditions": {
-              "type": "palladium:ability_unlocked",
-              "ability": "super_soldier_u3"
             }
           },
           {
@@ -1215,14 +967,6 @@
               "type": "palladium:ability_enabled",
               "ability": "throw_shield"
             }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "shield_slam_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_soldier_u3"
           },
           {
             "type": "palladium:ability_enabled",
@@ -1329,17 +1073,6 @@
             }
           },
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "shield_slam_buy"
-          },
-          {
-            "type": "palladium:not",
-            "conditions": {
-              "type": "palladium:ability_unlocked",
-              "ability": "super_soldier_u3"
-            }
-          },
-          {
             "type": "palladium:ability_enabled",
             "ability": "shield_ready_common"
           },
@@ -1397,14 +1130,6 @@
             }
           },
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "shield_slam_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_soldier_u3"
-          },
-          {
             "type": "palladium:ability_enabled",
             "ability": "shield_ready_common"
           },
@@ -1429,15 +1154,7 @@
       "hidden": true,
       "hidden_in_bar": true,
       "frequency": 120,
-      "amount": 0.5,
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "enhanced_physiology_buy"
-          }
-        ]
-      }
+      "amount": 0.5
     },
     "super_soldier_speed": {
       "type": "palladium:attribute_modifier",
@@ -1468,12 +1185,6 @@
           {
             "type": "palladium:sprinting"
           }
-        ],
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_soldier_u1"
-          }
         ]
       }
     },
@@ -1499,12 +1210,6 @@
           {
             "type": "palladium:sprinting"
           }
-        ],
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_soldier_u1"
-          }
         ]
       }
     },
@@ -1515,15 +1220,7 @@
       "attribute": "minecraft:generic.attack_damage",
       "amount": 2,
       "operation": "0",
-      "uuid": "019d816a-4c0c-71f8-b84d-f3e37c6f3ffe",
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "punch_damage_buy"
-          }
-        ]
-      }
+      "uuid": "019d816a-4c0c-71f8-b84d-f3e37c6f3ffe"
     },
     "defense_scale": {
       "type": "palladium:command",
@@ -1537,13 +1234,7 @@
       "hidden": true,
       "first_tick_commands": "/scale set pehkui:defense 1.5 @s",
       "commands": "",
-      "last_tick_commands": "/scale set pehkui:defense 1 @s",
-      "conditions": {
-        "unlocking": {
-          "type": "palladium:ability_unlocked",
-          "ability": "defense_upgrade"
-        }
-      }
+      "last_tick_commands": "/scale set pehkui:defense 1 @s"
     }
   }
 }

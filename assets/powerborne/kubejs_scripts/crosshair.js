@@ -14,7 +14,7 @@ const CAP_SHIELD_ID = "powerborne:vibranium_shield";
 const CAP_POWER = "powerborne:captain_america";
 
 function getClientShieldOverheatMax(player) {
-    if (player && abilityUtil.isUnlocked(player, CAP_POWER, 'vibranium_absorption_buy')) {
+    if (player && (abilityUtil.isUnlocked(player, CAP_POWER, 'vibranium_absorption_buy') || (palladium.getProperty(player, "captain_america_level") || 0) >= 10)) {
         return SHIELD_OVERHEAT_MAX_ABSORPTION;
     }
     return SHIELD_OVERHEAT_MAX;

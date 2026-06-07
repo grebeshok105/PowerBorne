@@ -1,5 +1,7 @@
 {
-  "name": {"translate":"name.powerborne.sentry"},
+  "name": {
+    "translate": "name.powerborne.sentry"
+  },
   "background": "minecraft:textures/block/yellow_wool.png",
   "ability_bar_texture": "#powerborne:sentry_ability_bar",
   "icon": "powerborne:sentry_suit",
@@ -45,8 +47,12 @@
     },
     "sentry_root": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.root"},
-      "description": {"translate":"desc.powerborne.sentry.root"},
+      "title": {
+        "translate": "ability.powerborne.sentry.root"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.root"
+      },
       "gui_position": [
         0,
         0
@@ -119,8 +125,12 @@
     },
     "beam_timer_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.light_projection"},
-      "description": {"translate":"desc.powerborne.sentry.light_projection"},
+      "title": {
+        "translate": "ability.powerborne.sentry.light_projection"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.light_projection"
+      },
       "gui_position": [
         -1,
         0.75
@@ -128,20 +138,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/light_projection.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "sentry_root"
-          }
-        ]
       }
     },
     "sentry_resilience": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.sentry_resilience"},
-      "description": {"translate":"desc.powerborne.sentry.sentry_resilience"},
+      "title": {
+        "translate": "ability.powerborne.sentry.sentry_resilience"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.sentry_resilience"
+      },
       "gui_position": [
         0,
         0.75
@@ -149,20 +155,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/golden_heart.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "sentry_root"
-          }
-        ]
       }
     },
     "telekinesis_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.telekinesis"},
-      "description": {"translate":"desc.powerborne.sentry.telekinesis"},
+      "title": {
+        "translate": "ability.powerborne.sentry.telekinesis"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.telekinesis"
+      },
       "gui_position": [
         1,
         0.75
@@ -170,20 +172,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/telekinesis.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "sentry_root"
-          }
-        ]
       }
     },
     "photonic_strike_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.photonic_strike"},
-      "description": {"translate":"desc.powerborne.sentry.photonic_strike"},
+      "title": {
+        "translate": "ability.powerborne.sentry.photonic_strike"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.photonic_strike"
+      },
       "gui_position": [
         -1,
         1.5
@@ -191,29 +189,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/photonic_strike.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "beam_timer_buy"
-          }
-        ]
       }
     },
     "void_upgrade_1": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.void_awakening_1"},
-      "description": {"translate":"desc.powerborne.sentry.void_awakening_1"},
+      "title": {
+        "translate": "ability.powerborne.sentry.void_awakening_1"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.void_awakening_1"
+      },
       "gui_position": [
         0,
         1.5
@@ -221,29 +206,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/void_awakening.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "sentry_resilience"
-          }
-        ]
       }
     },
     "super_speed_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.super_speed"},
-      "description": {"translate":"desc.powerborne.shared.super_speed"},
+      "title": {
+        "translate": "ability.powerborne.shared.super_speed"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.super_speed"
+      },
       "gui_position": [
         1,
         1.5
@@ -251,23 +223,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/super_speed.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "telekinesis_buy"
-          }
-        ]
       }
     },
     "punch_damage_upgrade": {
@@ -275,8 +230,12 @@
       "attribute": "minecraft:generic.attack_damage",
       "amount": 3,
       "uuid": "019bc263-142f-71ee-867d-05771c2c3f5e",
-      "title": {"translate":"ability.powerborne.shared.damage_upgrade"},
-      "description": {"translate":"desc.powerborne.shared.damage_upgrade"},
+      "title": {
+        "translate": "ability.powerborne.shared.damage_upgrade"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.damage_upgrade"
+      },
       "gui_position": [
         -1,
         2.25
@@ -284,29 +243,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/damage.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "photonic_strike_buy"
-          }
-        ]
       }
     },
     "void_upgrade_2": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.void_awakening_2"},
-      "description": {"translate":"desc.powerborne.sentry.void_awakening_2"},
+      "title": {
+        "translate": "ability.powerborne.sentry.void_awakening_2"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.void_awakening_2"
+      },
       "gui_position": [
         0,
         2.25
@@ -314,29 +260,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/void_awakening.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "void_upgrade_1"
-          }
-        ]
       }
     },
     "defense_upgrade": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.defense_upgrade"},
-      "description": {"translate":"desc.powerborne.shared.defense_upgrade"},
+      "title": {
+        "translate": "ability.powerborne.shared.defense_upgrade"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.defense_upgrade"
+      },
       "gui_position": [
         1,
         2.25
@@ -344,119 +277,67 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/defense.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_speed_buy"
-          }
-        ]
       }
     },
     "photon_forcefield_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.photon_forcefield"},
-      "description": {"translate":"desc.powerborne.sentry.photon_forcefield"},
+      "title": {
+        "translate": "ability.powerborne.sentry.photon_forcefield"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.photon_forcefield"
+      },
       "gui_position": [
         -1,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/photon_forcefield.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "punch_damage_upgrade"
-          }
-        ]
       }
     },
     "void_upgrade_3": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.void_awakening_3"},
-      "description": {"translate":"desc.powerborne.sentry.void_awakening_3"},
+      "title": {
+        "translate": "ability.powerborne.sentry.void_awakening_3"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.void_awakening_3"
+      },
       "gui_position": [
         0,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/void_awakening.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "void_upgrade_2"
-          }
-        ]
       }
     },
     "flight_boost_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.flight_boost"},
-      "description": {"translate":"desc.powerborne.shared.flight_boost"},
+      "title": {
+        "translate": "ability.powerborne.shared.flight_boost"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.flight_boost"
+      },
       "gui_position": [
         1,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/flight_boost.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "defense_upgrade"
-          }
-        ]
       }
     },
     "void_transform_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.void_transform"},
-      "description": {"translate":"desc.powerborne.sentry.void_transform"},
+      "title": {
+        "translate": "ability.powerborne.sentry.void_transform"
+      },
+      "description": {
+        "translate": "desc.powerborne.sentry.void_transform"
+      },
       "gui_position": [
         0,
         3.75
@@ -464,36 +345,13 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/mob_effect/void.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "sentry_skill_points",
-            "icon": "powerborne:sentry_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "photon_forcefield_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "void_upgrade_3"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "flight_boost_buy"
-          }
-        ]
       }
     },
     "photonic_strike": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.photonic_strike"},
+      "title": {
+        "translate": "ability.powerborne.sentry.photonic_strike"
+      },
       "hidden": true,
       "icon": {
         "type": "palladium:texture",
@@ -507,10 +365,6 @@
           "cooldown": 250
         },
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "photonic_strike_buy"
-          },
           {
             "type": "palladium:not",
             "conditions": [
@@ -563,7 +417,7 @@
           "tag": "powerborne.photonic_strike_land"
         }
       }
-    }, 
+    },
     "is_hovering_or_flying": {
       "type": "palladium:dummy",
       "hidden": true,
@@ -576,7 +430,9 @@
     },
     "super_speed": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.super_speed"},
+      "title": {
+        "translate": "ability.powerborne.shared.super_speed"
+      },
       "hidden": true,
       "list_index": 3,
       "icon": {
@@ -592,10 +448,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_speed_buy"
-          },
           {
             "type": "palladium:not",
             "conditions": [
@@ -695,7 +547,9 @@
     },
     "photon_forcefield": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.sentry.photon_forcefield"},
+      "title": {
+        "translate": "ability.powerborne.sentry.photon_forcefield"
+      },
       "hidden": true,
       "icon": {
         "type": "palladium:texture",
@@ -718,10 +572,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "photon_forcefield_buy"
-          },
           {
             "type": "palladium:not",
             "conditions": {
@@ -764,7 +614,9 @@
     },
     "photon_forcefield_regen": {
       "type": "palladium:command",
-      "title": {"translate":"ability.powerborne.sentry.forcefield_regen"},
+      "title": {
+        "translate": "ability.powerborne.sentry.forcefield_regen"
+      },
       "hidden": true,
       "hidden_in_bar": true,
       "commands": "",
@@ -846,7 +698,9 @@
     "beam_timer": {
       "type": "palladium:animation_timer",
       "list_index": 0,
-      "title": {"translate":"ability.powerborne.sentry.light_projection"},
+      "title": {
+        "translate": "ability.powerborne.sentry.light_projection"
+      },
       "bar_color": "yellow",
       "hidden": true,
       "hidden_in_bar": false,
@@ -878,10 +732,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "beam_timer_buy"
-          },
           {
             "type": "palladium:not",
             "conditions": [
@@ -998,7 +848,9 @@
       "list_index": 1,
       "hidden": true,
       "hidden_in_bar": false,
-      "title": {"translate":"ability.powerborne.sentry.telekinesis"},
+      "title": {
+        "translate": "ability.powerborne.sentry.telekinesis"
+      },
       "max_value": 9999,
       "icon": {
         "type": "palladium:texture",
@@ -1028,10 +880,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "telekinesis_buy"
-          },
           {
             "type": "palladium:not",
             "conditions": [
@@ -1150,7 +998,9 @@
       "type": "palladium:dummy",
       "hidden": true,
       "list_index": 3,
-      "title": {"translate":"ability.powerborne.shared.flight_boost"},
+      "title": {
+        "translate": "ability.powerborne.shared.flight_boost"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/sentry/flight_boost.png"
@@ -1167,10 +1017,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "flight_boost_buy"
-          },
           {
             "type": "palladium:is_fast_flying"
           },
@@ -1230,13 +1076,7 @@
       "hidden": true,
       "first_tick_commands": "/scale set pehkui:defense 2.0 @s",
       "commands": "",
-      "last_tick_commands": "/scale set pehkui:defense 1 @s",
-      "conditions": {
-        "unlocking": {
-          "type": "palladium:ability_unlocked",
-          "ability": "defense_upgrade"
-        }
-      }
+      "last_tick_commands": "/scale set pehkui:defense 1 @s"
     },
     "respiration": {
       "type": "powerborne:respiration",
@@ -1379,7 +1219,9 @@
     },
     "void_transform": {
       "type": "palladium:animation_timer",
-      "title": {"translate":"ability.powerborne.sentry.void_transform"},
+      "title": {
+        "translate": "ability.powerborne.sentry.void_transform"
+      },
       "hidden": true,
       "max_value": 32,
       "list_index": 5,
@@ -1408,11 +1250,7 @@
               "tag": "powerborne.void_cd"
             }
           }
-        ],
-        "unlocking": {
-          "type": "palladium:ability_unlocked",
-          "ability": "void_transform_buy"
-        }
+        ]
       }
     },
     "clear_wither_effect": {

@@ -1,0 +1,26 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": {
+        "base": "powerborne:textures/models/suits/homelander/default/suit_#ACCESSORY.png",
+        "variables": {
+          "ACCESSORY": {
+            "type": "palladium:accessory",
+            "accessory_slot": "powerborne:settings",
+            "fallback_value": "",
+            "split_value": "_"
+          }
+        }
+      }
+    },
+    {
+      "model_layer": "powerborne:humanoid#cape_2nd",
+      "render_type": "minecraft:cutout",
+      "model_type": "palladium:caped_humanoid",
+      "texture": "powerborne:textures/models/suits/homelander/default/cape.png"
+    }
+  ]
+}

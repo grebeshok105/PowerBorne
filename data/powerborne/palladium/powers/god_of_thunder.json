@@ -46,10 +46,6 @@
             }
           },
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "god_mode_buy"
-          },
-          {
             "type": "palladium:item_in_slot",
             "slot": "mainhand",
             "item": {
@@ -91,10 +87,6 @@
         "unlocking": [
           {
             "type": "palladium:crouching"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "god_mode_buy"
           },
           {
             "type": "palladium:item_in_slot",
@@ -163,12 +155,6 @@
                 "ability": "lightning_blast_timer"
               }
             ]
-          }
-        ],
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "god_mode_buy"
           }
         ]
       }
@@ -336,14 +322,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "lightning_blast_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "god_mode_buy"
-          },
           {
             "type": "palladium:item_in_slot",
             "slot": "mainhand",
@@ -595,10 +573,6 @@
             "max": 999
           },
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "god_mode_buy"
-          },
-          {
             "type": "palladium:item_in_slot",
             "slot": "mainhand",
             "item": {
@@ -781,14 +755,6 @@
         ],
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "lightning_blast_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "god_mode_buy"
-          },
-          {
             "type": "palladium:or",
             "conditions": [
               {
@@ -937,14 +903,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/throw_mjolnir.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "thor_root"
-          }
-        ]
       }
     },
     "charge_up_buy": {
@@ -962,14 +920,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_charge.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "thor_root"
-          }
-        ]
       }
     },
     "lightning_blast_buy": {
@@ -987,14 +937,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_blast.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "thor_root"
-          }
-        ]
       }
     },
     "mjolnir_throw_lightning_buy": {
@@ -1012,23 +954,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/throw_mjolnir_light.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "throw_mjolnir_buy"
-          }
-        ]
       }
     },
     "lightning_charge_upgrade_1": {
@@ -1046,23 +971,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_upgrade.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "charge_up_buy"
-          }
-        ]
       }
     },
     "mjolnir_vortex_buy": {
@@ -1080,23 +988,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/mjolnir_vortex.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "lightning_blast_buy"
-          }
-        ]
       }
     },
     "thunder_jump_mjolnir_buy": {
@@ -1114,23 +1005,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/thunder_jump.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "mjolnir_throw_lightning_buy"
-          }
-        ]
       }
     },
     "lightning_charge_upgrade_2": {
@@ -1148,23 +1022,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_upgrade.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "lightning_charge_upgrade_1"
-          }
-        ]
       }
     },
     "lightning_burst_buy": {
@@ -1182,23 +1039,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_burst.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "mjolnir_vortex_buy"
-          }
-        ]
       }
     },
     "chain_lightning_buy": {
@@ -1211,28 +1051,11 @@
       },
       "gui_position": [
         -1,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/chain_lightning.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "thunder_jump_mjolnir_buy"
-          }
-        ]
       }
     },
     "lightning_charge_upgrade_3": {
@@ -1245,28 +1068,11 @@
       },
       "gui_position": [
         0,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_upgrade.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "lightning_charge_upgrade_2"
-          }
-        ]
       }
     },
     "flight_buy": {
@@ -1279,28 +1085,11 @@
       },
       "gui_position": [
         1,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/flight.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "lightning_burst_buy"
-          }
-        ]
       }
     },
     "god_mode_buy": {
@@ -1318,31 +1107,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/god_of_thunder/god_mode.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "thor_skill_points",
-            "icon": "powerborne:thor_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "chain_lightning_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "lightning_charge_upgrade_3"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "flight_buy"
-          }
-        ]
       }
     },
     "restrict_slots": {
@@ -1521,13 +1285,6 @@
                 "conditions": [
                   {
                     "type": "palladium:is_hovering_or_flying"
-                  },
-                  {
-                    "type": "palladium:not",
-                    "conditions": {
-                      "type": "palladium:ability_unlocked",
-                      "ability": "flight_buy"
-                    }
                   }
                 ]
               }
@@ -1875,10 +1632,6 @@
         ],
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "charge_up_buy"
-          },
-          {
             "type": "palladium:or",
             "conditions": [
               {
@@ -2132,10 +1885,6 @@
         ],
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "lightning_blast_buy"
-          },
-          {
             "type": "palladium:item_in_slot",
             "item": {
               "item": "powerborne:mjolnir"
@@ -2287,10 +2036,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "lightning_burst_buy"
-          },
           {
             "type": "palladium:empty_slot",
             "slot": "mainhand"
@@ -2498,16 +2243,9 @@
       "hidden": true,
       "uuid": "019cf375-7350-742f-a883-dcd08c3771b4",
       "attribute": "palladium:flight_speed",
-      "amount": 1.0,
+      "amount": 1,
       "conditions": {
         "enabling": [
-          {
-            "type": "palladium:not",
-            "conditions": {
-              "type": "palladium:ability_unlocked",
-              "ability": "flight_buy"
-            }
-          },
           {
             "type": "palladium:or",
             "conditions": [
@@ -2554,10 +2292,6 @@
       "conditions": {
         "enabling": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "flight_buy"
-          },
-          {
             "type": "palladium:or",
             "conditions": [
               {
@@ -2599,13 +2333,7 @@
       "hidden": true,
       "uuid": "019ced03-6e83-77c6-980f-6e8ffb527681",
       "attribute": "palladium:flight_speed",
-      "amount": 0.8,
-      "conditions": {
-        "unlocking": {
-          "type": "palladium:ability_unlocked",
-          "ability": "flight_buy"
-        }
-      }
+      "amount": 0.8
     },
     "is_flying": {
       "type": "palladium:dummy",
@@ -2705,10 +2433,6 @@
         ],
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "mjolnir_vortex_buy"
-          },
-          {
             "type": "palladium:not",
             "conditions": {
               "type": "palladium:is_hovering_or_flying"
@@ -2798,7 +2522,7 @@
       "ignore_player_movement": true,
       "entity_data": {
         "NoPhysics": true,
-        "Damage": 7.0,
+        "Damage": 7,
         "Gravity": 0,
         "Size": -0.65,
         "Lifetime": 25,
@@ -2820,10 +2544,6 @@
           "cooldown": 130
         },
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "chain_lightning_buy"
-          },
           {
             "type": "palladium:integer_property",
             "property": "energy_bar_lightning",
@@ -2865,10 +2585,6 @@
         },
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "throw_mjolnir_buy"
-          },
-          {
             "type": "palladium:item_in_slot",
             "slot": "mainhand",
             "item": {
@@ -2903,10 +2619,6 @@
         },
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "mjolnir_throw_lightning_buy"
-          },
-          {
             "type": "palladium:item_in_slot",
             "slot": "mainhand",
             "item": {
@@ -2918,13 +2630,6 @@
             "property": "mjolnir_throw_mode",
             "min": 1,
             "max": 1
-          },
-          {
-            "type": "palladium:not",
-            "conditions": {
-              "type": "palladium:ability_unlocked",
-              "ability": "mjolnir_wheel"
-            }
           }
         ]
       }
@@ -2948,10 +2653,6 @@
         },
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "thunder_jump_mjolnir_buy"
-          },
-          {
             "type": "palladium:item_in_slot",
             "slot": "mainhand",
             "item": {
@@ -2963,13 +2664,6 @@
             "property": "mjolnir_throw_mode",
             "min": 2,
             "max": 2
-          },
-          {
-            "type": "palladium:not",
-            "conditions": {
-              "type": "palladium:ability_unlocked",
-              "ability": "mjolnir_wheel"
-            }
           }
         ]
       }
@@ -2990,10 +2684,6 @@
       "conditions": {
         "enabling": {
           "type": "palladium:action"
-        },
-        "unlocking": {
-          "type": "palladium:ability_unlocked",
-          "ability": "thunder_jump_mjolnir_buy"
         }
       }
     },
@@ -3032,10 +2722,6 @@
       "conditions": {
         "enabling": {
           "type": "palladium:action"
-        },
-        "unlocking": {
-          "type": "palladium:ability_unlocked",
-          "ability": "mjolnir_throw_lightning_buy"
         }
       }
     },
@@ -3102,10 +2788,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "god_mode_buy"
-          },
           {
             "type": "palladium:or",
             "conditions": [

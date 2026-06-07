@@ -15,7 +15,7 @@ ClientEvents.tick(event => {
     let isFlyingType = handler.getFlightType().isNotNull();
     let isFlying = abilityUtil.isEnabled(player, "powerborne:god_of_thunder", "is_flying");
     let isFastFlying = abilityUtil.isEnabled(player, "powerborne:god_of_thunder", "is_fast_flying");
-    let isFlightUnlocked = abilityUtil.isUnlocked(player, "powerborne:god_of_thunder", "flight_buy");
+    let isFlightUnlocked = abilityUtil.isUnlocked(player, "powerborne:god_of_thunder", "flight_buy") || (palladium.getProperty(player, "thor_level") || 0) >= 10;
     let isGodMode = abilityUtil.isEnabled(player, "powerborne:god_of_thunder", "god_mode");
     let isHoveringOrFlying = abilityUtil.isEnabled(player, "powerborne:god_of_thunder", "is_hovering_or_flying");
     let horizontalSpeed = handler.getHorizontalSpeed(0);

@@ -73,9 +73,9 @@ function isVoidTransformEnabled(player) {
 
 function getVoidUpgradeLevel(player) {
   if (!hasSentry(player)) return 0;
-  if (abilityUtil.isUnlocked(player, VOID.POWER, 'void_upgrade_3')) return 3;
-  if (abilityUtil.isUnlocked(player, VOID.POWER, 'void_upgrade_2')) return 2;
-  if (abilityUtil.isUnlocked(player, VOID.POWER, 'void_upgrade_1')) return 1;
+  if (global.isAbilityUnlockedOrAutoMaxed(player, VOID.POWER, 'void_upgrade_3')) return 3;
+  if (global.isAbilityUnlockedOrAutoMaxed(player, VOID.POWER, 'void_upgrade_2')) return 2;
+  if (global.isAbilityUnlockedOrAutoMaxed(player, VOID.POWER, 'void_upgrade_1')) return 1;
   return 0;
 }
 

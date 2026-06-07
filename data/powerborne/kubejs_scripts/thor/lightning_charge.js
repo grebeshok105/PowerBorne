@@ -42,7 +42,7 @@ function isAbilityEnabled(player, ability) {
 }
 
 function isAbilityUnlocked(player, ability) {
-  return abilityUtil.isUnlocked(player, LIGHTNING.POWER, ability);
+  return global.isAbilityUnlockedOrAutoMaxed(player, LIGHTNING.POWER, ability);
 }
 
 function getAbilityEnabledTicks(player, ability) {

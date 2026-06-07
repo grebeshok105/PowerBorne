@@ -41,7 +41,7 @@ function solarEnabled(player, ability) {
 }
 
 function solarUnlocked(player, ability) {
-  return abilityUtil.isUnlocked(player, SOLAR.POWER, ability);
+  return global.isAbilityUnlockedOrAutoMaxed(player, SOLAR.POWER, ability);
 }
 
 function getSolarAbilityTicks(player, ability) {

@@ -9,7 +9,7 @@ const SHIELD_OVERHEAT_COOLDOWN_TICKS = 150;
 
 function hasVibraniumAbsorption(player) {
     if (!player || !player.isPlayer()) return false;
-    return abilityUtil.isUnlocked(player, CAP_POWER, 'vibranium_absorption_buy');
+    return global.isAbilityUnlockedOrAutoMaxed(player, CAP_POWER, 'vibranium_absorption_buy');
 }
 
 function getShieldOverheatMax(player) {
