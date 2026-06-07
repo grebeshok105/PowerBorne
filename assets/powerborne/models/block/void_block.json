@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "powerborne:block/void_block"
+  },
+  "render_type": "translucent"
+} 

@@ -1,0 +1,12 @@
+{
+    "name": "Herobrine",
+    "icon": "minecraft:nether_star",
+    "gui_display_type": "list",
+    "abilities": {
+        "skin_layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "render_layer": "powerborne:herobrine"
+        }
+    }
+}

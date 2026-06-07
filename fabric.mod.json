@@ -1,0 +1,15 @@
+{
+    "schemaVersion": 1,
+    "authors": ["RunnyHero", "ATROX"],
+    "environment": "*",
+    "name": "Powerborne Heroes",
+    "id": "powerborne",
+    "version": "0.2.1",
+    "description": "A superhero addon for Palladium that adds Marvel and DC heroes, suits, and powers.",
+    "icon": "powerborne_icon.png",
+    "license": "All rights reserved",
+
+    "depends": {
+        "palladium": ">=4.5.3"
+    }
+}

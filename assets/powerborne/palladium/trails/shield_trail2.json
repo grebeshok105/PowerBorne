@@ -1,0 +1,21 @@
+{
+  "type": "palladium:lightning",
+  "spacing": 1,
+  "lifetime": 10,
+  "glow_color": "#ffffff",
+  "core_color": {  
+    "type": "palladium:string_property",  
+    "property": "color1",  
+    "fallback": "#ffffff"  
+  }, 
+  "glow_opacity": 0.0,
+  "core_opacity": 0.1,
+  "normal_transparency": true,
+  "amount": 1,
+  "size": [
+    6,
+    1.01
+  ],
+  "spread_x": 0,
+  "spread_y": 0
+}

@@ -1,0 +1,22 @@
+{
+    "values": [
+        "minecraft:fall",  
+        "minecraft:explosion",  
+        "minecraft:player_explosion",  
+        "minecraft:fireworks",  
+        "minecraft:bad_respawn_point",
+        "minecraft:arrow",
+        "minecraft:fly_into_wall",
+        "minecraft:in_fire",
+        "minecraft:on_fire",
+        "minecraft:lava",
+        "minecraft:freeze",
+        "minecraft:cramming",
+        "minecraft:in_wall",
+        "minecraft:hot_floor",
+        "minecraft:lightning_bolt",
+        "minecraft:stalagmite",
+        "minecraft:cactus",
+        "minecraft:sweet_berry_bush"
+    ]
+}

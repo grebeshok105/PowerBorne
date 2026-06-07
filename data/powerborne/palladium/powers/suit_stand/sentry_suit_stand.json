@@ -1,0 +1,149 @@
+{
+  "name": "Sentry Suit Stand",
+  "icon": "palladium:suit_stand",
+  "abilities": {
+    "is_stand": {
+      "type": "palladium:dummy",
+      "title": "is_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:entity_type",
+              "entity_type": "minecraft:armor_stand"
+            },
+            {
+              "type": "palladium:entity_type",
+              "entity_type": "palladium:suit_stand"
+            }
+          ]
+        }
+      }
+    },
+    "sentry_default_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:sentry",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "sentry"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "sentry_black_and_gold_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:sentry_black_and_gold",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "sentry_black_and_gold"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "sentry_mcu_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:sentry_mcu",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "sentry_mcu"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "sentry_horseman_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:sentry_horseman",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "sentry_horseman"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "sentry_void_merged_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:sentry_void_merged",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "sentry_void_merged"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "set_sentry_default": {
+      "type": "powerborne:set_stand_property",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "property": "stand_suit_variant",
+      "value": "sentry",
+      "conditions":  {
+        "enabling": [
+          { "type": "palladium:ability_enabled", "ability": "is_stand" },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  { "type": "powerborne:stand_suit_variant", "value": "sentry" },
+                  { "type": "powerborne:stand_suit_variant", "value": "sentry_black_and_gold" },
+                  { "type": "powerborne:stand_suit_variant", "value": "sentry_mcu" },
+                  { "type": "powerborne:stand_suit_variant", "value": "sentry_horseman" },
+                  { "type": "powerborne:stand_suit_variant", "value": "sentry_void_merged" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+} 

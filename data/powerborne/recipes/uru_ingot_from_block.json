@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "powerborne:uru_block"
+        }
+    ],
+    "result": {
+        "item": "powerborne:uru_ingot",
+        "count": 9
+    }
+}
+

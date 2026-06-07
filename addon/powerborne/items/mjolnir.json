@@ -1,0 +1,12 @@
+{
+    "type": "palladium:sword",
+    "tier": "powerborne:uru",
+    "rarity": "epic",
+    "base_damage": 8,
+    "attack_speed": -3.2,
+    "should_render_model": false,
+    "render_layers": {
+      "mainhand": "powerborne:mjolnir",
+      "offhand": "powerborne:mjolnir"
+    }
+  }

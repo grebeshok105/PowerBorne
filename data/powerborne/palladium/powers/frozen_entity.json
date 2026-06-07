@@ -1,0 +1,12 @@
+{
+    "name": "Frozen Entity",
+    "icon": "minecraft:ice",
+    "gui_display_type": "list",
+    "abilities": {
+        "frozen_layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "render_layer": "powerborne:frozen_entity"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "palladium:compound",
+  "trails": [
+    {
+        "type": "palladium:after_image",
+        "spacing": 2,
+        "lifetime": 10,
+        "mimic_player": false,
+        "color": "#FBC71E",
+        "opacity": 0.35
+    },
+    {
+        "type": "palladium:lightning",
+        "spacing": 1,
+        "lifetime": 10,
+        "glow_color": "#FFA600",
+        "glow_opacity": 0.7,
+        "core_opacity": 0.2,
+        "amount": 7,
+        "spread_x": 1,
+        "spread_y": 0.9,
+        "bloom": 1.5,
+        "thickness": 0.03
+      }
+  ]
+}

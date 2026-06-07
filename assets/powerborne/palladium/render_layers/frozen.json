@@ -1,0 +1,5 @@
+{
+	"model_type": "palladium:basic",
+	"model_layer": "powerborne:frozen#frozen",
+	"texture": "powerborne:textures/models/frozen.png"
+}

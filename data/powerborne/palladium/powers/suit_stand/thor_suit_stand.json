@@ -1,0 +1,229 @@
+{
+  "name": "Thor Suit Stand",
+  "icon": "palladium:suit_stand",
+  "abilities": {
+    "is_stand": {
+      "type": "palladium:dummy",
+      "title": "is_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:entity_type",
+              "entity_type": "minecraft:armor_stand"
+            },
+            {
+              "type": "palladium:entity_type",
+              "entity_type": "palladium:suit_stand"
+            }
+          ]
+        }
+      }
+    },
+    "thor_default_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:thor",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "thor"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "thor_classic_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:thor_classic",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "thor_classic"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "thor_herald_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:thor_herald",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "thor_herald"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "thor_unworthy_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:thor_unworthy",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "thor_unworthy"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "thor_avengers_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:thor_avengers",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "thor_avengers"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "thor_infinity_war_v1_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:thor_infinity_war_v1",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "thor_infinity_war_v1"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "thor_infinity_war_v2_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:thor_infinity_war_v2",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "thor_infinity_war_v2"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "thor_love_and_thunder_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:thor_love_and_thunder",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "thor_love_and_thunder"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "thor_love_and_thunder_extreme_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:thor_love_and_thunder_extreme",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "thor_love_and_thunder_extreme"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "set_thor_default": {
+      "type": "powerborne:set_stand_property",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "property": "stand_suit_variant",
+      "value": "thor",
+      "conditions": {
+        "enabling": [
+          { "type": "palladium:ability_enabled", "ability": "is_stand" },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  { "type": "powerborne:stand_suit_variant", "value": "thor" },
+                  { "type": "powerborne:stand_suit_variant", "value": "thor_classic" },
+                  { "type": "powerborne:stand_suit_variant", "value": "thor_herald" },
+                  { "type": "powerborne:stand_suit_variant", "value": "thor_unworthy" },
+                  { "type": "powerborne:stand_suit_variant", "value": "thor_avengers" },
+                  { "type": "powerborne:stand_suit_variant", "value": "thor_infinity_war_v1" },
+                  { "type": "powerborne:stand_suit_variant", "value": "thor_infinity_war_v2" },
+                  { "type": "powerborne:stand_suit_variant", "value": "thor_love_and_thunder" },
+                  { "type": "powerborne:stand_suit_variant", "value": "thor_love_and_thunder_extreme" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

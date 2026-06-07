@@ -1,0 +1,66 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": {
+        "base": "powerborne:textures/models/suits/sentry/void.png",
+        "transformers": [
+          {
+            "type": "palladium:alpha_mask",
+            "mask": "powerborne:textures/models/alpha_masks/void_transform/#TIMER.png"
+          }
+        ],
+        "variables": {
+          "TIMER": {
+            "type": "palladium:ability_integer_property",
+            "power": "powerborne:sentry",
+            "ability": "void_transform",
+            "property": "value"
+          }
+        },
+        "output": "powerborne:textures/models/suits/sentry/void#TIMER"
+      }
+    },
+    {
+      "model_layer": "powerborne:humanoid#cape",
+      "model_type": "palladium:caped_humanoid",
+      "render_type": "minecraft:cutout",
+      "texture": {
+        "base": "powerborne:textures/models/suits/sentry/void_cape.png",
+        "transformers": [
+          {
+            "type": "palladium:alpha_mask",
+            "mask": "powerborne:textures/models/alpha_masks/void_cape/#TIMER.png"
+          }
+        ],
+        "variables": {
+          "TIMER": {
+            "type": "palladium:ability_integer_property",
+            "power": "powerborne:sentry",
+            "ability": "void_transform",
+            "property": "value",
+            "min": 0,
+            "max": 24
+          }
+        },
+        "output": "powerborne:textures/models/suits/sentry/void_cape#TIMER"
+      }
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "glow",
+      "texture": "powerborne:textures/models/suits/sentry/void_eyes.png",
+      "conditions": [
+        {
+          "type": "palladium:ability_integer_property",
+          "power": "powerborne:sentry",
+          "ability": "void_transform",
+          "min": 32,
+          "max": 32
+        }
+      ]
+    }
+  ]
+}

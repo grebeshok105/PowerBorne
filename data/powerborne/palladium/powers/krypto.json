@@ -1,0 +1,111 @@
+{
+  "name": "Krypto",
+  "background": "minecraft:textures/block/white_wool.png",
+  "icon": "minecraft:bone",
+  "gui_display_type": "list",
+  "abilities": {
+    "render_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:krypto"
+    },
+    "health_attribute": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 20,
+      "operation": 0
+    },
+    "attack_damage_attribute": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1.5,
+      "operation": 1
+    },
+    "step_height_attribute": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "forge:step_height_addition",
+      "amount": 1.1,
+      "operation": 0
+    },
+    "movement_speed_attribute": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 0
+    },
+    "potion_effects": {
+      "type": "palladium:command",
+      "first_tick_commands": [
+        "effect give @s minecraft:regeneration infinite 0 true",
+        "effect give @s minecraft:water_breathing infinite 0 true",
+        "effect give @s minecraft:resistance infinite 2 true",
+        "effect give @s minecraft:fire_resistance infinite 0 true"
+      ],
+      "last_tick_commands": "",
+      "commands": ""
+    },
+    "damage_type": {
+      "type": "palladium:damage_immunity",
+      "damage_sources": [
+        "powerborne:krypto_immune_to"
+      ]
+    },
+    "freeze_breath_projectile": {
+      "type": "palladium:projectile",
+      "entity_type": "palladium:custom_projectile",
+      "hidden": false,
+      "velocity": 0.8,
+      "swinging_arm": "none",
+      "ignore_player_movement": true,
+      "entity_data": {
+        "Damage": 0.0,
+        "Gravity": 0,
+        "Size": 0.2,
+        "Lifetime": 20,
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Tags": [
+          "powerborne.freeze_breath_projectile"
+        ],
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:snowflake",
+            "Spread": 0
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:integer_property",
+            "property": "krypto_freeze_breath",
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 1,
+            "disabled_ticks": 3
+          }
+        ]
+      }
+    },
+    "freeze_breath_loop_sound_others": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:freeze_breath_loop",
+      "volume": 0.3,
+      "looping": true,
+      "play_self": false,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:integer_property",
+          "property": "krypto_freeze_breath",
+          "min": 1,
+          "max": 1
+        }
+      }
+    }
+  }
+}

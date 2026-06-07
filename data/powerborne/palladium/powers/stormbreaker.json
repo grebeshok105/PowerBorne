@@ -1,0 +1,161 @@
+{
+  "name": {"translate": "name.powerborne.stormbreaker"},
+  "background": "minecraft:textures/block/light_gray_wool.png",
+  "ability_bar_texture": "powerborne:textures/gui/ability_bar.png",
+  "icon": "powerborne:textures/item/stormbreaker.png",
+  "persistent_data": false,
+  "gui_display_type": "tree",
+  "primary_color": "#44CCF0",
+  "secondary_color": "#414141",
+  "abilities": {
+    "thor_root": {
+      "type": "palladium:dummy",
+      "title": {"translate": "name.powerborne.stormbreaker"},
+      "gui_position": [0, 0],
+      "icon": {
+        "type": "palladium:item",
+        "item": "powerborne:stormbreaker"
+      }
+    },
+    "stormbreaker_use_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate": "ability.powerborne.stormbreaker.throw"},
+      "description": {"translate": "desc.powerborne.stormbreaker.throw"},
+      "gui_position": [-1, 0.75],
+      "icon": {
+        "type": "palladium:item",
+        "item": "powerborne:stormbreaker"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "powerborne:god_of_thunder",
+            "ability": "thor_root"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "powerborne:god_of_thunder",
+            "ability": "god_mode_buy"
+          }
+        ]
+      }
+    },
+    "bifrost_save_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate": "ability.powerborne.thor.bifrost_save"},
+      "description": {"translate": "desc.powerborne.thor.bifrost_save"},
+      "gui_position": [0, 0.75],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/bifrost_save.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "powerborne:god_of_thunder",
+            "ability": "thor_root"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "powerborne:god_of_thunder",
+            "ability": "god_mode_buy"
+          }
+        ]
+      }
+    },
+    "lightning_blast_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate": "ability.powerborne.thor.lightning_blast"},
+      "description": {"translate": "desc.powerborne.stormbreaker.lightning_blast"},
+      "gui_position": [1, 0.75],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/stormbreaker_blast.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "bifrost_use_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "powerborne:god_of_thunder",
+            "ability": "god_mode_buy"
+          }
+        ]
+      }
+    },
+    "storm_strike_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate": "ability.powerborne.thor.storm_strike"},
+      "description": {"translate": "desc.powerborne.thor.storm_strike"},
+      "gui_position": [-1, 1.5],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/storm_strike.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "stormbreaker_use_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "powerborne:god_of_thunder",
+            "ability": "god_mode_buy"
+          }
+        ]
+      }
+    },
+    "bifrost_use_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate": "ability.powerborne.thor.bifrost_use"},
+      "description": {"translate": "desc.powerborne.thor.bifrost_use"},
+      "gui_position": [0, 1.5],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/bifrost_use.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "bifrost_save_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "powerborne:god_of_thunder",
+            "ability": "god_mode_buy"
+          }
+        ]
+      }
+    },
+    "god_blast_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate": "ability.powerborne.thor.god_blast"},
+      "description": {"translate": "desc.powerborne.thor.god_blast"},
+      "gui_position": [1, 1.5],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/god_blast.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_blast_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "powerborne:god_of_thunder",
+            "ability": "god_mode_buy"
+          }
+        ]
+      }
+    }
+  }
+}

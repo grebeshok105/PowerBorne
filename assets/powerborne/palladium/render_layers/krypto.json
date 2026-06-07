@@ -1,0 +1,32 @@
+{
+	"type": "palladium:compound",
+	"layers": [
+		{
+			"model_type": "palladium:basic",
+			"model_layer": "powerborne:cape#cape_krypto",
+			"texture": "powerborne:textures/models/entity/krypto/cape.png",
+			"conditions": [
+				{
+					"type": "palladium:not",
+					"conditions": {
+						"type": "powerborne:is_wolf_sitting"
+					}
+				}
+			]
+		},
+		{
+			"model_type": "palladium:basic",
+			"model_layer": "powerborne:cape_sit#cape_krypto",
+			"texture": "powerborne:textures/models/entity/krypto/cape.png",
+			"conditions": [
+				{
+					"type": "powerborne:is_wolf_sitting"
+				}
+			]
+		},
+		{
+			"type": "palladium:skin_overlay",
+			"texture": "powerborne:textures/models/entity/krypto/wolf.png"
+		}
+	]
+}

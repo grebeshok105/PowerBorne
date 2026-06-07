@@ -1,0 +1,516 @@
+{
+  "name": {"translate":"name.powerborne.void"},
+  "background": "minecraft:textures/block/black_concrete.png",
+  "icon": "powerborne:textures/item/sentry_suit_void.png",
+  "primary_color": "#414141",
+  "secondary_color": "#414141",
+  "persistent_data": true,
+  "gui_display_type": "tree",
+  "energy_bars": {
+    "void_bar": {
+      "max": 200,
+      "synced_value": {
+        "type": "palladium_property",
+        "property": "energy_bar_void"
+      },
+      "color": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "abilities": {
+    "void_root": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.void.root"},
+      "description": {"translate":"desc.powerborne.void.root"},
+      "gui_position": [
+        0,
+        0
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/item/sentry_suit_void.png"
+      }
+    },
+    "lock_armor": {
+      "type": "palladium:lock_armor",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "powerborne.void_active"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:is_creative_mode"
+            }
+          }
+        ]
+      }
+    },
+    "wither_effect": {
+      "type": "palladium:command",
+      "hidden": true,
+      "last_tick_commands": "effect clear @s minecraft:wither",
+      "commands": "effect give @s minecraft:wither infinite 0 true",
+      "first_tick_commands": ""
+    },
+    "pehkui_defense": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": "",
+      "first_tick_commands": "/scale set pehkui:defense 4 @s",
+      "last_tick_commands": "/scale set pehkui:defense 1 @s",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:has_tag",
+          "tag": "powerborne.void_active"
+        }
+      }
+    },
+    "void_healing": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 60,
+      "amount": 0.5
+    },
+    "void_banishment": {
+      "type": "palladium:aim",
+      "title": {"translate":"ability.powerborne.void.void_banishment"},
+      "description": {"translate":"desc.powerborne.void.void_banishment"},
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/mob_effect/void_banishment.png"
+      },
+      "list_index": 4,
+      "hidden": false,
+      "hidden_in_bar": false,
+      "gui_position": [
+        -1,
+        1.5
+      ],
+      "arm": "main_arm",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:integer_property",
+            "property": "void_banishment_cooldown",
+            "min": 0,
+            "max": 0
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "powerborne.void_active"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "darkness_projection_timer"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "right_click",
+            "needs_empty_hand": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_on_cooldown",
+              "ability": "void_banishment_cooldown"
+            }
+          }
+        ]
+      }
+    },
+    "teleport": {
+      "type": "powerborne:teleport",
+      "title": {"translate":"ability.powerborne.void.void_step"},
+      "description": {"translate":"desc.powerborne.void.void_step"},
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/void/teleport.png"
+      },
+      "max_distance": 64,
+      "list_index": 3,
+      "gui_position": [
+        1,
+        0.75
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:activation",
+          "ticks": 5,
+          "cooldown": 200
+        },
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "void_root"
+          }
+        ]
+      }
+    },
+    "teleport_particles": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "emitter": [
+        "powerborne:void_teleport"
+      ],
+      "particle_type": "minecraft:squid_ink",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "teleport"
+        }
+      }
+    },
+    "teleport_sound": {
+      "type": "palladium:play_sound",
+      "sound": "powerborne:void_teleport",
+      "volume": 10,
+      "pitch": 0.9,
+      "looping": false,
+      "play_self": true,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "teleport"
+        }
+      }
+    },
+    "teleport_sound2": {
+      "type": "palladium:play_sound",
+      "sound": "minecraft:entity.enderman.teleport",
+      "pitch": 0.8,
+      "play_self": true,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "teleport"
+        }
+      }
+    },
+    "shadow_field_1": {
+      "type": "palladium:projectile",
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/void/field.png"
+      },
+      "title": {"translate":"ability.powerborne.void.shadow_field"},
+      "description": {"translate":"desc.powerborne.void.shadow_field"},
+      "list_index": 2,
+      "gui_position": [
+        1,
+        1.5
+      ],
+      "entity_type": "palladium:custom_projectile",
+      "velocity": 3,
+      "entity_data": {
+        "Damage": 0.0,
+        "Gravity": 0.01,
+        "Size": 0.1,
+        "Lifetime": 500,
+        "DieOnEntityHit": false,
+        "DieOnBlockHit": false,
+        "Tags": [
+          "powerborne.shadow_field_projectile"
+        ],
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:squid_ink",
+            "Spread": 0.25,
+            "Amount": 5
+          }
+        ]
+      },
+      "ignore_player_movement": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:action",
+          "cooldown": 1500,
+          "needs_empty_hand": true
+        },
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_on_cooldown",
+              "ability": "shadow_field_1"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "teleport"
+          }
+        ]
+      }
+    },
+    "shadow_field_2": {
+      "type": "palladium:projectile",
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/void/field.png"
+      },
+      "hidden": true,
+      "title": {"translate":"ability.powerborne.void.shadow_field"},
+      "description": {"translate":"desc.powerborne.void.shadow_field"},
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "velocity": 3,
+      "entity_data": {
+        "Damage": 0.0,
+        "Gravity": 0.01,
+        "Size": 0.1,
+        "Lifetime": 500,
+        "DieOnEntityHit": false,
+        "DieOnBlockHit": false,
+        "Tags": [
+          "powerborne.shadow_field_projectile"
+        ],
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:squid_ink",
+            "Spread": 0.25,
+            "Amount": 5
+          }
+        ]
+      },
+      "ignore_player_movement": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:action",
+          "cooldown": 1500,
+          "needs_empty_hand": true
+        },
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_on_cooldown",
+              "ability": "shadow_field_2"
+            }
+          }
+        ]
+      }
+    },
+    "shadow_field_sound": {
+      "type": "palladium:play_sound",
+      "sound": "minecraft:entity.phantom.flap",
+      "volume": 3,
+      "pitch": 1,
+      "play_self": true,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "shadow_field_1"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "shadow_field_2"
+            }
+          ]
+        }
+      }
+    },
+    "darkness_projection_timer": {
+      "type": "palladium:animation_timer",
+      "list_index": 0,
+      "title": {"translate":"ability.powerborne.void.darkness_projection"},
+      "description": {"translate":"desc.powerborne.void.darkness_projection"},
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/void/darkness_projection.png"
+      },
+      "bar_color": "black",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "max_value": 999,
+      "gui_position": [
+        -1,
+        0.75
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 200,
+            "needs_empty_hand": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "telekinesis_timer"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "void_root"
+          }
+        ]
+      }
+    },
+    "darkness_projection_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "both",
+      "time": 5,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "darkness_projection_timer"
+        }
+      }
+    },
+    "show_both_arms_darkness": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "darkness_projection_timer"
+        }
+      }
+    },
+    "darkness_projection": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:void_beam",
+      "damage_type": "powerborne:darkness_projection",
+      "max_distance": 20,
+      "damage": 7,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "darkness_projection_timer",
+            "min": 5,
+            "max": 999999
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "darkness_projection_timer"
+          }
+        ]
+      }
+    },
+    "darkness_projection_loop_sound": {
+      "type": "palladium:play_sound",
+      "sound": "powerborne:void_beam_loop_st",
+      "volume": 0.5,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "darkness_projection"
+        }
+      }
+    },
+    "darkness_projection_loop_sound_others": {
+      "type": "palladium:play_sound",
+      "sound": "powerborne:void_beam_loop",
+      "volume": 0.5,
+      "looping": true,
+      "play_self": false,
+      "play_others": true,
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "darkness_projection"
+        }
+      }
+    },
+    "telekinesis_timer": {
+      "type": "palladium:animation_timer",
+      "list_index": 1,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/void/telekinesis.png"
+      },
+      "hidden": false,
+      "hidden_in_bar": false,
+      "title": {"translate":"ability.powerborne.void.telekinesis"},
+      "description": {"translate":"desc.powerborne.void.telekinesis"},
+      "max_value": 9999,
+      "gui_position": [
+        0,
+        0.75
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 1000,
+            "needs_empty_hand": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "darkness_projection_timer"
+              },
+              {
+                "type": "powerborne:is_swinging",
+                "value": true
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "void_root"
+          }
+        ]
+      }
+    },
+    "telekinesis_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "main_arm",
+      "time": 4,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "telekinesis_timer"
+        }
+      }
+    },
+    "void_damage_immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "powerborne:sentry_immune_to",
+        "powerborne:is_ad_astra",
+        "powerborne:is_superb_warfare",
+        "powerborne:is_tacz_bullet"
+      ]
+    }
+  }
+}

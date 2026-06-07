@@ -1,0 +1,23 @@
+{
+    "parent": "powerborne:worthiness/worthiness",
+    "display": {
+        "icon": {
+            "item": "minecraft:netherite_sword"
+        },
+        "title": {
+            "translate": "advancements.powerborne.hostile_killer.title"
+        },
+        "description": {
+            "translate": "advancements.powerborne.hostile_killer.description"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

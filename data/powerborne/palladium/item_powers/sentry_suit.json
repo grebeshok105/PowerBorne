@@ -1,0 +1,8 @@
+{
+  "slot": "chest",
+  "item": "powerborne:sentry_suit",
+  "power": [
+    "powerborne:sentry",
+    "powerborne:suit_stand/sentry_suit_stand"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+    "level": 0,
+    "uses": 498,
+    "speed": 0,
+    "attack_damage_bonus": 0,
+    "enchantment_value": 0,
+    "repair_ingredient": {
+        "tag": "powerborne:uru_ingot"
+    }
+}

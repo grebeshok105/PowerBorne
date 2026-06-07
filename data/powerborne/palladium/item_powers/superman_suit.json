@@ -1,0 +1,8 @@
+{
+  "slot": "chest",
+  "item": "powerborne:superman_suit",
+  "power": [
+    "powerborne:superman",
+    "powerborne:suit_stand/superman_suit_stand"
+  ]
+} 

@@ -1,0 +1,6 @@
+{
+    "type": "palladium:render_layer",
+    "slot": "powerborne:sentry",
+    "render_layer": "powerborne:sentry_black_and_gold",
+    "disable_rendering": true
+} 

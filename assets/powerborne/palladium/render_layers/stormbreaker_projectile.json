@@ -1,0 +1,33 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/stormbreaker_projectile.geo.json",
+      "texture": "powerborne:textures/models/stormbreaker.png",
+      "animation_file": "powerborne:animations/stormbreaker_stand.animation.json",
+      "animation_controller": [
+        {
+          "name": "stormbreaker_stand_controller",
+          "transition_tick_time": 0,
+          "animation": [
+            {
+              "type": "then_loop",
+              "animation": "stand_spin"
+            }
+          ]
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "conditions": [
+        {
+          "type": "palladium:entity_type",
+          "entity_type": "minecraft:armor_stand"
+        }
+      ]
+    }
+  ]
+}

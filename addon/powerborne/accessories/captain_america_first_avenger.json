@@ -1,0 +1,6 @@
+{
+  "type": "palladium:render_layer",
+  "slot": "powerborne:captain_america",
+  "render_layer": "powerborne:captain_america_first_avenger",
+  "disable_rendering": true
+}

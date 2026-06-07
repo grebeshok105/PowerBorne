@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "#A#",
+      "gTg",
+      "#A#"
+  ],
+  "key": {
+      "#": {
+          "item": "powerborne:sunstone_shard"
+      },
+      "A": {
+          "item": "powerborne:kryptonite_shard"
+      },
+      "g": {
+          "item": "minecraft:gold_ingot"
+      },
+      "T": {
+          "item": "minecraft:totem_of_undying"
+      }
+  },
+  "result": {
+      "item": "powerborne:sun_totem",
+      "count": 1
+  }
+}

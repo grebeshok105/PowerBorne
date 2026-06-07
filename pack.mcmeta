@@ -1,0 +1,19 @@
+{
+  "pack": {
+    "id": "powerborne",
+    "description": "Powerborne Heroes",
+    "pack_format": 15,
+    "version": "0.2.1"
+  },
+  "dependencies": {
+    "common": {
+      "minecraft": ">=1.20",
+      "palladium": ">=4.5.3",
+      "kubejs": ">=2001.6.5-build.16",
+      "architectury": "*",
+      "geckolib": "*",
+      "rhino": "*",
+      "pehkui": "*"
+    }
+  }
+}

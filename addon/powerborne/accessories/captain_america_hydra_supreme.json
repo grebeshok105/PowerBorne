@@ -1,0 +1,6 @@
+{
+  "type": "palladium:render_layer",
+  "slot": "powerborne:captain_america",
+  "render_layer": "powerborne:captain_america_hydra_supreme",
+  "disable_rendering": true
+}

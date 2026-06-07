@@ -1,0 +1,19 @@
+{
+    "icon": "powerborne:superman_suit",
+    "title": "Powerborne",
+    "items": [
+        "powerborne:superman_suit",
+        "powerborne:sentry_suit",
+        "powerborne:thor_suit",
+        "powerborne:captain_america_suit",
+        "powerborne:kryptonian_whistle",
+        "powerborne:uru_ore",
+        "powerborne:raw_uru",
+        "powerborne:raw_uru_block",
+        "powerborne:uru_ingot",
+        "powerborne:uru_block",
+        "powerborne:kryptonite_cluster",
+        "powerborne:kryptonite_shard",
+        "powerborne:sunstone_shard"
+    ]
+}

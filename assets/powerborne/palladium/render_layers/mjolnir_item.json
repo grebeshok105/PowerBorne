@@ -1,0 +1,6 @@
+{
+  "model_type": "palladium:basic",
+  "model_layer": "powerborne:humanoid#mjolnir_item",
+  "texture": "powerborne:textures/models/mjolnir.png",
+  "render_type": "minecraft:solid"
+}

@@ -1,0 +1,69 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": {
+        "base": "powerborne:textures/models/suits/sentry/black_and_gold/suit_#ACCESSORY.png",
+        "transformers": [
+          {
+            "type": "palladium:alpha_mask",
+            "mask": "powerborne:textures/models/alpha_masks/sentry_void_transform/#TIMER.png"
+          }
+        ],
+        "variables": {
+          "TIMER": {
+            "type": "palladium:ability_integer_property",
+            "power": "powerborne:sentry",
+            "ability": "void_transform",
+            "property": "value"
+          },
+          "ACCESSORY": {
+            "type": "palladium:accessory",
+            "accessory_slot": "powerborne:settings",
+            "fallback_value": "",
+            "split_value": "_"
+          }
+        }
+      }
+    },
+    {
+      "model_layer": "powerborne:humanoid#cape",
+      "render_type": "minecraft:cutout",
+      "model_type": "palladium:caped_humanoid",
+      "texture": {
+        "base": "powerborne:textures/models/suits/sentry/default/cape.png",
+          "transformers": [
+            {
+              "type": "palladium:alpha_mask",
+              "mask": "powerborne:textures/models/alpha_masks/void_cape_n/#TIMER.png"
+            }
+          ],
+          "variables": {
+            "TIMER": {
+              "type": "palladium:ability_integer_property",
+              "power": "powerborne:sentry",
+              "ability": "void_transform",
+              "property": "value",
+              "min": 0,
+              "max": 24
+            }
+          }
+      }
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "glow",
+      "enchantment_glint": true,
+      "texture": "powerborne:textures/models/suits/sentry/s_glow.png",
+      "conditions": [
+        {
+          "type": "palladium:ability_enabled",
+          "power": "powerborne:sentry",
+          "ability": "sentry_effects_layer"
+        }
+      ]
+    }
+  ]
+}

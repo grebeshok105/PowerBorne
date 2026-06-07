@@ -1,0 +1,23 @@
+{
+    "name": "Shadow",
+    "icon": "minecraft:black_dye",
+    "gui_display_type": "list",
+    "abilities": {
+        "skin_layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "render_layer": "powerborne:black_overlay"
+        },
+        "player_layer":{
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "render_layer": "powerborne:voided_player",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:has_tag",
+                    "tag": "powerborne.banish_skeleton"
+                }
+            }
+        }
+    }
+}

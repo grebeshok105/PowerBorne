@@ -1,0 +1,19 @@
+{
+    "type": "palladium:default",
+    "base": "powerborne:textures/gui/ability_bar_#variant.png",
+    "variables": {
+        "variant": {
+            "type": "palladium:condition",
+            "conditions": [
+                {
+                    "type": "palladium:ability_enabled",
+                    "power": "powerborne:sentry",
+                    "ability": "void_cd"
+
+                }
+            ],
+            "true_value": "sentry",
+            "false_value": "void"
+        }
+    }
+}

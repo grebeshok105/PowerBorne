@@ -1,0 +1,8 @@
+{
+    "icon": "powerborne:textures/gui/accessory_slots/sentry.png",
+    "allows_multiple": false,
+    "menu_visibility": {
+        "type": "palladium:has_power",
+        "power": "powerborne:sentry"
+    }
+}

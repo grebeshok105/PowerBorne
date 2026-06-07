@@ -1,0 +1,194 @@
+{
+    "name": "Vibranium Shield",
+    "icon": "powerborne:vibranium_shield",
+    "gui_display_type": "list",
+    "abilities": {
+        "shield_straps_layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "render_layer": "powerborne:shield_straps"
+        },
+        "shield_reflect": {
+            "type": "palladium:animation_timer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "start_value": 0,
+            "max_value": 999999,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "is_blocking_beam",
+                        "min": 1,
+                        "max": 1
+                    }
+                ]
+            }
+        },
+        "shield_reflect_fire": {
+            "type": "palladium:animation_timer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "start_value": 0,
+            "max_value": 999999,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "is_blocking_beam",
+                        "min": 2,
+                        "max": 2
+                    }
+                ]
+            }
+        },
+        "shield_reflected_beam_right": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "energy_beam": "powerborne:shield_reflected_beam_right",
+            "max_distance": 12,
+            "damage": 5,
+            "set_on_fire_seconds": 0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "shield_reflect"
+                    },
+                    {
+                        "type": "powerborne:item_in_arm",
+                        "item": "powerborne:vibranium_shield",
+                        "arm": "right",
+                        "use_item_must_match": true
+                    }
+                ]
+            }
+        },
+        "shield_reflected_beam_left": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "energy_beam": "powerborne:shield_reflected_beam_left",
+            "max_distance": 12,
+            "damage": 5,
+            "set_on_fire_seconds": 0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "shield_reflect"
+                    },
+                    {
+                        "type": "powerborne:item_in_arm",
+                        "item": "powerborne:vibranium_shield",
+                        "arm": "left",
+                        "use_item_must_match": true
+                    }
+                ]
+            }
+        },
+        "shield_reflected_fire_beam_right": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "energy_beam": "powerborne:shield_reflected_beam_right",
+            "max_distance": 12,
+            "damage": 5,
+            "set_on_fire_seconds": 2,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "shield_reflect_fire"
+                    },
+                    {
+                        "type": "powerborne:item_in_arm",
+                        "item": "powerborne:vibranium_shield",
+                        "arm": "right",
+                        "use_item_must_match": true
+                    }
+                ]
+            }
+        },
+        "shield_reflected_fire_beam_left": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "energy_beam": "powerborne:shield_reflected_beam_left",
+            "max_distance": 12,
+            "damage": 5,
+            "set_on_fire_seconds": 2,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "shield_reflect_fire"
+                    },
+                    {
+                        "type": "powerborne:item_in_arm",
+                        "item": "powerborne:vibranium_shield",
+                        "arm": "left",
+                        "use_item_must_match": true
+                    }
+                ]
+            }
+        },
+        "shield_reflect_beam_sound": {
+            "type": "palladium:play_sound",
+            "sound": "powerborne:shield_beam_hit",
+            "volume": 1.0,
+            "pitch": 1.0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:and",
+                                "conditions": [
+                                    {
+                                        "type": "palladium:animation_timer_ability",
+                                        "ability": "shield_reflect",
+                                        "min": 1,
+                                        "max": 1
+                                    },
+                                    {
+                                        "type": "palladium:ability_enabled",
+                                        "ability": "shield_reflect"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "palladium:and",
+                                "conditions": [
+                                    {
+                                        "type": "palladium:animation_timer_ability",
+                                        "ability": "shield_reflect_fire",
+                                        "min": 1,
+                                        "max": 1
+                                    },
+                                    {
+                                        "type": "palladium:ability_enabled",
+                                        "ability": "shield_reflect_fire"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "shield_beam_loop_sound_others": {
+            "type": "palladium:play_sound",
+            "hidden": true,
+            "sound": "powerborne:shield_beam_loop",
+            "volume": 0.45,
+            "looping": true,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:integer_property",
+                    "property": "is_blocking_beam",
+                    "min": 1,
+                    "max": 2
+                }
+            }
+        }
+    }
+}

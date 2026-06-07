@@ -1,0 +1,10 @@
+{
+    "type": "palladium:compound",
+    "layers": [
+        {
+            "type": "palladium:skin_overlay",
+            "render_type": "solid",
+            "texture": "powerborne:textures/models/entity/black_overlay.png"
+        }
+    ]
+}

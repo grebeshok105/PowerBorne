@@ -1,0 +1,24 @@
+{
+    "parent": "powerborne:thor_origin",
+    "display": {
+        "icon": {
+            "item": "powerborne:mjolnir",
+            "nbt": "{CustomModelData:30}"
+        },
+        "title": {
+            "translate": "advancements.powerborne.thunder_jumper.title"
+        },
+        "description": {
+            "translate": "advancements.powerborne.thunder_jumper.description"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

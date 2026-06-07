@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "powerborne:mjolnir_crash_site",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 180,
+    "separation": 80,
+    "salt": 224356789
+  }
+}

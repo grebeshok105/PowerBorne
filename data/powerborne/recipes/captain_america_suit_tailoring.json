@@ -1,0 +1,55 @@
+{
+  "type": "palladium:item_tailoring",
+  "results": {
+    "chest": {
+      "item": "powerborne:captain_america_suit"
+    }
+  },
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:diamond"
+      },
+      "count": 24
+    },
+    {
+      "ingredient": {
+        "item": "palladium:light_blue_fabric"
+      },
+      "count": 18
+    },
+    {
+      "ingredient": {
+        "item": "palladium:red_fabric"
+      },
+      "count": 8
+    },
+    {
+      "ingredient": {
+        "item": "palladium:white_fabric"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "powerborne:super_soldier_serum"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "powerborne:vibranium_shield"
+  },
+  "tool_icon": "powerborne:item/empty_slot_vibranium_shield",
+  "title": {
+    "translate": "item.powerborne.captain_america_suit"
+  },
+  "category": "powerborne:powerborne",
+  "requires_unlocking": false
+}

@@ -1,0 +1,131 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": {
+        "base": "powerborne:textures/models/suits/thor/classic/suit_#ACCESSORY.png",
+        "variables": {
+          "ACCESSORY": {
+            "type": "palladium:accessory",
+            "accessory_slot": "powerborne:settings",
+            "fallback_value": "",
+            "split_value": "_"
+          }
+        }
+      }
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": "powerborne:textures/models/suits/thor/default/hair_layer.png",
+      "conditions": {
+        "type": "palladium:and",
+        "conditions": [
+          {
+            "type": "palladium:entity_type"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "toggle_helmet",
+            "min": 0,
+            "max": 0
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:accessory_selected",
+                "accessory_slot": "powerborne:settings",
+                "accessory": "powerborne:skinless"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": "powerborne:textures/models/suits/thor/classic/helmet.png",
+      "conditions": {
+        "type": "palladium:or",
+        "conditions": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:entity_type"
+              }
+            ]
+          },
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "palladium:entity_type"
+              },
+              {
+                "type": "palladium:integer_property",
+                "property": "toggle_helmet",
+                "min": 1,
+                "max": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/thor_classic_helmet.geo.json",
+      "texture": "powerborne:textures/models/suits/thor/classic/helmet_wings.png",
+      "conditions": [
+        {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:not",
+              "conditions": [
+                {
+                  "type": "palladium:entity_type"
+                }
+              ]
+            },
+            {
+              "type": "palladium:integer_property",
+              "property": "toggle_helmet",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "geckolib:default",
+      "render_type": "minecraft:cutout",
+      "model": "powerborne:geo/thor_hair.geo.json",
+      "texture": "powerborne:textures/models/suits/thor/default/hair.png",
+      "conditions": [
+        {
+          "type": "palladium:not",
+          "conditions": [
+            {
+              "type": "palladium:accessory_selected",
+              "accessory_slot": "powerborne:settings",
+              "accessory": "powerborne:skinless"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model_layer": "powerborne:humanoid#cape_2nd",
+      "render_type": "minecraft:cutout",
+      "model_type": "palladium:caped_humanoid",
+      "texture": "powerborne:textures/models/suits/thor/default/cape.png"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+    "type": "palladium:flux_capacitor",
+    "capacity": 5000,
+    "max_input": 0,
+    "max_output": 0,
+    "rarity": "rare",
+    "max_stack_size": 1
+}

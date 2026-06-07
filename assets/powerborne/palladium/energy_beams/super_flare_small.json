@@ -1,0 +1,19 @@
+{
+    "type": "palladium:lightning",
+    "body_part": "chest",
+    "glow_color": "#FF0000",
+    "segments": 30,
+    "spread": 16,
+    "frequency": 1,
+    "glow_opacity": 0.7,
+    "core_opacity": 0.075,
+    "size": [
+      23,
+      12
+    ],
+    "offset": [
+      0,
+      -20,
+      0
+    ]
+}

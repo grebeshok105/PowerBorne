@@ -1,0 +1,27 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "texture": "powerborne:textures/models/suits/captain_america/default/suit_skinless.png",
+      "conditions": {
+        "type": "palladium:and",
+        "conditions": [
+          {
+            "type": "palladium:entity_type",
+            "entity_type": "palladium:suit_stand"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "powerborne:captain_america"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

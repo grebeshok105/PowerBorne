@@ -1,0 +1,52 @@
+{
+  "name": "Suit Stand Selector",
+  "icon": "palladium:suit_stand",
+  "abilities": {
+    "scroll_up": {
+      "type": "palladium:dummy",
+      "title": "Scroll Next Suit",
+      "icon": "palladium:suit_stand",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "key_type": "scroll_up",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:crouching"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "scroll_up",
+            "allow_scrolling_when_crouching": false,
+            "cooldown": 8
+          }
+        ]
+      }
+    },
+    "scroll_sdown": {
+      "type": "palladium:dummy",
+      "title": "Scroll Previous Suit",
+      "icon": "palladium:suit_stand",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "key_type": "scroll_down",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:crouching"
+          }
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "scroll_down",
+            "allow_scrolling_when_crouching": false,
+            "cooldown": 8
+          }
+        ]
+      }
+    }
+  }
+} 

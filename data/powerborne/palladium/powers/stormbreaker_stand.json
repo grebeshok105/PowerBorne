@@ -1,0 +1,29 @@
+{
+  "name": "Stormbreaker",
+  "icon": "powerborne:textures/item/stormbreaker.png",
+  "abilities": {
+    "display": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:stormbreaker_projectile",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:entity_type",
+          "entity_type": "minecraft:armor_stand"
+        }
+      }
+    },
+    "spin_sound": {
+      "type": "palladium:play_sound",
+      "sound": "powerborne:shield_spin",
+      "looping": true,
+      "volume": 1,
+      "pitch": 0.8,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:entity_type",
+          "entity_type": "minecraft:armor_stand"
+        }
+      }
+    }
+  }
+}

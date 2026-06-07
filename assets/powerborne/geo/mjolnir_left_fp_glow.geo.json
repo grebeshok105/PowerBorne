@@ -1,0 +1,30 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "armorLeftArm",
+					"pivot": [7, 22, 0]
+				},
+				{
+					"name": "group",
+					"parent": "armorLeftArm",
+					"pivot": [6, 13.75, -5.55],
+					"rotation": [90, 0, 0],
+					"cubes": [
+						{"origin": [4, 21.5, -9.05], "size": [4, 4, 7], "inflate": 0.51, "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

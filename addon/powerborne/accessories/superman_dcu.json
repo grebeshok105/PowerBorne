@@ -1,0 +1,6 @@
+{
+    "type": "palladium:render_layer",
+    "slot": "powerborne:superman",
+    "render_layer": "powerborne:superman_dcu",
+    "disable_rendering": true
+}

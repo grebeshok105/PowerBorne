@@ -1,0 +1,24 @@
+{
+    "parent": "powerborne:worthiness/worthiness",
+    "display": {
+        "icon": {
+            "item": "powerborne:mjolnir",
+            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:sharpness\",lvl:5s}]}"
+        },
+        "title": {
+            "translate": "advancements.powerborne.worthy.title"
+        },
+        "description": {
+            "translate": "advancements.powerborne.worthy.description"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

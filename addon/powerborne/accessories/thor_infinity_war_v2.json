@@ -1,0 +1,6 @@
+{
+    "type": "palladium:render_layer",
+    "slot": "powerborne:thor",
+    "render_layer": "powerborne:thor_infinity_war_v2",
+    "disable_rendering": true
+}

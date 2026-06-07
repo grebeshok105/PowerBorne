@@ -1,0 +1,44 @@
+{
+  "values": [
+    {
+      "id": "superbwarfare:gunfire",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:gunfire_headshot",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:gunfire_absolute",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:gunfire_headshot_absolute",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:laser",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:laser_headshot",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:shock",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:burn",
+      "required": false
+    },
+    {
+      "id": "pillagers_gun:ammo",
+      "required": false
+    },
+    {
+      "id": "pillagers_gun:ammo_bypass_armor",
+      "required": false
+    }
+  ]
+}

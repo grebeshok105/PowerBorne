@@ -1,0 +1,40 @@
+{
+    "type": "minecraft:archaeology",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:raw_copper",
+            "weight": 15
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:raw_iron",
+            "weight": 15
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:raw_gold",
+            "weight": 15
+          },
+          {
+            "type": "minecraft:item",
+            "name": "palladium:raw_lead",
+            "weight": 15
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:quartz",
+            "weight": 10
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:netherite_scrap",
+            "weight": 10
+          }
+        ]
+      }
+    ]
+  }

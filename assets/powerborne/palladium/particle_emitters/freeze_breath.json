@@ -1,0 +1,12 @@
+{
+    "body_part": "head",
+    "amount": 6,
+    "offset": { 
+        "first_person": [0, -2, -10],
+        "third_person": [0, 2, 0]
+    },
+    "offset_random": [0.3, 0, 0.3],
+    "motion": [0, 1, -10],
+    "motion_random": [0.5, 0, 2],
+    "visible_in_first_person": true
+}

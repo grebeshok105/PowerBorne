@@ -1,0 +1,32 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": {
+        "base": "powerborne:textures/models/suits/thor/infinity_war_v1/suit_#ACCESSORY.png",
+        "variables": {
+          "ACCESSORY": {
+            "type": "palladium:accessory",
+            "accessory_slot": "powerborne:settings",
+            "fallback_value": "",
+            "split_value": "_"
+          }
+        }
+      }
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "glow",
+      "texture": "powerborne:textures/models/suits/thor/infinity_war_v2/god_mode.png",
+      "conditions": [
+        {
+          "type": "palladium:ability_enabled",
+          "power": "powerborne:god_of_thunder",
+          "ability": "god_mode"
+        }
+      ]
+    }
+  ]
+}

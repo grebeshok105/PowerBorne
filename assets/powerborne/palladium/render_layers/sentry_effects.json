@@ -1,0 +1,31 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "glow",
+      "enchantment_glint": true,
+      "texture": "powerborne:textures/models/suits/sentry/sentry_eyes.png",
+      "conditions": [
+        {
+          "type": "palladium:ability_integer_property",
+          "power": "powerborne:sentry",
+          "ability": "void_transform",
+          "min": 0,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "type": "palladium:lightning_sparks",
+      "frequency": 0.25,
+      "amount": 7,
+      "core_color": "#FFD700",
+      "glow_color": "#FFC400",
+      "core_opacity": 1.0,
+      "glow_opacity": 0.5,
+      "thickness": 0.005,
+      "normal_transparency": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "slot": "chest",
+  "item": "powerborne:thor_suit",
+  "power": [
+    "powerborne:god_of_thunder",
+    "powerborne:suit_stand/thor_suit_stand"
+  ]
+}

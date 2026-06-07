@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "RWR",
+    "BS ",
+    " W "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "W": {
+      "item": "minecraft:white_dye"
+    },
+    "B": {
+      "item": "minecraft:blue_dye"
+    },
+    "S": {
+      "item": "powerborne:vibranium_shield"
+    }
+  },
+  "result": {
+    "item": "powerborne:vibranium_shield",
+    "count": 1,
+    "nbt": "{Color1:\"1c65b3\",Color2:\"cd1f2d\",Color3:\"ffffff\",Color4:\"cd1f2d\",Color5:\"ffffff\",Damage:0}"
+  }
+}

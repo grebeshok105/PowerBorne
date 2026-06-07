@@ -1,0 +1,28 @@
+ClientEvents.lang('ru_ru', (e) => {
+    e.renameItem("powerborne:kryptonite_cluster", "Криптонитовая друза")
+    e.renameItem("powerborne:void_block", "Блок мрака")
+    e.renameItem("powerborne:kryptonian_whistle", "Криптонский свисток")
+    e.renameItem("powerborne:super_soldier_serum", "Сыворотка суперсолдата")
+    e.add('powerborne', 'effect.powerborne.kryptonite_poisoning', 'Отравление криптонитом')
+    e.add('powerborne', 'effect.powerborne.solar_exhaustion', 'Солнечное истощение')
+    e.add('powerborne', 'effect.powerborne.frozen', 'Заморожен')
+    e.add('powerborne', 'effect.powerborne.unstable_radiance', 'Нестабильное сияние')
+    e.add('powerborne', 'effect.powerborne.solar_ascension', 'Солнечное вознесение')
+    e.add('powerborne', 'effect.powerborne.void_banishment', 'Изгнание Мрака')
+    e.add('powerborne', 'effect.powerborne.void', 'Мрак')
+
+})
+
+ClientEvents.lang('en_us', (e) => {
+    e.renameItem("powerborne:kryptonite_cluster", "Kryptonite Cluster")
+    e.renameItem("powerborne:void_block", "Void Block")
+    e.renameItem("powerborne:kryptonian_whistle", "Kryptonian Whistle")
+    e.renameItem("powerborne:super_soldier_serum", "Super-Soldier Serum")
+    e.add('powerborne', 'effect.powerborne.kryptonite_poisoning', 'Kryptonite Poisoning')
+    e.add('powerborne', 'effect.powerborne.solar_exhaustion', 'Solar Exhaustion')
+    e.add('powerborne', 'effect.powerborne.frozen', 'Frozen')
+    e.add('powerborne', 'effect.powerborne.unstable_radiance', 'Unstable Radiance')
+    e.add('powerborne', 'effect.powerborne.solar_ascension', 'Solar Ascension')
+    e.add('powerborne', 'effect.powerborne.void_banishment', 'Void Banishment')
+    e.add('powerborne', 'effect.powerborne.void', 'Void')
+})

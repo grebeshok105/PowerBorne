@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:blasting",
+    "category": "misc",
+    "cookingtime": 300,
+    "experience": 5.1,
+    "ingredient": {
+        "item": "powerborne:uru_ore"
+    },
+    "result": "powerborne:uru_ingot"
+}

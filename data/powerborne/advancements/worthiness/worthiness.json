@@ -1,0 +1,23 @@
+{
+    "display": {
+        "icon": {
+            "item": "powerborne:mjolnir"
+        },
+        "title": {
+            "translate": "advancements.powerborne.worthiness.title"
+        },
+        "description": {
+            "translate": "advancements.powerborne.worthiness.description"
+        },
+        "background": "minecraft:textures/block/cyan_terracotta.png",
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "root_trigger": {
+            "trigger": "minecraft:tick"
+        }
+    }
+}

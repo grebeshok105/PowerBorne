@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "powerborne:block/kryptonite_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "powerborne:block/kryptonite_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "powerborne:block/kryptonite_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "powerborne:block/kryptonite_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "powerborne:block/kryptonite_cluster"
+    },
+    "facing=west": {
+      "model": "powerborne:block/kryptonite_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

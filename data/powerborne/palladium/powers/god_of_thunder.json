@@ -1,0 +1,3312 @@
+{
+  "name": {
+    "translate": "name.powerborne.god_of_thunder"
+  },
+  "background": "minecraft:textures/block/light_gray_wool.png",
+  "ability_bar_texture": "powerborne:textures/gui/ability_bar.png",
+  "icon": "powerborne:thor_suit",
+  "persistent_data": true,
+  "gui_display_type": "tree",
+  "primary_color": "#70CD56",
+  "secondary_color": "#414141",
+  "energy_bars": {
+    "lightning_charge": {
+      "max": 200,
+      "synced_value": {
+        "type": "palladium_property",
+        "property": "energy_bar_lightning"
+      },
+      "color": "#00CBF4"
+    }
+  },
+  "abilities": {
+    "bifrost_use": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "title": {
+        "translate": "ability.powerborne.thor.bifrost_use"
+      },
+      "list_index": 4,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/bifrost_use.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 80
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:crouching"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "god_mode_buy"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:stormbreaker"
+            }
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "bifrost_cooldown",
+            "min": 0,
+            "max": 0
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "bifrost_has_point",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "bifrost_save": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.bifrost_save"
+      },
+      "list_index": 4,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/bifrost_save.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 30
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:crouching"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "god_mode_buy"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:stormbreaker"
+            }
+          }
+        ]
+      }
+    },
+    "bifrost_animation_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 10,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_ticks",
+            "ability": "bifrost_use",
+            "min": 1,
+            "max": 35
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "bifrost_use"
+          }
+        ]
+      }
+    },
+    "stormbreaker_use": {
+      "type": "palladium:animation_timer",
+      "max_value": 12,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:stormbreaker"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "powerborne:item_on_cooldown",
+                "item": "powerborne:stormbreaker"
+              },
+              {
+                "type": "palladium:is_fast_flying"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_blast_timer"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "god_mode_buy"
+          }
+        ]
+      }
+    },
+    "stormbreaker_sparks": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "emitter": "powerborne:stormbreaker_sparks",
+      "particle_type": "powerborne:lightning",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "powerborne:item_in_arm",
+            "item": "powerborne:stormbreaker",
+            "arm": "right"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "bifrost_animation_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_mode"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.storm_strike_pre"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "stormbreaker_sparks_aim": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "emitter": "powerborne:stormbreaker_sparks_aim",
+      "particle_type": "powerborne:lightning",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "powerborne:item_in_arm",
+            "item": "powerborne:stormbreaker",
+            "arm": "right"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "stormbreaker_blast_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_blast_timer"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "stormbreaker_sparks_left": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "emitter": "powerborne:stormbreaker_sparks_left",
+      "particle_type": "powerborne:lightning",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "powerborne:item_in_arm",
+            "item": "powerborne:stormbreaker",
+            "arm": "left"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "bifrost_animation_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_mode"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.storm_strike_pre"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "stormbreaker_sparks_aim_left": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "emitter": "powerborne:stormbreaker_sparks_aim_left",
+      "particle_type": "powerborne:lightning",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "powerborne:item_in_arm",
+            "item": "powerborne:stormbreaker",
+            "arm": "left"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "stormbreaker_blast_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_blast_timer"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "stormbreaker_blast_timer": {
+      "type": "palladium:animation_timer",
+      "title": {
+        "translate": "ability.powerborne.thor.lightning_blast"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/stormbreaker_blast.png"
+      },
+      "max_value": 5,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 250,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "stormbreaker_use"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_blast_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "god_mode_buy"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:stormbreaker"
+            }
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_lightning",
+            "min": 5,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:or",
+              "conditions": [
+                {
+                  "type": "palladium:and",
+                  "conditions": [
+                    {
+                      "type": "palladium:item_in_slot",
+                      "slot": "mainhand",
+                      "item": {
+                        "item": "powerborne:mjolnir"
+                      }
+                    },
+                    {
+                      "type": "palladium:item_in_slot",
+                      "slot": "offhand",
+                      "item": {
+                        "item": "powerborne:stormbreaker"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "palladium:and",
+                  "conditions": [
+                    {
+                      "type": "palladium:item_in_slot",
+                      "slot": "mainhand",
+                      "item": {
+                        "item": "powerborne:stormbreaker"
+                      }
+                    },
+                    {
+                      "type": "palladium:item_in_slot",
+                      "slot": "offhand",
+                      "item": {
+                        "item": "powerborne:mjolnir"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "stormbreaker_blast_aim": {
+      "type": "palladium:animation_timer",
+      "max_value": 5,
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "stormbreaker_blast_timer"
+        }
+      }
+    },
+    "stormbreaker_model_aim": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "powerborne:stormbreaker",
+      "controller": "stormbreaker_controller",
+      "animation_trigger": "aim_trigger",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "god_blast_timer"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "stormbreaker_blast_timer"
+            },
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "palladium:is_fast_flying"
+                },
+                {
+                  "type": "palladium:item_in_slot",
+                  "slot": "mainhand",
+                  "item": {
+                    "item": "powerborne:stormbreaker"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "stormbreaker_model_idle": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "powerborne:stormbreaker",
+      "controller": "stormbreaker_controller",
+      "animation_trigger": "stop_trigger",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_blast_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "stormbreaker_blast_timer"
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_movement_input"
+                  },
+                  {
+                    "type": "palladium:is_fast_flying"
+                  },
+                  {
+                    "type": "palladium:item_in_slot",
+                    "slot": "mainhand",
+                    "item": {
+                      "item": "powerborne:stormbreaker"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "stormbreaker_blast_beam": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:lightning_blast_stormbreaker",
+      "damage": 6,
+      "max_distance": 16,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "stormbreaker_blast_timer",
+            "min": 5,
+            "max": 999
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "stormbreaker_blast_timer"
+          },
+          {
+            "type": "powerborne:item_in_arm",
+            "item": "powerborne:stormbreaker",
+            "arm": "right",
+            "prefer_main": true
+          }
+        ]
+      }
+    },
+    "stormbreaker_blast_beam_left": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:lightning_blast_stormbreaker_left",
+      "damage": 6,
+      "max_distance": 16,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "stormbreaker_blast_timer",
+            "min": 5,
+            "max": 999
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "stormbreaker_blast_timer"
+          },
+          {
+            "type": "powerborne:item_in_arm",
+            "item": "powerborne:stormbreaker",
+            "arm": "left",
+            "prefer_main": true
+          }
+        ]
+      }
+    },
+    "storm_strike": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.storm_strike"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.storm_strike"
+      },
+      "list_index": 2,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/storm_strike.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 300
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "storm_strike_cooldown",
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_lightning",
+            "min": 5,
+            "max": 999
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "god_mode_buy"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:stormbreaker"
+            }
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "storm_strike_cooldown",
+            "min": 0,
+            "max": 0
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "stormbreaker_blast_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_blast_timer"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "storm_strike_jump": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": 2.5,
+      "uuid": "03b447df-c5b1-43fe-a39d-f0234d036e4e",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "storm_strike"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:crouching"
+            }
+          },
+          {
+            "type": "powerborne:air_above",
+            "blocks": 5
+          }
+        ]
+      }
+    },
+    "storm_strike_leap": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:leaping",
+      "amount": 5,
+      "uuid": "db98c446-6ca1-4364-844f-bf15af8a8608",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "storm_strike"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:crouching"
+            }
+          },
+          {
+            "type": "powerborne:air_above",
+            "blocks": 5
+          }
+        ]
+      }
+    },
+    "storm_strike_pre": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "max_value": 5,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:has_tag",
+          "tag": "powerborne.storm_strike_pre"
+        }
+      }
+    },
+    "storm_strike_animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "max_value": 2,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:has_tag",
+          "tag": "powerborne.storm_strike_animation"
+        }
+      }
+    },
+    "storm_strike_trail": {
+      "type": "palladium:trail",
+      "hidden": true,
+      "trail": "powerborne:thor_god_mode",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.storm_strike_pre"
+              },
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:on_ground"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "god_blast_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 4,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": {
+        "translate": "ability.powerborne.thor.god_blast"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/god_blast.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 150,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_use"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_vortex"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "stormbreaker_use"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_blast_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "god_mode_buy"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:item_in_slot",
+                    "slot": "mainhand",
+                    "item": {
+                      "item": "powerborne:mjolnir"
+                    }
+                  },
+                  {
+                    "type": "palladium:item_in_slot",
+                    "slot": "offhand",
+                    "item": {
+                      "item": "powerborne:stormbreaker"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:item_in_slot",
+                    "slot": "mainhand",
+                    "item": {
+                      "item": "powerborne:stormbreaker"
+                    }
+                  },
+                  {
+                    "type": "palladium:item_in_slot",
+                    "slot": "offhand",
+                    "item": {
+                      "item": "powerborne:mjolnir"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_lightning",
+            "min": 5,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:ability_on_cooldown",
+                  "ability": "god_blast_timer"
+                }
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_blast_timer"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "god_blast_aim": {
+      "type": "palladium:animation_timer",
+      "max_value": 4,
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_blast_timer"
+        }
+      }
+    },
+    "god_blast_show_arms": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_blast_timer"
+        }
+      }
+    },
+    "god_blast_beam": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:god_blast",
+      "damage": 10,
+      "max_distance": 20,
+      "set_on_fire_seconds": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "god_blast_timer",
+            "min": 4,
+            "max": 999
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "god_blast_timer"
+          }
+        ]
+      }
+    },
+    "thor_root": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.root"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.root"
+      },
+      "gui_position": [
+        0,
+        0
+      ],
+      "icon": {
+        "type": "palladium:item",
+        "item": "powerborne:thor_suit"
+      }
+    },
+    "throw_mjolnir_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.throw_mjolnir"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.throw_mjolnir"
+      },
+      "gui_position": [
+        -1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/throw_mjolnir.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "thor_root"
+          }
+        ]
+      }
+    },
+    "charge_up_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.charge_up"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.charge_up"
+      },
+      "gui_position": [
+        0,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_charge.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "thor_root"
+          }
+        ]
+      }
+    },
+    "lightning_blast_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.lightning_blast"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.lightning_blast"
+      },
+      "gui_position": [
+        1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_blast.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "thor_root"
+          }
+        ]
+      }
+    },
+    "mjolnir_throw_lightning_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.mjolnir_throw_lightning"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.mjolnir_throw_lightning"
+      },
+      "gui_position": [
+        -1,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/throw_mjolnir_light.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "throw_mjolnir_buy"
+          }
+        ]
+      }
+    },
+    "lightning_charge_upgrade_1": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.lightning_charge_u1"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.lightning_charge_u1"
+      },
+      "gui_position": [
+        0,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_upgrade.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "charge_up_buy"
+          }
+        ]
+      }
+    },
+    "mjolnir_vortex_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.mjolnir_vortex"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.mjolnir_vortex"
+      },
+      "gui_position": [
+        1,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/mjolnir_vortex.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_blast_buy"
+          }
+        ]
+      }
+    },
+    "thunder_jump_mjolnir_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.thunder_jump"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.thunder_jump"
+      },
+      "gui_position": [
+        -1,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/thunder_jump.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "mjolnir_throw_lightning_buy"
+          }
+        ]
+      }
+    },
+    "lightning_charge_upgrade_2": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.lightning_charge_u2"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.lightning_charge_u2"
+      },
+      "gui_position": [
+        0,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_upgrade.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_charge_upgrade_1"
+          }
+        ]
+      }
+    },
+    "lightning_burst_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.lightning_burst"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.lightning_burst"
+      },
+      "gui_position": [
+        1,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_burst.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "mjolnir_vortex_buy"
+          }
+        ]
+      }
+    },
+    "chain_lightning_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.chain_lightning"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.chain_lightning"
+      },
+      "gui_position": [
+        -1,
+        3.0
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/chain_lightning.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "thunder_jump_mjolnir_buy"
+          }
+        ]
+      }
+    },
+    "lightning_charge_upgrade_3": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.lightning_charge_u3"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.lightning_charge_u3"
+      },
+      "gui_position": [
+        0,
+        3.0
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_upgrade.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_charge_upgrade_2"
+          }
+        ]
+      }
+    },
+    "flight_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.flight"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.flight"
+      },
+      "gui_position": [
+        1,
+        3.0
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/flight.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_burst_buy"
+          }
+        ]
+      }
+    },
+    "god_mode_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.thor.god_mode"
+      },
+      "description": {
+        "translate": "desc.powerborne.thor.god_mode"
+      },
+      "gui_position": [
+        0,
+        3.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/god_mode.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "thor_skill_points",
+            "icon": "powerborne:thor_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "chain_lightning_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_charge_upgrade_3"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "flight_buy"
+          }
+        ]
+      }
+    },
+    "restrict_slots": {
+      "type": "palladium:restrict_slots",
+      "hidden": true,
+      "slots": [
+        "head",
+        "legs",
+        "feet"
+      ]
+    },
+    "lock_armor": {
+      "type": "palladium:lock_armor",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "lightning_blast_timer"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "lightning_burst_timer"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "chain_lightning"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "mjolnir_vortex"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "stormbreaker_blast_timer"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "god_blast_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_mode"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:is_creative_mode"
+            }
+          }
+        ]
+      }
+    },
+    "render_layer": {
+      "type": "palladium:render_layer_by_accessory_slot",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "default_layer": "powerborne:thor",
+      "accessory_slot": "powerborne:thor",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "power": "powerborne:suit_stand/thor_suit_stand",
+              "ability": "is_stand"
+            }
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:thor_suit"
+            }
+          }
+        ]
+      }
+    },
+    "mjolnir_use": {
+      "type": "palladium:animation_timer",
+      "max_value": 72000,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_throw"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_throw_lightning"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_throw_jump"
+              }
+            ]
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:mjolnir"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "powerborne:item_on_cooldown",
+                "item": "powerborne:mjolnir"
+              },
+              {
+                "type": "palladium:is_fast_flying"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_blast_timer"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mjolnir_use_jump": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "palladium:jump_power",
+      "uuid": "019916aa-1aa6-73bf-b1d7-ce3169171ef2",
+      "operation": "0",
+      "amount": 0.9,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "mjolnir_use"
+        }
+      }
+    },
+    "mjolnir_spin": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "powerborne:mjolnir",
+      "controller": "mjolnir_controller",
+      "animation_trigger": "spin_trigger",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_use"
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:is_hovering_or_flying"
+                  },
+                  {
+                    "type": "palladium:not",
+                    "conditions": {
+                      "type": "palladium:ability_unlocked",
+                      "ability": "flight_buy"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          }
+        ]
+      }
+    },
+    "mjolnir_stop": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "render_layer": "powerborne:mjolnir",
+      "controller": "mjolnir_controller",
+      "animation_trigger": "stop_trigger",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_spin"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_flying"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "mjolnir_flying": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "render_layer": "powerborne:mjolnir",
+      "controller": "mjolnir_controller",
+      "animation_trigger": "flying_trigger",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "palladium:is_fast_flying"
+                },
+                {
+                  "type": "palladium:item_in_slot",
+                  "slot": "mainhand",
+                  "item": {
+                    "item": "powerborne:mjolnir"
+                  }
+                },
+                {
+                  "type": "palladium:has_movement_input"
+                }
+              ]
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "mjolnir_vortex_anim"
+            }
+          ]
+        }
+      }
+    },
+    "hide_layers": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "body_parts": [
+        "cape",
+        "chest_overlay",
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:thor_suit"
+            }
+          }
+        ]
+      }
+    },
+    "hide_head_overlay": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "body_parts": [
+        "head_overlay"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:thor_suit"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "palladium:integer_property",
+                  "property": "toggle_helmet",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "type": "palladium:or",
+                  "conditions": [
+                    {
+                      "type": "palladium:accessory_selected",
+                      "accessory_slot": "powerborne:thor",
+                      "accessory": "powerborne:thor_love_and_thunder_extreme"
+                    },
+                    {
+                      "type": "palladium:accessory_selected",
+                      "accessory_slot": "powerborne:thor",
+                      "accessory": "powerborne:thor_classic"
+                    },
+                    {
+                      "type": "palladium:accessory_selected",
+                      "accessory_slot": "powerborne:thor",
+                      "accessory": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "palladium:accessory_selected",
+                  "accessory_slot": "powerborne:settings",
+                  "accessory": "powerborne:skinless"
+                }
+              ]
+            }
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:accessory_selected",
+                  "accessory_slot": "powerborne:settings",
+                  "accessory": "powerborne:skinless"
+                }
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:accessory_selected",
+                    "accessory_slot": "powerborne:settings",
+                    "accessory": "powerborne:skinless"
+                  },
+                  {
+                    "type": "palladium:not",
+                    "conditions": {
+                      "type": "palladium:or",
+                      "conditions": [
+                        {
+                          "type": "palladium:accessory_selected",
+                          "accessory_slot": "powerborne:thor",
+                          "accessory": "powerborne:thor_avengers"
+                        },
+                        {
+                          "type": "palladium:accessory_selected",
+                          "accessory_slot": "powerborne:thor",
+                          "accessory": "powerborne:thor_unworthy"
+                        },
+                        {
+                          "type": "palladium:accessory_selected",
+                          "accessory_slot": "powerborne:thor",
+                          "accessory": "powerborne:thor_infinity_war_v2"
+                        },
+                        {
+                          "type": "palladium:accessory_selected",
+                          "accessory_slot": "powerborne:thor",
+                          "accessory": "powerborne:thor_infinity_war_v1"
+                        },
+                        {
+                          "type": "palladium:accessory_selected",
+                          "accessory_slot": "powerborne:thor",
+                          "accessory": "powerborne:thor_love_and_thunder"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "can_toggle_helmet": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:accessory_selected",
+                "accessory_slot": "powerborne:thor",
+                "accessory": "powerborne:thor_love_and_thunder_extreme"
+              },
+              {
+                "type": "palladium:accessory_selected",
+                "accessory_slot": "powerborne:thor",
+                "accessory": "powerborne:thor_classic"
+              },
+              {
+                "type": "palladium:accessory_selected",
+                "accessory_slot": "powerborne:thor",
+                "accessory": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mjolnir_call_projectile": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "title": {
+        "translate": "ability.powerborne.thor.call_mjolnir"
+      },
+      "list_index": 4,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/call_mjolnir.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "right_click",
+            "cooldown": 40,
+            "needs_empty_hand": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "powerborne:has_mjolnir_projectile_callable"
+          },
+          {
+            "type": "palladium:empty_slot",
+            "slot": "mainhand"
+          }
+        ]
+      }
+    },
+    "mjolnir_call_stand": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "title": {
+        "translate": "ability.powerborne.thor.call_mjolnir"
+      },
+      "list_index": 4,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/call_mjolnir.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 40,
+            "needs_empty_hand": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "powerborne:has_mjolnir_weapon_stand_nearby"
+          },
+          {
+            "type": "palladium:empty_slot",
+            "slot": "mainhand"
+          }
+        ]
+      }
+    },
+    "mjolnir_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "main_arm",
+      "time": 5,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:mjolnir_is_returning"
+            },
+            {
+              "type": "palladium:empty_slot",
+              "slot": "mainhand"
+            }
+          ]
+        }
+      }
+    },
+    "lightning_charge_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 20,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": {
+        "translate": "ability.powerborne.thor.charge_up"
+      },
+      "list_index": 0,
+      "bar_color": "light_blue",
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_charge.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 170
+          },
+          {
+            "type": "powerborne:can_see_sky"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "charge_up_buy"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "item": "powerborne:mjolnir"
+                },
+                "slot": "mainhand"
+              },
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "item": "powerborne:stormbreaker"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_lightning",
+            "min": 0,
+            "max": 199
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:integer_property",
+                "property": "energy_bar_lightning",
+                "min": 0,
+                "max": 170
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_ticks",
+                "ability": "lightning_charge_timer",
+                "min": 0,
+                "max": 0
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_tag",
+              "tag": "powerborne.storm_strike_pre"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_flying"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "god_mode"
+            }
+          }
+        ]
+      }
+    },
+    "lightning_charge_summon": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound powerborne:charge_thunder ambient @a[distance=..16] ~ ~ ~ 1",
+        "/scale set pehkui:motion 0.1 @s"
+      ],
+      "last_tick_commands": "/scale set pehkui:motion 1 @s",
+      "commands": [
+        "stopsound @a * minecraft:entity.lightning_bolt.thunder",
+        "stopsound @a * minecraft:entity.lightning_bolt.impact"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "lightning_charge_timer"
+          },
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "lightning_charge_timer",
+            "min": 10,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "movement_speed_attribute": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "uuid": "019d031f-25ad-7726-80f1-104f3329053f",
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -0.035,
+      "operation": 0,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "lightning_charge_summon"
+        }
+      }
+    },
+    "lightning_loop_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:lightning_loop_st",
+      "volume": 0.4,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "lightning_charge_timer"
+                  },
+                  {
+                    "type": "palladium:animation_timer_ability",
+                    "ability": "lightning_charge_timer",
+                    "min": 10,
+                    "max": 999
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_blast_beam"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "lightning_loop_sound_others": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:lightning_loop",
+      "volume": 0.4,
+      "looping": true,
+      "play_self": false,
+      "play_others": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "lightning_charge_timer"
+                  },
+                  {
+                    "type": "palladium:animation_timer_ability",
+                    "ability": "lightning_charge_timer",
+                    "min": 10,
+                    "max": 999
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_blast_beam"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "thor_effects_layer": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "powerborne:thor_effects",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:integer_property",
+                "property": "energy_bar_lightning",
+                "min": 1,
+                "max": 999
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "lightning_blast_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 999,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "title": {
+        "translate": "ability.powerborne.thor.lightning_blast"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_blast.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 250,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_use"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_vortex"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_blast_buy"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "powerborne:mjolnir"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_lightning",
+            "min": 5,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:or",
+              "conditions": [
+                {
+                  "type": "palladium:and",
+                  "conditions": [
+                    {
+                      "type": "palladium:item_in_slot",
+                      "slot": "mainhand",
+                      "item": {
+                        "item": "powerborne:mjolnir"
+                      }
+                    },
+                    {
+                      "type": "palladium:item_in_slot",
+                      "slot": "offhand",
+                      "item": {
+                        "item": "powerborne:stormbreaker"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "palladium:and",
+                  "conditions": [
+                    {
+                      "type": "palladium:item_in_slot",
+                      "slot": "mainhand",
+                      "item": {
+                        "item": "powerborne:stormbreaker"
+                      }
+                    },
+                    {
+                      "type": "palladium:item_in_slot",
+                      "slot": "offhand",
+                      "item": {
+                        "item": "powerborne:mjolnir"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "lightning_blast_aim": {
+      "type": "palladium:animation_timer",
+      "max_value": 5,
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "lightning_blast_timer"
+        }
+      }
+    },
+    "mjolnir_flight_aim": {
+      "type": "palladium:animation_timer",
+      "max_value": 5,
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:or",
+              "conditions": [
+                {
+                  "type": "palladium:item_in_slot",
+                  "item": {
+                    "item": "powerborne:mjolnir"
+                  },
+                  "slot": "mainhand"
+                },
+                {
+                  "type": "palladium:item_in_slot",
+                  "item": {
+                    "item": "powerborne:stormbreaker"
+                  },
+                  "slot": "mainhand"
+                },
+                {
+                  "type": "palladium:item_in_slot",
+                  "item": {
+                    "item": "powerborne:mjolnir"
+                  },
+                  "slot": "offhand"
+                },
+                {
+                  "type": "palladium:item_in_slot",
+                  "item": {
+                    "item": "powerborne:stormbreaker"
+                  },
+                  "slot": "offhand"
+                }
+              ]
+            },
+            {
+              "type": "palladium:is_fast_flying"
+            },
+            {
+              "type": "palladium:has_movement_input"
+            }
+          ]
+        }
+      }
+    },
+    "lightning_burst_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 999,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "title": {
+        "translate": "ability.powerborne.thor.lightning_burst"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/lightning_burst.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 200,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "lightning_burst_buy"
+          },
+          {
+            "type": "palladium:empty_slot",
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_lightning",
+            "min": 1,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          }
+        ]
+      }
+    },
+    "burst_beam": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:lightning_burst",
+      "damage": 6,
+      "max_distance": 12,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "lightning_burst_timer",
+            "min": 5,
+            "max": 999
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "lightning_burst_timer"
+          }
+        ]
+      }
+    },
+    "beam_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "both",
+      "time": 5,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "lightning_burst_timer"
+        }
+      }
+    },
+    "show_both_arms": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "lightning_burst_timer"
+        }
+      }
+    },
+    "lightning_blast_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:electricity_beam_loop_st",
+      "volume": 0.3,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "lightning_blast_beam"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "lightning_blast_beam_left"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "stormbreaker_blast_beam"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "stormbreaker_blast_beam_left"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "god_blast_beam"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "burst_beam"
+            }
+          ]
+        }
+      }
+    },
+    "lightning_blast_sound_others": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:electricity_beam_loop",
+      "volume": 0.3,
+      "looping": true,
+      "play_self": false,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "lightning_blast_beam"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "lightning_blast_beam_left"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "stormbreaker_blast_beam"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "stormbreaker_blast_beam_left"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "god_blast_beam"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "burst_beam"
+            }
+          ]
+        }
+      }
+    },
+    "lightning_blast_beam": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:lightning_blast_mjolnir",
+      "damage": 5,
+      "max_distance": 16,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "lightning_blast_timer",
+            "min": 5,
+            "max": 999
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "lightning_blast_timer"
+          },
+          {
+            "type": "powerborne:item_in_arm",
+            "arm": "right",
+            "prefer_main": true
+          }
+        ]
+      }
+    },
+    "lightning_blast_beam_left": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:lightning_blast_left",
+      "damage": 5,
+      "max_distance": 16,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "lightning_blast_timer",
+            "min": 5,
+            "max": 999
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "lightning_blast_timer"
+          },
+          {
+            "type": "powerborne:item_in_arm",
+            "arm": "left",
+            "prefer_main": true
+          }
+        ]
+      }
+    },
+    "attack_damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 4,
+      "uuid": "0197d205-8ac0-73c3-a4ce-b1146e5c53a6"
+    },
+    "thor_flight_mjolnir": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "uuid": "019cf375-7350-742f-a883-dcd08c3771b4",
+      "attribute": "palladium:flight_speed",
+      "amount": 1.0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_unlocked",
+              "ability": "flight_buy"
+            }
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "slot": "mainhand",
+                "item": {
+                  "item": "powerborne:mjolnir"
+                }
+              },
+              {
+                "type": "palladium:item_in_slot",
+                "slot": "mainhand",
+                "item": {
+                  "item": "powerborne:stormbreaker"
+                }
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_movement_input"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_use"
+              },
+              {
+                "type": "palladium:is_flying"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "thor_flight_mjolnir_add": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "uuid": "019cf375-7350-742f-a883-dcd08c3771b3",
+      "attribute": "palladium:flight_speed",
+      "amount": 0.25,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "flight_buy"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "slot": "mainhand",
+                "item": {
+                  "item": "powerborne:mjolnir"
+                }
+              },
+              {
+                "type": "palladium:item_in_slot",
+                "slot": "mainhand",
+                "item": {
+                  "item": "powerborne:stormbreaker"
+                }
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_movement_input"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_use"
+              },
+              {
+                "type": "palladium:is_flying"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "thor_flight": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "uuid": "019ced03-6e83-77c6-980f-6e8ffb527681",
+      "attribute": "palladium:flight_speed",
+      "amount": 0.8,
+      "conditions": {
+        "unlocking": {
+          "type": "palladium:ability_unlocked",
+          "ability": "flight_buy"
+        }
+      }
+    },
+    "is_flying": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:is_flying"
+        }
+      }
+    },
+    "is_fast_flying": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:is_fast_flying"
+        }
+      }
+    },
+    "is_hovering_or_flying": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:is_hovering_or_flying"
+        }
+      }
+    },
+    "damage_immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "powerborne:thor_immune_to",
+        "powerborne:is_ad_astra",
+        "powerborne:is_superb_warfare",
+        "powerborne:is_tacz_bullet"
+      ]
+    },
+    "space_breathing": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "powerborne:is_in_space"
+        }
+      }
+    },
+    "defense_scale": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:defense 1.6 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:defense 1 @s"
+    },
+    "falling_scale": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:falling 0.2 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:falling 1 @s"
+    },
+    "mjolnir_vortex": {
+      "type": "palladium:repeating_animation_timer",
+      "max_value": 110,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": {
+        "translate": "ability.powerborne.thor.mjolnir_vortex"
+      },
+      "list_index": 2,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/mjolnir_vortex.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 150
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "lightning_charge_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_use"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "mjolnir_vortex_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_hovering_or_flying"
+            }
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:mjolnir"
+            }
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "mjolnir_vortex"
+              },
+              {
+                "type": "palladium:ability_ticks",
+                "ability": "mjolnir_vortex",
+                "min": 0,
+                "max": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mjolnir_vortex_anim": {
+      "type": "palladium:animation_timer",
+      "max_value": 5,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "mjolnir_vortex"
+        }
+      }
+    },
+    "mjolnir_vortex_tornado": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "powerborne:wind_tornado"
+    },
+    "mjolnir_vortex_tornado_anim": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "render_layer": "powerborne:wind_tornado",
+      "controller": "wind_tornado_controller",
+      "animation_trigger": "rise_trigger",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "mjolnir_vortex"
+        }
+      }
+    },
+    "step_assist": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "forge:step_height_addition",
+      "amount": 1,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "mjolnir_vortex"
+        }
+      }
+    },
+    "chain_lightning": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "title": {
+        "translate": "ability.powerborne.thor.chain_lightning"
+      },
+      "list_index": 3,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/chain_lightning.png"
+      },
+      "entity_type": "palladium:custom_projectile",
+      "velocity": 2,
+      "swinging_arm": "main_arm",
+      "ignore_player_movement": true,
+      "entity_data": {
+        "NoPhysics": true,
+        "Damage": 7.0,
+        "Gravity": 0,
+        "Size": -0.65,
+        "Lifetime": 25,
+        "DieOnEntityHit": false,
+        "DieOnBlockHit": false,
+        "Tags": [
+          "powerborne.chain_lightning"
+        ],
+        "Appearances": [
+          {
+            "Type": "trail",
+            "Trail": "powerborne:chain_lightning_trail"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": {
+          "type": "palladium:action",
+          "cooldown": 130
+        },
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "chain_lightning_buy"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_lightning",
+            "min": 5,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "chain_lightning_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:chain_lightning_hit",
+      "volume": 0.5,
+      "looping": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "chain_lightning"
+        }
+      }
+    },
+    "mjolnir_throw": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": {
+        "translate": "ability.powerborne.thor.throw_mjolnir"
+      },
+      "list_index": 4,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/throw_mjolnir.png"
+      },
+      "conditions": {
+        "enabling": {
+          "type": "palladium:held",
+          "key_type": "right_click"
+        },
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "throw_mjolnir_buy"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:mjolnir"
+            }
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "mjolnir_throw_mode",
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "mjolnir_throw_lightning": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": {
+        "translate": "ability.powerborne.thor.mjolnir_throw_lightning"
+      },
+      "list_index": 4,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/throw_mjolnir_light.png"
+      },
+      "conditions": {
+        "enabling": {
+          "type": "palladium:held",
+          "key_type": "right_click"
+        },
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "mjolnir_throw_lightning_buy"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:mjolnir"
+            }
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "mjolnir_throw_mode",
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_unlocked",
+              "ability": "mjolnir_wheel"
+            }
+          }
+        ]
+      }
+    },
+    "mjolnir_throw_jump": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": {
+        "translate": "ability.powerborne.thor.thunder_jump"
+      },
+      "list_index": 4,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/thunder_jump.png"
+      },
+      "conditions": {
+        "enabling": {
+          "type": "palladium:held",
+          "key_type": "right_click"
+        },
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "thunder_jump_mjolnir_buy"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:mjolnir"
+            }
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "mjolnir_throw_mode",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_unlocked",
+              "ability": "mjolnir_wheel"
+            }
+          }
+        ]
+      }
+    },
+    "mjolnir_wheel_jump": {
+      "type": "powerborne:set_property",
+      "hidden": true,
+      "title": {
+        "translate": "ability.powerborne.thor.thunder_jump_throw"
+      },
+      "hidden_in_bar": true,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/thunder_jump.png"
+      },
+      "property": "mjolnir_throw_mode",
+      "value": 2,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:action"
+        },
+        "unlocking": {
+          "type": "palladium:ability_unlocked",
+          "ability": "thunder_jump_mjolnir_buy"
+        }
+      }
+    },
+    "mjolnir_wheel_default": {
+      "type": "powerborne:set_property",
+      "hidden": true,
+      "title": {
+        "translate": "ability.powerborne.thor.throw_mjolnir"
+      },
+      "hidden_in_bar": true,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/throw_mjolnir.png"
+      },
+      "property": "mjolnir_throw_mode",
+      "value": 0,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:action"
+        }
+      }
+    },
+    "mjolnir_wheel_lightning": {
+      "type": "powerborne:set_property",
+      "hidden": true,
+      "title": {
+        "translate": "ability.powerborne.thor.lightning_throw"
+      },
+      "hidden_in_bar": true,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/throw_mjolnir_light.png"
+      },
+      "property": "mjolnir_throw_mode",
+      "value": 1,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:action"
+        },
+        "unlocking": {
+          "type": "palladium:ability_unlocked",
+          "ability": "mjolnir_throw_lightning_buy"
+        }
+      }
+    },
+    "mjolnir_wheel": {
+      "type": "palladium:ability_wheel",
+      "hidden": true,
+      "title": {
+        "translate": "ability.powerborne.thor.throw_type"
+      },
+      "list_index": 4,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/throw_mjolnir_pick.png"
+      },
+      "hidden_in_bar": false,
+      "abilities": [
+        "mjolnir_wheel_default",
+        "mjolnir_wheel_lightning",
+        "mjolnir_wheel_jump"
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:toggle",
+          "key_type": "right_click"
+        },
+        "unlocking": [
+          {
+            "type": "powerborne:shift_key_down"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:mjolnir"
+            }
+          }
+        ]
+      }
+    },
+    "god_mode": {
+      "type": "powerborne:god_mode",
+      "bar_color": "light_blue",
+      "hidden": true,
+      "title": {
+        "translate": "ability.powerborne.thor.god_mode"
+      },
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/god_of_thunder/god_mode.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 1200
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_lightning",
+            "min": 1,
+            "max": 200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "god_mode_buy"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_mode"
+              },
+              {
+                "type": "palladium:integer_property",
+                "property": "energy_bar_lightning",
+                "min": 200,
+                "max": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:integer_property",
+                "property": "god_mode_cooldown",
+                "min": 0,
+                "max": 0
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "god_mode"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "god_mode_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:lightning_sparks_loop",
+      "volume": 0.2,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "god_mode"
+            },
+            {
+              "type": "palladium:has_tag",
+              "tag": "powerborne.storm_strike_pre"
+            }
+          ]
+        }
+      }
+    },
+    "speed_trail": {
+      "type": "palladium:trail",
+      "hidden": true,
+      "trail": "powerborne:thor_god_mode",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_mode"
+        }
+      }
+    },
+    "god_mode_eyes": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "powerborne:god_mode_effects",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_mode"
+        }
+      }
+    },
+    "god_mode_damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3,
+      "uuid": "019c1a3b-4d5e-7f2a-b890-1c3d5e7f9a0b",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_mode"
+        }
+      }
+    },
+    "god_mode_speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.3,
+      "uuid": "019c1a3b-5e6f-7a3b-c901-2d4e6f8a0b1c",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "god_mode"
+            },
+            {
+              "type": "palladium:sprinting"
+            }
+          ]
+        }
+      }
+    },
+    "god_mode_step_assist": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "forge:step_height_addition",
+      "amount": 1,
+      "uuid": "019c61bd-a03f-76ba-be90-c250ff8cc0a2",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "god_mode"
+            }
+          ]
+        }
+      }
+    },
+    "god_mode_jump": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "palladium:jump_power",
+      "amount": 0.8,
+      "uuid": "019c1a3b-6f70-7b4c-d012-3e5f7a9b0c1d",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_mode"
+        }
+      }
+    },
+    "god_mode_knockback": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "minecraft:generic.attack_knockback",
+      "amount": 1.5,
+      "uuid": "019c1a3b-7081-7c5d-e123-4f6a8b0c1d2e",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_mode"
+        }
+      }
+    },
+    "god_mode_defense": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:defense 2 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:defense 1.5 @s",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_mode"
+        }
+      }
+    },
+    "god_mode_healing": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "frequency": 100,
+      "amount": 2,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_mode"
+        }
+      }
+    },
+    "god_mode_immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "minecraft:is_projectile",
+        "minecraft:is_explosion"
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "god_mode"
+        }
+      }
+    },
+    "thor_healing": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "frequency": 200,
+      "amount": 1
+    }
+  }
+}

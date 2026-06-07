@@ -1,0 +1,26 @@
+{
+    "parent": "powerborne:thor_origin",
+    "display": {
+        "icon": {
+            "item": "powerborne:stormbreaker"
+        },
+        "title": {
+            "translate": "advancements.powerborne.stormbreaker.title"
+        },
+        "description": {
+            "translate": "advancements.powerborne.stormbreaker.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "smith_stormbreaker": {
+            "trigger": "minecraft:recipe_crafted",
+            "conditions": {
+                "recipe_id": "powerborne:stormbreaker_smithing"
+            }
+        }
+    }
+}

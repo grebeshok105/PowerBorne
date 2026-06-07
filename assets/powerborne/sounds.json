@@ -1,0 +1,224 @@
+{
+  "void_transform": {
+    "category": "player",
+    "sounds": ["powerborne:void_transform"],
+    "subtitle": "subtitles.void_transform"
+  },
+  "void_detransform": {
+    "category": "player",
+    "sounds": ["powerborne:void_detransform"],
+    "subtitle": "subtitles.void_detransform"
+  },
+  "sentry_beam_loop": {
+    "category": "player",
+    "sounds": ["powerborne:sentry_beam_loop"],
+    "subtitle": "subtitles.sentry_beam_loop"
+  },
+  "sentry_beam_loop_st": {
+    "category": "player",
+    "sounds": ["powerborne:sentry_beam_loop_st"],
+    "subtitle": "subtitles.sentry_beam_loop"
+  },
+  "void_beam_loop": {
+    "category": "player",
+    "sounds": ["powerborne:void_beam_loop"],
+    "subtitle": "subtitles.void_beam_loop"
+  },
+  "void_beam_loop_st": {
+    "category": "player",
+    "sounds": ["powerborne:void_beam_loop_st"],
+    "subtitle": "subtitles.void_beam_loop"
+  },
+  "sentry_telekinesis_throw": {
+    "category": "player",
+    "sounds": ["powerborne:sentry_telekinesis_throw"],
+    "subtitle": "subtitles.sentry_telekinesis_throw"
+  },
+  "sentry_fly_start": {
+    "category": "player",
+    "sounds": ["powerborne:sentry_fly_start"],
+    "subtitle": "subtitles.sentry_fly_start"
+  },
+  "void_teleport": {
+    "category": "player",
+    "sounds": ["powerborne:void_teleport"],
+    "subtitle": "subtitles.void_teleport"
+  },
+  "void_banishment": {
+    "category": "player",
+    "sounds": ["powerborne:void_banishment"],
+    "subtitle": "subtitles.void_banishment"
+  },
+  "freeze_breath_loop_st": {
+    "category": "player",
+    "sounds": ["powerborne:freeze_breath_loop_st"],
+    "subtitle": "subtitles.freeze_breath_loop"
+  },
+  "freeze_breath_loop": {
+    "category": "player",
+    "sounds": ["powerborne:freeze_breath_loop"],
+    "subtitle": "subtitles.freeze_breath_loop"
+  },
+  "heat_vision_loop": {
+    "category": "player",
+    "sounds": ["powerborne:heat_vision_loop"],
+    "subtitle": "subtitles.heat_vision_loop"
+  },
+  "heat_vision_loop_st": {
+    "category": "player",
+    "sounds": ["powerborne:heat_vision_loop_st"],
+    "subtitle": "subtitles.heat_vision_loop"
+  },
+  "xray_vision": {
+    "category": "player",
+    "sounds": ["powerborne:xray_vision"],
+    "subtitle": "subtitles.xray_vision"
+  },
+  "flight_boost": {
+    "category": "player",
+    "sounds": ["powerborne:flight_boost"],
+    "subtitle": "subtitles.flight_boost"
+  },
+  "thunderclap": {
+    "category": "player",
+    "sounds": ["powerborne:thunderclap"],
+    "subtitle": "subtitles.thunderclap"
+  },
+  "super_punch": {
+    "category": "player",
+    "sounds": ["powerborne:super_punch1"],
+    "subtitle": "subtitles.super_punch"
+  },
+  "mjolnir_hit": {
+    "category" : "player",
+    "sounds": ["powerborne:mjolnir_hit1", "powerborne:mjolnir_hit2"],
+    "subtitle": "subtitles.mjolnir_hit"
+  },
+  "mjolnir_throw": {
+    "category" : "player",
+    "sounds": ["powerborne:mjolnir_throw1"],
+    "subtitle": "subtitles.mjolnir_throw"
+  },
+  "mjolnir_hum": {
+    "category" : "player",
+    "sounds": ["powerborne:mjolnir_hum"],
+    "subtitle": "subtitles.mjolnir"
+  },
+  "mjolnir_spin": {
+    "category": "player",
+    "sounds": ["powerborne:mjolnir_spin"],
+    "subtitle": "subtitles.mjolnir"
+  },
+  "mjolnir_grab": {
+    "category": "player",
+    "sounds": ["powerborne:mjolnir_grab"],
+    "subtitle": "subtitles.mjolnir"
+  },
+  "charge_thunder": {
+    "category": "player",
+    "sounds": ["powerborne:charge_thunder"]
+  },
+  "storm_strike": {
+    "category": "player",
+    "sounds": ["powerborne:storm_strike"],
+    "subtitle": "subtitles.storm_strike"
+  },
+  "lightning_jump": {
+    "category": "player",
+    "sounds": ["powerborne:lightning_jump"]
+  },
+  "whistle": {
+    "category": "player",
+    "sounds": ["powerborne:whistle1", "powerborne:whistle2"],
+    "subtitle": "subtitles.whistle"
+  },
+  "lightning_loop": {
+    "category": "player",
+    "sounds": ["powerborne:lightning_loop"]
+  },
+  "lightning_loop_st": {
+    "category": "player",
+    "sounds": ["powerborne:lightning_loop_st"]
+  },
+  "electricity_beam_loop": {
+    "category": "player",
+    "sounds": ["powerborne:electricity_beam_loop"],
+    "subtitle": "subtitles.electricity_beam_loop"
+  },
+  "electricity_beam_loop_st": {
+    "category": "player",
+    "sounds": ["powerborne:electricity_beam_loop_st"]
+  },
+  "chain_lightning_hit": {
+    "category": "player",
+    "sounds": ["powerborne:chain_lightning_hit"],
+    "subtitle": "subtitles.chain_lightning_hit"
+  },
+  "mjolnir_fail": {
+    "category": "player",
+    "sounds": ["powerborne:mjolnir_fail"],
+    "subtitle": "subtitles.mjolnir_fail"
+  },
+  "super_flare": {
+    "category": "player",
+    "sounds": ["powerborne:super_flare"],
+    "subtitle": "subtitles.super_flare"
+  },
+  "leather_crack_loop": {
+    "category": "player",
+    "sounds": ["powerborne:leather_crack_loop"]
+  },
+  "lightning_sparks_loop": {
+    "category": "player",
+    "sounds": ["powerborne:lightning_sparks_loop"]
+  },
+  "sentry_forcefield_loop": {
+    "category": "player",
+    "sounds": ["powerborne:sentry_forcefield_loop"]
+  },
+  "sentry_telekinesis_loop": {
+    "category": "player",
+    "sounds": ["powerborne:sentry_telekinesis_loop"]
+  },
+  "shield_throw": {
+    "category": "player",
+    "sounds": ["powerborne:shield_throw"]
+  },
+  "shield_hit": {
+    "category": "player",
+    "sounds": [
+      "powerborne:shield_hit1",
+      "powerborne:shield_hit2",
+      "powerborne:shield_hit3"
+    ]
+  },
+  "shield_beam_hit": {
+    "category": "player",
+    "sounds": ["powerborne:shield_beam_hit"]
+  },
+  "shield_beam_loop": {
+    "category": "player",
+    "sounds": ["powerborne:shield_beam_loop"],
+    "subtitle": "subtitles.shield_beam_loop"
+  },
+  "shield_mjolnir_hit": {
+    "category": "player",
+    "sounds": ["powerborne:shield_mjolnir_hit"]
+  },
+  "shield_block": {
+    "category": "player",
+    "sounds": ["powerborne:shield_block1", "powerborne:shield_block2"]
+  },
+  "shield_spin": {
+    "category": "player",
+    "sounds": ["powerborne:shield_spin"]
+  },
+  "bifrost_start": {
+    "category": "player",
+    "sounds": ["powerborne:bifrost_start"]
+  },
+  "bifrost_end": {
+    "category": "player",
+    "sounds": ["powerborne:bifrost_end1", "powerborne:bifrost_end2"]
+  }
+}

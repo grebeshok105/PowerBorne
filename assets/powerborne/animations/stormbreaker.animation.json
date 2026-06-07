@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"stormbreaker_aim": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"group": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [45, 0, 0]
+					}
+				}
+			}
+		},
+		"stormbreaker_idle": {
+			"loop": true,
+			"bones": {
+				"group": {
+					"position": {
+						"vector": [0, 0, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

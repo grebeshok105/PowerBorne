@@ -1,0 +1,8 @@
+{
+  "icon": "powerborne:textures/gui/accessory_slots/captain_america.png",
+  "allows_multiple": false,
+  "menu_visibility": {
+    "type": "palladium:has_power",
+    "power": "powerborne:captain_america"
+  }
+}

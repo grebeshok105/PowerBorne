@@ -1,0 +1,47 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.palladium:tight_suit/humanoid#main",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "armorHead",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [5.59735, 23.925, -3.97676], "size": [0, 11, 6], "pivot": [4.59735, 23.925, -0.97676], "rotation": [0, 27.5, 0], "uv": [1, 0], "mirror": true},
+						{"origin": [5.22325, 23.925, -2.8453], "size": [0, 11, 6], "pivot": [4.22325, 23.925, 0.1547], "rotation": [0, 22.5, 0], "uv": [1, 15]},
+						{"origin": [-5.59735, 23.925, -3.97676], "size": [0, 11, 6], "pivot": [-4.59735, 23.925, -0.97676], "rotation": [0, -27.5, 0], "uv": [14, 0]},
+						{"origin": [-5.22325, 23.925, -2.8453], "size": [0, 11, 6], "pivot": [-4.22325, 23.925, 0.1547], "rotation": [0, -22.5, 0], "uv": [14, 15]}
+					]
+				},
+				{
+					"name": "armorRightArm",
+					"pivot": [-5, 22, 0]
+				},
+				{
+					"name": "armorLeftLeg",
+					"pivot": [2, 12, 0]
+				},
+				{
+					"name": "armorLeftArm",
+					"pivot": [5, 22, 0]
+				},
+				{
+					"name": "armorRightLeg",
+					"pivot": [-2, 12, 0]
+				},
+				{
+					"name": "armorBody",
+					"pivot": [0, 24, 0]
+				}
+			]
+		}
+	]
+}

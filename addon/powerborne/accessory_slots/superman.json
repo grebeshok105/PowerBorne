@@ -1,0 +1,8 @@
+{
+    "icon": "powerborne:textures/gui/accessory_slots/superman.png",
+    "allows_multiple": false,
+    "menu_visibility": {
+        "type": "palladium:has_power",
+        "power": "powerborne:superman"
+    }
+} 

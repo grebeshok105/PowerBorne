@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "powerborne:vibranium_shield_colored_cap"
+        ]
+    },
+    "criteria": {
+        "has_vibranium_shield": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "powerborne:vibranium_shield"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "powerborne:vibranium_shield_colored_cap"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_vibranium_shield",
+            "has_the_recipe"
+        ]
+    ]
+}

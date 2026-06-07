@@ -1,0 +1,317 @@
+[
+  {
+    "processor_type": "minecraft:rule",
+    "rules": [
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:andesite",
+          "probability": 0.3
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:granite"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:andesite",
+          "probability": 0.4
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:cobblestone"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:andesite",
+          "probability": 0.5
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:dirt"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:granite",
+          "probability": 0.4
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:andesite"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:granite",
+          "probability": 0.5
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:cobblestone"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:cobblestone",
+          "probability": 0.4
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:andesite"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:cobblestone",
+          "probability": 0.5
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:mossy_cobblestone"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:coarse_dirt",
+          "probability": 0.3
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:andesite"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:coarse_dirt",
+          "probability": 0.3
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:granite"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:coarse_dirt",
+          "probability": 0.3
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:cobblestone"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:dirt",
+          "probability": 0.4
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:coarse_dirt"
+        }
+      }
+    ]
+  },
+  {
+    "processor_type": "minecraft:rule",
+    "rules": [
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:light_gray_stained_glass",
+          "probability": 0.5
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:air"
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:light_gray_stained_glass_pane",
+          "probability": 0.5
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:air"
+        }
+      }
+    ]
+  },
+  {
+    "processor_type": "minecraft:rule",
+    "rules": [
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:andesite_slab",
+          "probability": 0.25
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:cobblestone_slab",
+          "Properties": {
+            "type": "top"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:andesite_slab",
+          "probability": 0.25
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:stone_slab",
+          "Properties": {
+            "type": "top"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:andesite_slab",
+          "probability": 0.25
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "top"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:cobblestone_slab",
+          "probability": 0.2
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:andesite_slab",
+          "Properties": {
+            "type": "bottom"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:cobblestone_slab",
+          "probability": 0.2
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:mossy_cobblestone_slab",
+          "Properties": {
+            "type": "bottom"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:cobblestone_slab",
+          "probability": 0.2
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:cobblestone_slab",
+          "Properties": {
+            "type": "bottom"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:cobblestone_slab",
+          "probability": 0.2
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:stone_slab",
+          "Properties": {
+            "type": "bottom"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:cobblestone_slab",
+          "probability": 0.2
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "minecraft:smooth_stone_slab",
+          "Properties": {
+            "type": "bottom"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "processor_type": "minecraft:jigsaw_replacement"
+  }
+]

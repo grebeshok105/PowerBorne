@@ -1,0 +1,6 @@
+{
+    "type": "palladium:render_layer",
+    "slot": "powerborne:thor",
+    "render_layer": "powerborne:thor_love_and_thunder",
+    "disable_rendering": true
+}

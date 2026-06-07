@@ -1,0 +1,8 @@
+{
+  "type": "palladium:armor",
+  "slot": "chest",
+  "armor_material": "powerborne:suit_material",
+  "render_layers": {
+    "chest": "powerborne:captain_america_tailor_stand"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "display": {
+        "icon": {
+            "item": "powerborne:suit_scroll"
+        },
+        "title": {
+            "translate": "advancements.powerborne.powerborne.title"
+        },
+        "description": {
+            "translate": "advancements.powerborne.powerborne.description"
+        },
+        "background": "minecraft:textures/block/terracotta.png",
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "root_trigger": {
+            "trigger": "minecraft:tick"
+        }
+    }
+}

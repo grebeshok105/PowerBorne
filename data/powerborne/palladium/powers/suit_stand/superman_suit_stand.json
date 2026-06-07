@@ -1,0 +1,249 @@
+{
+  "name": "Superman Suit Stand",
+  "icon": "palladium:suit_stand",
+  "abilities": {
+    "is_stand": {
+      "type": "palladium:dummy",
+      "title": "is_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:entity_type",
+              "entity_type": "minecraft:armor_stand"
+            },
+            {
+              "type": "palladium:entity_type",
+              "entity_type": "palladium:suit_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_default_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_beyond_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman_beyond",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman_beyond"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_maws_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman_maws",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman_maws"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_maws_v2_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman_maws_v2",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman_maws_v2"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_justice_lord_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman_justice_lord",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman_justice_lord"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_cyborg_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman_cyborg",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman_cyborg"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_cyborg_dcamu_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman_cyborg_dcamu",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman_cyborg_dcamu"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_absolute_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman_absolute",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman_absolute"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_dceu_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman_dceu",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman_dceu"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "superman_dcu_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:superman_dcu",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "superman_dcu"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "set_superman_default": {
+      "type": "powerborne:set_stand_property",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "property": "stand_suit_variant",
+      "value": "superman",
+      "conditions": {
+        "enabling": [
+          { "type": "palladium:ability_enabled", "ability": "is_stand" },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  { "type": "powerborne:stand_suit_variant", "value": "superman" },
+                  { "type": "powerborne:stand_suit_variant", "value": "superman_beyond" },
+                  { "type": "powerborne:stand_suit_variant", "value": "superman_maws" },
+                  { "type": "powerborne:stand_suit_variant", "value": "superman_maws_v2" },
+                  { "type": "powerborne:stand_suit_variant", "value": "superman_justice_lord" },
+                  { "type": "powerborne:stand_suit_variant", "value": "superman_cyborg" },
+                  { "type": "powerborne:stand_suit_variant", "value": "superman_cyborg_dcamu" },
+                  { "type": "powerborne:stand_suit_variant", "value": "superman_absolute" },
+                  { "type": "powerborne:stand_suit_variant", "value": "superman_dceu" },
+                  { "type": "powerborne:stand_suit_variant", "value": "superman_dcu" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+} 

@@ -1,0 +1,43 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "glow",
+      "texture": "powerborne:textures/models/suits/thor/god_mode_eyes.png",
+      "conditions": [
+        {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:accessory_selected",
+            "accessory_slot": "powerborne:thor",
+            "accessory": "powerborne:thor_infinity_war_v1"
+          }
+        }
+      ]
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "glow",
+      "texture": "powerborne:textures/models/suits/thor/infinity_war_v1/god_mode_eye_left.png",
+      "conditions": [
+        {
+          "type": "palladium:accessory_selected",
+          "accessory_slot": "powerborne:thor",
+          "accessory": "powerborne:thor_infinity_war_v1"
+        }
+      ]
+    },
+    {
+      "type": "palladium:lightning_sparks",
+      "frequency": 0.4,
+      "amount": 10,
+      "core_color": "#00CBF4",
+      "glow_color": "#00A0FF",
+      "core_opacity": 1.0,
+      "glow_opacity": 0.5,
+      "thickness": 0.007,
+      "normal_transparency": false
+    }
+  ]
+}

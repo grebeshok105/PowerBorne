@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "ad_astra:oxygen",
+      "required": false
+    },
+    {
+      "id": "ad_astra:cryo_fuel",
+      "required": false
+    },
+    {
+      "id": "ad_astra:rocket_flames",
+      "required": false
+    },
+    {
+      "id": "ad_astra:ran_over",
+      "required": false
+    },
+    {
+      "id": "ad_astra:acid_rain",
+      "required": false
+    }
+  ]
+}

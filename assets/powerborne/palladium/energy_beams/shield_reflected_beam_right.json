@@ -1,0 +1,39 @@
+[
+  {
+    "body_part": "right_arm",
+    "offset": [
+      -2,
+      -5,
+      0
+    ],
+    "glow_color": {
+      "type": "palladium:string_property",
+      "property": "shield_reflected_glow_color",
+      "fallback": "#ffffff"
+    },
+    "size": [
+      1.5,
+      1.5
+    ],
+		"thickness": 0.1,
+		"glow_opacity": 1,
+		"core_opacity": 0.15,
+		"rotation_speed": 10,
+    "particles": [
+      {
+        "particle_type": "powerborne:sparks",
+        "amount": 5,
+        "motion": [
+          0,
+          1,
+          0
+        ],
+        "motion_random": [
+          1,
+          1,
+          1
+        ]
+      }
+    ]
+  }
+]

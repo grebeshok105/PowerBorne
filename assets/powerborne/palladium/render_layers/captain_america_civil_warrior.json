@@ -1,0 +1,128 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/suits/captain_america/civil_warrior/suit_#ACCESSORY.png",
+        "output": "powerborne:textures/models/suits/captain_america/civil_warrior/suit_body_masked_#ACCESSORY.png",
+        "variables": {
+          "ACCESSORY": {
+            "type": "palladium:accessory",
+            "accessory_slot": "powerborne:settings",
+            "fallback_value": "",
+            "split_value": "_"
+          }
+        },
+        "transformers": [
+          {
+            "type": "palladium:alpha_mask",
+            "mask": "powerborne:textures/models/alpha_masks/body_mask.png"
+          }
+        ]
+      }
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": "powerborne:textures/models/suits/captain_america/default/head.png",
+      "conditions": {
+        "type": "palladium:and",
+        "conditions": [
+          {
+            "type": "palladium:entity_type"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "toggle_helmet",
+            "min": 0,
+            "max": 0
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:accessory_selected",
+                "accessory_slot": "powerborne:settings",
+                "accessory": "powerborne:skinless"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "minecraft:cutout",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/suits/captain_america/civil_warrior/suit_#ACCESSORY.png",
+        "output": "powerborne:textures/models/suits/captain_america/civil_warrior/suit_head_masked_#ACCESSORY.png",
+        "variables": {
+          "ACCESSORY": {
+            "type": "palladium:accessory",
+            "accessory_slot": "powerborne:settings",
+            "fallback_value": "",
+            "split_value": "_"
+          }
+        },
+        "transformers": [
+          {
+            "type": "palladium:alpha_mask",
+            "mask": "powerborne:textures/models/alpha_masks/head_mask.png"
+          }
+        ]
+      },
+      "conditions": {
+        "type": "palladium:or",
+        "conditions": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:entity_type"
+              }
+            ]
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "toggle_helmet",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "glow",
+      "texture": "powerborne:textures/models/suits/captain_america/civil_warrior/lights.png"
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "glow",
+      "texture": "powerborne:textures/models/suits/captain_america/civil_warrior/lights_eyes.png",
+      "conditions": {
+        "type": "palladium:or",
+        "conditions": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:entity_type"
+              }
+            ]
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "toggle_helmet",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    }
+  ]
+}

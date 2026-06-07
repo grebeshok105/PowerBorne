@@ -1,0 +1,1 @@
+execute as @e[tag=herobrine_stand] at @s facing entity @p[distance=..20] feet run tp @s ~ ~ ~ ~ ~

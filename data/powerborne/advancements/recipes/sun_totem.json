@@ -1,0 +1,60 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "powerborne:sun_totem"
+        ]
+    },
+    "criteria": {
+        "has_sunstone_shard": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "powerborne:sunstone_shard"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_kryptonite_shard": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "powerborne:kryptonite_shard"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_totem_of_undying": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:totem_of_undying"
+                        ]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "powerborne:sun_totem"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_sunstone_shard",
+            "has_kryptonite_shard",
+            "has_totem_of_undying",
+            "has_the_recipe"
+        ]
+    ]
+}

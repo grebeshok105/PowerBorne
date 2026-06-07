@@ -1,0 +1,46 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "armorLeftArm",
+					"pivot": [7, 22, 0]
+				},
+				{
+					"name": "group",
+					"parent": "armorLeftArm",
+					"pivot": [6, 13.75, -5.55],
+					"rotation": [90, 0, 0],
+					"cubes": [
+						{"origin": [5, 13.75, -6.55], "size": [2, 8, 2], "inflate": -0.25, "pivot": [6, 17.75, -5.55], "rotation": [0, 45, 0], "uv": [22, 0]},
+						{"origin": [4, 21.5, -9.05], "size": [4, 4, 7], "uv": [0, 0]},
+						{"origin": [5, 13.75, -6.55], "size": [2, 8, 2], "inflate": -0.15, "pivot": [6, 17.75, -5.55], "rotation": [0, 45, 0], "uv": [22, 10]},
+						{"origin": [4, 21.5, -9.05], "size": [4, 4, 7], "inflate": 0.2, "uv": [0, 12]},
+						{
+							"origin": [6, 10.175, -7.55],
+							"size": [0, 5, 4],
+							"uv": {
+								"north": {"uv": [17, 27], "uv_size": [0, 5]},
+								"east": {"uv": [21, 27], "uv_size": [-4, 5]},
+								"south": {"uv": [21, 27], "uv_size": [0, 5]},
+								"west": {"uv": [17, 27], "uv_size": [4, 5]},
+								"up": {"uv": [17, 23], "uv_size": [0, 4]},
+								"down": {"uv": [17, 27], "uv_size": [0, -4]}
+							}
+						},
+						{"origin": [5, 25, -6.55], "size": [2, 1, 2], "pivot": [6, 25, -5.55], "rotation": [0, 45, 0], "uv": [0, 29]}
+					]
+				}
+			]
+		}
+	]
+}

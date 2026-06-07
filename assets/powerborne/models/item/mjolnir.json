@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "powerborne:item/mjolnir"
+  },
+  "overrides": [
+    {
+      "predicate": { "custom_model_data": 1 },
+      "model": "powerborne:item/mjolnir_awakened"
+    },
+    {
+      "predicate": { "custom_model_data": 30 },
+      "model": "powerborne:item/mjolnir_thunder_jump"
+    }
+  ]
+}

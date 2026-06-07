@@ -1,0 +1,23 @@
+{
+    "parent": "powerborne:powerborne",
+    "display": {
+        "icon": {
+            "item": "powerborne:thor_suit"
+        },
+        "title": {
+            "translate": "advancements.powerborne.thor_origin.title"
+        },
+        "description": {
+            "translate": "advancements.powerborne.thor_origin.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

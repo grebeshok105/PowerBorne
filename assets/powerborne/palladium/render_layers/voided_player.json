@@ -1,0 +1,9 @@
+{
+    "type": "palladium:compound",
+    "layers": [
+        {
+            "model_layer": "palladium:humanoid#tight_suit",
+            "texture": "powerborne:textures/models/entity/voided_player.png"
+        }
+    ]
+}

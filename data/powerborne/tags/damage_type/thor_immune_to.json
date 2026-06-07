@@ -1,0 +1,12 @@
+{
+    "values": [
+        "minecraft:arrow",
+        "minecraft:fly_into_wall",
+        "minecraft:in_fire",
+        "minecraft:on_fire",
+        "minecraft:lightning_bolt",
+        "minecraft:hot_floor",
+        "minecraft:explosion",
+        "minecraft:freeze"
+    ]
+}

@@ -1,0 +1,1508 @@
+{
+  "name": {"translate":"name.powerborne.sentry"},
+  "background": "minecraft:textures/block/yellow_wool.png",
+  "ability_bar_texture": "#powerborne:sentry_ability_bar",
+  "icon": "powerborne:sentry_suit",
+  "persistent_data": true,
+  "gui_display_type": "tree",
+  "primary_color": "#70CD56",
+  "secondary_color": "#414141",
+  "energy_bars": {
+    "void_bar": {
+      "max": 200,
+      "synced_value": {
+        "type": "palladium_property",
+        "property": "energy_bar_void"
+      }
+    }
+  },
+  "abilities": {
+    "render_layer": {
+      "type": "palladium:render_layer_by_accessory_slot",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "default_layer": "powerborne:sentry",
+      "accessory_slot": "powerborne:sentry",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "power": "powerborne:suit_stand/sentry_suit_stand",
+              "ability": "is_stand"
+            }
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:sentry_suit"
+            }
+          }
+        ]
+      }
+    },
+    "sentry_root": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.root"},
+      "description": {"translate":"desc.powerborne.sentry.root"},
+      "gui_position": [
+        0,
+        0
+      ],
+      "icon": {
+        "type": "palladium:item",
+        "item": "powerborne:sentry_suit"
+      }
+    },
+    "restrict_slots": {
+      "type": "palladium:restrict_slots",
+      "hidden": true,
+      "slots": [
+        "head",
+        "legs",
+        "feet"
+      ]
+    },
+    "lock_armor": {
+      "type": "palladium:lock_armor",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "beam_timer"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "telekinesis_timer"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "photonic_strike"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "super_speed"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "photon_forcefield"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "flight_boost"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.photonic_strike"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.becoming_sentry"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:is_creative_mode"
+            }
+          }
+        ]
+      }
+    },
+    "beam_timer_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.light_projection"},
+      "description": {"translate":"desc.powerborne.sentry.light_projection"},
+      "gui_position": [
+        -1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/light_projection.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "sentry_root"
+          }
+        ]
+      }
+    },
+    "sentry_resilience": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.sentry_resilience"},
+      "description": {"translate":"desc.powerborne.sentry.sentry_resilience"},
+      "gui_position": [
+        0,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/golden_heart.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "sentry_root"
+          }
+        ]
+      }
+    },
+    "telekinesis_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.telekinesis"},
+      "description": {"translate":"desc.powerborne.sentry.telekinesis"},
+      "gui_position": [
+        1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/telekinesis.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "sentry_root"
+          }
+        ]
+      }
+    },
+    "photonic_strike_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.photonic_strike"},
+      "description": {"translate":"desc.powerborne.sentry.photonic_strike"},
+      "gui_position": [
+        -1,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/photonic_strike.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "beam_timer_buy"
+          }
+        ]
+      }
+    },
+    "void_upgrade_1": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.void_awakening_1"},
+      "description": {"translate":"desc.powerborne.sentry.void_awakening_1"},
+      "gui_position": [
+        0,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/void_awakening.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "sentry_resilience"
+          }
+        ]
+      }
+    },
+    "super_speed_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.shared.super_speed"},
+      "description": {"translate":"desc.powerborne.shared.super_speed"},
+      "gui_position": [
+        1,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/super_speed.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "telekinesis_buy"
+          }
+        ]
+      }
+    },
+    "punch_damage_upgrade": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3,
+      "uuid": "019bc263-142f-71ee-867d-05771c2c3f5e",
+      "title": {"translate":"ability.powerborne.shared.damage_upgrade"},
+      "description": {"translate":"desc.powerborne.shared.damage_upgrade"},
+      "gui_position": [
+        -1,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/damage.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "photonic_strike_buy"
+          }
+        ]
+      }
+    },
+    "void_upgrade_2": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.void_awakening_2"},
+      "description": {"translate":"desc.powerborne.sentry.void_awakening_2"},
+      "gui_position": [
+        0,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/void_awakening.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "void_upgrade_1"
+          }
+        ]
+      }
+    },
+    "defense_upgrade": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.shared.defense_upgrade"},
+      "description": {"translate":"desc.powerborne.shared.defense_upgrade"},
+      "gui_position": [
+        1,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/defense.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_speed_buy"
+          }
+        ]
+      }
+    },
+    "photon_forcefield_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.photon_forcefield"},
+      "description": {"translate":"desc.powerborne.sentry.photon_forcefield"},
+      "gui_position": [
+        -1,
+        3.0
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/photon_forcefield.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "punch_damage_upgrade"
+          }
+        ]
+      }
+    },
+    "void_upgrade_3": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.void_awakening_3"},
+      "description": {"translate":"desc.powerborne.sentry.void_awakening_3"},
+      "gui_position": [
+        0,
+        3.0
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/void_awakening.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "void_upgrade_2"
+          }
+        ]
+      }
+    },
+    "flight_boost_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.shared.flight_boost"},
+      "description": {"translate":"desc.powerborne.shared.flight_boost"},
+      "gui_position": [
+        1,
+        3.0
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/flight_boost.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "defense_upgrade"
+          }
+        ]
+      }
+    },
+    "void_transform_buy": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.void_transform"},
+      "description": {"translate":"desc.powerborne.sentry.void_transform"},
+      "gui_position": [
+        0,
+        3.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/mob_effect/void.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "sentry_skill_points",
+            "icon": "powerborne:sentry_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "photon_forcefield_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "void_upgrade_3"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "flight_boost_buy"
+          }
+        ]
+      }
+    },
+    "photonic_strike": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.photonic_strike"},
+      "hidden": true,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/photonic_strike.png"
+      },
+      "list_index": 2,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:action",
+          "key_type": "key_bind",
+          "cooldown": 250
+        },
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "photonic_strike_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:in_water"
+              },
+              {
+                "type": "palladium:is_hovering_or_flying"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.void_active"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "photonic_strike_trail": {
+      "type": "palladium:trail",
+      "hidden": true,
+      "trail": "powerborne:photonic_strike",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "powerborne.photonic_strike"
+          }
+        ]
+      }
+    },
+    "photonic_strike_animation": {
+      "type": "palladium:player_animation",
+      "hidden": true,
+      "animation": "powerborne:photonic_strike",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "photonic_strike"
+        }
+      }
+    },
+    "photonic_strike_land_animation": {
+      "type": "palladium:player_animation",
+      "hidden": true,
+      "animation": "powerborne:photonic_strike_land",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:has_tag",
+          "tag": "powerborne.photonic_strike_land"
+        }
+      }
+    }, 
+    "is_hovering_or_flying": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:is_hovering_or_flying"
+        }
+      }
+    },
+    "super_speed": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.shared.super_speed"},
+      "hidden": true,
+      "list_index": 3,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/super_speed.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "cooldown": 800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_speed_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_flying"
+              },
+              {
+                "type": "palladium:in_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "photon_forcefield"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_tag",
+              "tag": "powerborne.void_active"
+            }
+          }
+        ]
+      }
+    },
+    "speed_trail": {
+      "type": "palladium:trail",
+      "hidden": true,
+      "trail": "powerborne:sentry_speed",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "super_speed"
+          }
+        ]
+      }
+    },
+    "speed_attribute": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.55,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "speed_trail"
+        }
+      }
+    },
+    "jump_attribute": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "palladium:jump_power",
+      "amount": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "speed_trail"
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "step_assist": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "forge:step_height_addition",
+      "amount": 1,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "super_speed"
+        }
+      }
+    },
+    "water_walk": {
+      "type": "palladium:water_walk",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "speed_trail"
+          }
+        ]
+      }
+    },
+    "photon_forcefield": {
+      "type": "palladium:dummy",
+      "title": {"translate":"ability.powerborne.sentry.photon_forcefield"},
+      "hidden": true,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/photon_forcefield.png"
+      },
+      "list_index": 4,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "cooldown": 400
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "photonic_strike_trail"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "photon_forcefield_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_tag",
+              "tag": "powerborne.void_active"
+            }
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "photon_forcefield"
+              },
+              {
+                "type": "palladium:ability_ticks",
+                "ability": "photon_forcefield",
+                "min": 0,
+                "max": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "photon_forcefield_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:sentry_forcefield_loop",
+      "volume": 0.3,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "photon_forcefield"
+        }
+      }
+    },
+    "photon_forcefield_regen": {
+      "type": "palladium:command",
+      "title": {"translate":"ability.powerborne.sentry.forcefield_regen"},
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": "",
+      "first_tick_commands": "effect give @s minecraft:regeneration 5 3",
+      "last_tick_commands": "",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "photon_forcefield"
+            },
+            {
+              "type": "palladium:ability_ticks",
+              "ability": "photon_forcefield",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "type": "palladium:integer_property",
+              "property": "forcefield_regen_cooldown",
+              "min": 0,
+              "max": 0
+            }
+          ]
+        }
+      }
+    },
+    "photon_forcefield_beam": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:photon_forcefield",
+      "max_distance": 0,
+      "damage": 0,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "photon_forcefield"
+        }
+      }
+    },
+    "photon_forcefield_beam_fp": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:photon_forcefield_fp",
+      "max_distance": 0,
+      "damage": 0,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "photon_forcefield"
+        }
+      }
+    },
+    "photon_forcefield_glow": {
+      "type": "palladium:entity_glow",
+      "hidden": true,
+      "mode": "self",
+      "color": "#FFD700",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "photon_forcefield"
+        }
+      }
+    },
+    "photon_forcefield_animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "max_value": 8,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "photon_forcefield"
+        }
+      }
+    },
+    "beam_timer": {
+      "type": "palladium:animation_timer",
+      "list_index": 0,
+      "title": {"translate":"ability.powerborne.sentry.light_projection"},
+      "bar_color": "yellow",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "max_value": 999,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/light_projection.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 250,
+            "needs_empty_hand": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "telekinesis_timer"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_tag",
+              "tag": "powerborne.photonic_strike"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "beam_timer_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "photon_forcefield"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.void_active"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "beam_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "both",
+      "time": 5,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "beam_timer"
+        }
+      }
+    },
+    "show_both_arms": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "beam_timer"
+        }
+      }
+    },
+    "beam": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:sentry_beam",
+      "damage_type": "powerborne:sentry_beam",
+      "max_distance": 20,
+      "damage": 5,
+      "set_on_fire_seconds": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "beam_timer",
+            "min": 5,
+            "max": 999999
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "beam_timer"
+          }
+        ]
+      }
+    },
+    "void_render_layer": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "powerborne:void",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:ability_enabled",
+            "power": "powerborne:suit_stand/sentry_suit_stand",
+            "ability": "is_stand"
+          }
+        }
+      }
+    },
+    "sentry_effects_layer": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "powerborne:sentry_effects",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "beam_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "telekinesis_timer"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "photonic_strike_trail"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "photon_forcefield"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "speed_trail"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "telekinesis_timer": {
+      "type": "palladium:animation_timer",
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": {"translate":"ability.powerborne.sentry.telekinesis"},
+      "max_value": 9999,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/telekinesis.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 700,
+            "needs_empty_hand": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "powerborne:is_hurt"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "beam_timer"
+              },
+              {
+                "type": "powerborne:is_swinging"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "telekinesis_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "photon_forcefield"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.void_active"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "telekinesis_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "main_arm",
+      "time": 4,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "telekinesis_timer"
+        }
+      }
+    },
+    "telekinesis_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:sentry_telekinesis_loop",
+      "volume": 0.15,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": {
+          "type": "powerborne:is_holding_telekinesis"
+        }
+      }
+    },
+    "damage_immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "powerborne:sentry_immune_to",
+        "powerborne:is_ad_astra",
+        "powerborne:is_superb_warfare",
+        "powerborne:is_tacz_bullet"
+      ]
+    },
+    "space_breathing": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "powerborne:is_in_space"
+        }
+      }
+    },
+    "sentry_healing": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 120,
+      "amount": 1
+    },
+    "attack_damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 4,
+      "uuid": "0197d205-8ac0-73c3-a4ce-b1146e5c53a6"
+    },
+    "flight": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "palladium:flight_speed",
+      "title": "Flight",
+      "amount": 1.15,
+      "uuid": "019c2e52-034e-75fb-a219-8dac48d357a8"
+    },
+    "flight_check": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:is_flying"
+        }
+      }
+    },
+    "can_boost": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "flight_check"
+            },
+            {
+              "type": "palladium:ability_ticks",
+              "ability": "flight_check",
+              "min": 50,
+              "max": 999999
+            }
+          ]
+        }
+      }
+    },
+    "flight_boost": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "list_index": 3,
+      "title": {"translate":"ability.powerborne.shared.flight_boost"},
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/sentry/flight_boost.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 400
+          },
+          {
+            "type": "palladium:is_fast_flying"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "flight_boost_buy"
+          },
+          {
+            "type": "palladium:is_fast_flying"
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "can_boost"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_tag",
+              "tag": "powerborne.void_active"
+            }
+          }
+        ]
+      }
+    },
+    "flight_boost_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "both",
+      "time": 5,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/item/icons/fast_flight_boost_aim.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:is_flying"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "flight_boost_ticks",
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "defense_scale": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:defense 1.5 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:defense 1 @s"
+    },
+    "defense_scale_upgrade": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:defense 2.0 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:defense 1 @s",
+      "conditions": {
+        "unlocking": {
+          "type": "palladium:ability_unlocked",
+          "ability": "defense_upgrade"
+        }
+      }
+    },
+    "respiration": {
+      "type": "powerborne:respiration",
+      "hidden": true,
+      "multiplier": 5
+    },
+    "night_vision": {
+      "type": "palladium:command",
+      "hidden": true,
+      "last_tick_commands": "effect clear @s minecraft:night_vision",
+      "commands": "effect give @s minecraft:night_vision infinite 0 true",
+      "first_tick_commands": "",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:brightness_at_position",
+                "min_brightness": 0,
+                "max_brightness": 5
+              },
+              {
+                "type": "palladium:night"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "hide_layers": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "body_parts": [
+        "cape",
+        "chest_overlay",
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:sentry_suit"
+            }
+          }
+        ]
+      }
+    },
+    "hide_head_overlay": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "body_parts": [
+        "head_overlay"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:sentry_suit"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:accessory_selected",
+              "accessory_slot": "powerborne:settings",
+              "accessory": "powerborne:skinless"
+            }
+          }
+        ]
+      }
+    },
+    "beam_loop_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:sentry_beam_loop_st",
+      "volume": 0.5,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "beam"
+        }
+      }
+    },
+    "beam_loop_sound_others": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:sentry_beam_loop",
+      "volume": 0.5,
+      "looping": true,
+      "play_self": false,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "beam"
+        }
+      }
+    },
+    "speed_trail_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "minecraft:item.elytra.flying",
+      "volume": 0.3,
+      "looping": true,
+      "play_self": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "speed_trail"
+        }
+      }
+    },
+    "super_speed_haste": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "effect give @s minecraft:haste infinite 2 true"
+      ],
+      "commands": "",
+      "last_tick_commands": [
+        "effect clear @s minecraft:haste"
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "super_speed"
+        }
+      }
+    },
+    "void_transform": {
+      "type": "palladium:animation_timer",
+      "title": {"translate":"ability.powerborne.sentry.void_transform"},
+      "hidden": true,
+      "max_value": 32,
+      "list_index": 5,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.void_active"
+              },
+              {
+                "type": "palladium:integer_property",
+                "property": "energy_bar_void",
+                "min": 200,
+                "max": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_tag",
+              "tag": "powerborne.void_cd"
+            }
+          }
+        ],
+        "unlocking": {
+          "type": "palladium:ability_unlocked",
+          "ability": "void_transform_buy"
+        }
+      }
+    },
+    "clear_wither_effect": {
+      "type": "palladium:command",
+      "hidden": true,
+      "last_tick_commands": "",
+      "commands": "effect clear @s minecraft:wither",
+      "first_tick_commands": "",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:has_effect",
+              "effect": "minecraft:wither"
+            },
+            {
+              "type": "palladium:not",
+              "conditions": {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.void_active"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "void_cd": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:has_tag",
+          "tag": "powerborne.void_cd"
+        }
+      }
+    },
+    "void_transform_sound": {
+      "type": "palladium:command",
+      "title": "Void Transform Sound",
+      "hidden": true,
+      "first_tick_commands": "playsound powerborne:void_transform player @a[distance=..30] ~ ~ ~ 2 0.9",
+      "last_tick_commands": "playsound powerborne:void_detransform player @a[distance=..30] ~ ~ ~ 2 0.8",
+      "commands": "",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "void_transform"
+        }
+      }
+    },
+    "shrink_body_overlay": {
+      "type": "palladium:shrink_body_overlay",
+      "hidden": true,
+      "max_value": 30,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "void_transform"
+        }
+      }
+    },
+    "void_power": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "superpower add powerborne:void @s",
+      "last_tick_commands": "superpower remove powerborne:void @s",
+      "commands": "",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_integer_property",
+          "ability": "void_transform",
+          "min": 24,
+          "max": 99
+        }
+      }
+    },
+    "void_effect": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "",
+      "last_tick_commands": "effect clear @s powerborne:void",
+      "commands": "",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:has_tag",
+          "tag": "powerborne.void_active"
+        }
+      }
+    }
+  }
+}

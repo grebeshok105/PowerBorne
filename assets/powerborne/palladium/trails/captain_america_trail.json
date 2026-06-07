@@ -1,0 +1,13 @@
+{
+  "type": "palladium:compound",
+  "trails": [
+    {
+        "type": "palladium:after_image",
+        "spacing": 1,
+        "lifetime": 10,
+        "mimic_player": false,
+        "color": "#64C9FF",
+        "opacity": 0.25
+    }
+  ]
+}

@@ -1,0 +1,1549 @@
+{
+  "name": {
+    "translate": "name.powerborne.captain_america"
+  },
+  "background": "minecraft:textures/block/red_wool.png",
+  "ability_bar_texture": "powerborne:textures/gui/ability_bar.png",
+  "icon": "powerborne:captain_america_suit",
+  "persistent_data": true,
+  "allow_bar_shrinking": false,
+  "gui_display_type": "tree",
+  "primary_color": "#70CD56",
+  "secondary_color": "#414141",
+  "abilities": {
+    "captain_america_root": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.root"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.root"
+      },
+      "gui_position": [
+        0,
+        0
+      ],
+      "icon": {
+        "type": "palladium:item",
+        "item": "powerborne:captain_america_suit"
+      }
+    },
+    "restrict_slots": {
+      "type": "palladium:restrict_slots",
+      "hidden": true,
+      "slots": [
+        "head",
+        "legs",
+        "feet"
+      ]
+    },
+    "lock_armor": {
+      "type": "palladium:lock_armor",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "rising_uppercut"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "rising_uppercut_u3"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "shield_rush"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "shield_rush_u3"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "spinning_shield"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "shield_slam"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "shield_slam_u3"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "shield_slam_air"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "shield_slam_air_u3"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:is_creative_mode"
+            }
+          }
+        ]
+      }
+    },
+    "render_layer": {
+      "type": "palladium:render_layer_by_accessory_slot",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "default_layer": "powerborne:captain_america",
+      "accessory_slot": "powerborne:captain_america",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "power": "powerborne:suit_stand/captain_america_suit_stand",
+              "ability": "is_stand"
+            }
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:captain_america_suit"
+            }
+          }
+        ]
+      }
+    },
+    "hide_layers": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "body_parts": [
+        "cape",
+        "chest_overlay",
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay"
+      ]
+    },
+    "hide_head_overlay": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "body_parts": [
+        "head_overlay"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:captain_america_suit"
+            }
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:accessory_selected",
+                  "accessory_slot": "powerborne:settings",
+                  "accessory": "powerborne:skinless"
+                }
+              },
+              {
+                "type": "palladium:integer_property",
+                "property": "toggle_helmet",
+                "min": 1,
+                "max": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "can_toggle_helmet": {
+      "type": "palladium:dummy",
+      "hidden": true
+    },
+    "falling_scale": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:falling 0.3 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:falling 1 @s"
+    },
+    "shield_ready_common": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:item_on_cooldown",
+              "item": "powerborne:vibranium_shield"
+            }
+          },
+          {
+            "type": "powerborne:item_durability",
+            "min_remaining": 6
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:vibranium_shield"
+            }
+          }
+        ]
+      }
+    },
+    "attack_damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": "0",
+      "uuid": "019d816a-4c0c-71f8-b84d-f3e37c6f3ffd"
+    },
+    "throw_shield_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.throw_shield"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.throw_shield"
+      },
+      "gui_position": [
+        -1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_throw.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "captain_america_root"
+          }
+        ]
+      }
+    },
+    "enhanced_physiology_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.enhanced_physiology"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.enhanced_physiology"
+      },
+      "gui_position": [
+        0,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "minecraft:textures/mob_effect/speed.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "captain_america_root"
+          }
+        ]
+      }
+    },
+    "rising_uppercut_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.rising_uppercut"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.rising_uppercut"
+      },
+      "gui_position": [
+        1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/uppercut.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "captain_america_root"
+          }
+        ]
+      }
+    },
+    "shield_bounce_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.shield_bounce"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.shield_bounce"
+      },
+      "gui_position": [
+        -1,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_bounce.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "throw_shield_buy"
+          }
+        ]
+      }
+    },
+    "super_soldier_u1": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.super_soldier_u1"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.super_soldier_u1"
+      },
+      "gui_position": [
+        0,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/item/super_soldier_serum.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "enhanced_physiology_buy"
+          }
+        ]
+      }
+    },
+    "shield_rush_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.shield_rush"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.shield_rush"
+      },
+      "gui_position": [
+        1,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_rush.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "rising_uppercut_buy"
+          }
+        ]
+      }
+    },
+    "punch_damage_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.shared.damage_upgrade"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.damage_upgrade"
+      },
+      "gui_position": [
+        -1,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/damage.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "shield_bounce_buy"
+          }
+        ]
+      }
+    },
+    "super_soldier_u2": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.super_soldier_u2"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.super_soldier_u2"
+      },
+      "gui_position": [
+        0,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/item/super_soldier_serum.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_soldier_u1"
+          }
+        ]
+      }
+    },
+    "defense_upgrade": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.shared.defense_upgrade"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.defense_upgrade"
+      },
+      "gui_position": [
+        1,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/defense.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "shield_rush_buy"
+          }
+        ]
+      }
+    },
+    "spinning_shield_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.spinning_shield"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.spinning_shield"
+      },
+      "gui_position": [
+        0,
+        3.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/spinning_shield.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "vibranium_absorption_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_soldier_u3"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "shield_slam_buy"
+          }
+        ]
+      }
+    },
+    "super_soldier_u3": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.super_soldier_u3"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.super_soldier_u3"
+      },
+      "gui_position": [
+        0,
+        3.0
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/item/super_soldier_serum.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_soldier_u2"
+          }
+        ]
+      }
+    },
+    "shield_slam_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.shield_slam"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.shield_slam"
+      },
+      "gui_position": [
+        -1,
+        3.0
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_slam.png"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "punch_damage_buy"
+          }
+        ]
+      }
+    },
+    "vibranium_absorption_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.vibranium_absorption"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.vibranium_absorption"
+      },
+      "gui_position": [
+        1,
+        3.0
+      ],
+      "icon": {
+        "type": "palladium:item",
+        "item": "palladium:vibranium_ingot"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:property_buyable",
+            "property": "captain_america_skill_points",
+            "icon": "powerborne:captain_america_suit",
+            "score": 1,
+            "description": {
+              "text": "Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "defense_upgrade"
+          }
+        ]
+      }
+    },
+    "throw_shield": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.throw_shield"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.throw_shield"
+      },
+      "list_index": 0,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_throw.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "throw_shield_buy"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "shield_ready_common"
+          }
+        ]
+      }
+    },
+    "throw_shield_animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "throw_shield"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:vibranium_shield"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:or",
+              "conditions": [
+                {
+                  "type": "powerborne:is_using_item",
+                  "item": "powerborne:vibranium_shield"
+                },
+                {
+                  "type": "palladium:or",
+                  "conditions": [
+                    { "type": "palladium:ability_enabled", "ability": "rising_uppercut" },
+                    { "type": "palladium:ability_enabled", "ability": "rising_uppercut_u3" }
+                  ]
+                },
+                {
+                  "type": "palladium:or",
+                  "conditions": [
+                    { "type": "palladium:ability_enabled", "ability": "shield_rush" },
+                    { "type": "palladium:ability_enabled", "ability": "shield_rush_u3" }
+                  ]
+                }
+              ]
+            }
+       
+          }
+        ]
+      }
+    },
+    "rising_uppercut": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.rising_uppercut"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.rising_uppercut"
+      },
+      "list_index": 2,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/uppercut.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 7,
+            "cooldown": 160
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "rising_uppercut_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_unlocked",
+              "ability": "super_soldier_u3"
+            }
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:item_in_slot",
+                  "slot": "mainhand",
+                  "item": {
+                    "item": "powerborne:vibranium_shield"
+                  }
+                }
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:item_in_slot",
+                    "slot": "mainhand",
+                    "item": {
+                      "item": "powerborne:vibranium_shield"
+                    }
+                  },
+                  {
+                    "type": "powerborne:item_durability",
+                    "min_remaining": 6
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:is_using_item",
+              "item": "powerborne:vibranium_shield"
+            }
+          }
+        ]
+      }
+    },
+    "rising_uppercut_u3": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.rising_uppercut"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.rising_uppercut"
+      },
+      "list_index": 2,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/uppercut.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 7,
+            "cooldown": 120
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "rising_uppercut_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_soldier_u3"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:item_in_slot",
+                  "slot": "mainhand",
+                  "item": {
+                    "item": "powerborne:vibranium_shield"
+                  }
+                }
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:item_in_slot",
+                    "slot": "mainhand",
+                    "item": {
+                      "item": "powerborne:vibranium_shield"
+                    }
+                  },
+                  {
+                    "type": "powerborne:item_durability",
+                    "min_remaining": 6
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:is_using_item",
+              "item": "powerborne:vibranium_shield"
+            }
+          }
+        ]
+      }
+    },
+    "rising_uppercut_animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "max_value": 2,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "rising_uppercut"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "rising_uppercut_u3"
+            }
+          ]
+        }
+      }
+    },
+    "shield_rush": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.shield_rush"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.shield_rush"
+      },
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_rush.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 7,
+            "cooldown": 240
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:vibranium_shield"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "shield_rush_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_unlocked",
+              "ability": "super_soldier_u3"
+            }
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "shield_ready_common"
+          }
+        ]
+      }
+    },
+    "shield_rush_u3": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.shield_rush"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.shield_rush"
+      },
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_rush.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 7,
+            "cooldown": 180
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:vibranium_shield"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "shield_rush_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_soldier_u3"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "shield_ready_common"
+          }
+        ]
+      }
+    },
+    "shield_rush_animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "shield_rush"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "shield_rush_u3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "shield_rush_trail": {
+      "type": "palladium:trail",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "trail": "powerborne:captain_america_trail",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "shield_rush"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "shield_rush_u3"
+            },
+            {
+              "type": "palladium:has_tag",
+              "tag": "powerborne.shield_slam"
+            }
+          ]
+        }
+      }
+    },
+    "step_assist": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "uuid": "019d404c-cb10-729e-8eb7-cfbdb80bf9c6",
+      "attribute": "forge:step_height_addition",
+      "operation": "0",
+      "amount": 1,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "shield_rush"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "shield_rush_u3"
+            }
+          ]
+        }
+      }
+    },
+    "spinning_shield": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.spinning_shield"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.spinning_shield"
+      },
+      "list_index": 4,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/spinning_shield.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 95,
+            "cooldown": 400
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "spinning_shield_buy"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "spinning_shield"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "shield_ready_common"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "shield_slam": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.shield_slam"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.shield_slam"
+      },
+      "list_index": 3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_slam.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 6,
+            "cooldown": 260
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:vibranium_shield"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "throw_shield"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "shield_slam_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_unlocked",
+              "ability": "super_soldier_u3"
+            }
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "shield_ready_common"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_on_cooldown",
+              "ability": "shield_slam_air"
+            }
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "shield_slam"
+              },
+              {
+                "type": "palladium:on_ground"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "shield_slam_u3": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.shield_slam"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.shield_slam"
+      },
+      "list_index": 3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_slam.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 6,
+            "cooldown": 195
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:vibranium_shield"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "throw_shield"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "shield_slam_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_soldier_u3"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "shield_ready_common"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_on_cooldown",
+              "ability": "shield_slam_air_u3"
+            }
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "shield_slam_u3"
+              },
+              {
+                "type": "palladium:on_ground"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "shield_slam_animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "shield_slam"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "shield_slam_u3"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "powerborne.slam_animation"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "shield_slam_pre_animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "max_value": 5,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "powerborne.shield_slam"
+          }
+        ]
+      }
+    },
+    "shield_slam_air": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.shield_slam"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.shield_slam"
+      },
+      "list_index": 3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_slam.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 260
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:vibranium_shield"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "throw_shield"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "shield_slam_buy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_unlocked",
+              "ability": "super_soldier_u3"
+            }
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "shield_ready_common"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_on_cooldown",
+              "ability": "shield_slam"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:on_ground"
+            }
+          }
+        ]
+      }
+    },
+    "shield_slam_air_u3": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.captain_america.shield_slam"
+      },
+      "description": {
+        "translate": "desc.powerborne.captain_america.shield_slam"
+      },
+      "list_index": 3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/captain_america/shield_slam.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 195
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "mainhand",
+            "item": {
+              "item": "powerborne:vibranium_shield"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "throw_shield"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "shield_slam_buy"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_soldier_u3"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "shield_ready_common"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_on_cooldown",
+              "ability": "shield_slam_u3"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:on_ground"
+            }
+          }
+        ]
+      }
+    },
+    "super_soldier_healing": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 120,
+      "amount": 0.5,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "enhanced_physiology_buy"
+          }
+        ]
+      }
+    },
+    "super_soldier_speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "uuid": "019d404c-71c0-77ed-9e42-b568dea2408e",
+      "operation": "0",
+      "amount": 0.02,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "super_soldier_speed_u1": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "uuid": "019d404c-71c0-77ed-9e42-b568dea2408f",
+      "operation": "0",
+      "amount": 0.03,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_soldier_u1"
+          }
+        ]
+      }
+    },
+    "super_soldier_jump": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "uuid": "019d404c-814a-729e-8eb7-cfbdb80bf9b4",
+      "operation": "0",
+      "amount": 0.2
+    },
+    "super_soldier_jump_u1": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "uuid": "019d404c-814a-729e-8eb7-cfbdb80bf9b2",
+      "operation": "0",
+      "amount": 0.3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "super_soldier_u1"
+          }
+        ]
+      }
+    },
+    "punch_damage_upgrade": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": "0",
+      "uuid": "019d816a-4c0c-71f8-b84d-f3e37c6f3ffe",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "punch_damage_buy"
+          }
+        ]
+      }
+    },
+    "defense_scale": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:defense 1.1 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:defense 1 @s"
+    },
+    "defense_scale_upgrade": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:defense 1.5 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:defense 1 @s",
+      "conditions": {
+        "unlocking": {
+          "type": "palladium:ability_unlocked",
+          "ability": "defense_upgrade"
+        }
+      }
+    }
+  }
+}

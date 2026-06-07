@@ -1,0 +1,571 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/mjolnir_fp.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/#skin.png",
+        "variables": {
+          "skin": {
+            "type": "palladium:condition",
+            "conditions": [
+              {
+                "type": "powerborne:held_item_cmd",
+                "item": "powerborne:mjolnir",
+                "arm": "right",
+                "value": 1
+              }
+            ],
+            "true_value": "mjolnir_awakened",
+            "false_value": "mjolnir"
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/mjolnir.animation.json",
+      "animation_controller": [
+        {
+          "name": "mjolnir_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "spin_trigger": "spin_fp",
+            "stop_trigger": "stop",
+            "flying_trigger": "flying"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": {
+        "type": "powerborne:item_in_arm",
+        "arm": "right"
+      },
+      "third_person_conditions": false
+    },
+    {
+      "type": "geckolib:default",
+      "render_type": "glow",
+      "model": "powerborne:geo/mjolnir_fp_glow.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/mjolnir_glow/#FRAME.png",
+        "variables": {
+          "FRAME": {
+            "type": "palladium:entity_ticks",
+            "divide": 2,
+            "modulo": 5
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/mjolnir.animation.json",
+      "animation_controller": [
+        {
+          "name": "mjolnir_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "spin_trigger": "spin_fp",
+            "stop_trigger": "stop",
+            "flying_trigger": "flying"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": {
+        "type": "palladium:or",
+        "conditions": [
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "powerborne:item_in_arm",
+                "arm": "right",
+                "prefer_main": true
+              },
+              {
+                "type": "powerborne:item_in_main_hand",
+                "item": "powerborne:mjolnir"
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "power": "powerborne:god_of_thunder",
+                "ability": "lightning_charge_timer",
+                "min": 10,
+                "max": 999
+              },
+              {
+                "type": "palladium:ability_ticks",
+                "power": "powerborne:god_of_thunder",
+                "ability": "lightning_charge_timer",
+                "min": 11,
+                "max": 999
+              }
+            ]
+          },
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "powerborne:item_in_arm",
+                "arm": "right"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "powerborne:god_of_thunder",
+                "ability": "god_mode"
+              }
+            ]
+          }
+        ]
+      },
+      "third_person_conditions": false
+    },
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/mjolnir_left_fp.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/#skin.png",
+        "variables": {
+          "skin": {
+            "type": "palladium:condition",
+            "conditions": [
+              {
+                "type": "powerborne:held_item_cmd",
+                "item": "powerborne:mjolnir",
+                "arm": "left",
+                "value": 1
+              }
+            ],
+            "true_value": "mjolnir_awakened",
+            "false_value": "mjolnir"
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/mjolnir.animation.json",
+      "animation_controller": [
+        {
+          "name": "mjolnir_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "spin_trigger": "spin_fp",
+            "stop_trigger": "stop",
+            "flying_trigger": "flying"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": {
+        "type": "powerborne:item_in_arm",
+        "arm": "left"
+      },
+      "third_person_conditions": false
+    },
+    {
+      "type": "geckolib:default",
+      "render_type": "glow",
+      "model": "powerborne:geo/mjolnir_left_fp_glow.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/mjolnir_glow/#FRAME.png",
+        "variables": {
+          "FRAME": {
+            "type": "palladium:entity_ticks",
+            "divide": 2,
+            "modulo": 5
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/mjolnir.animation.json",
+      "animation_controller": [
+        {
+          "name": "mjolnir_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "spin_trigger": "spin_fp",
+            "stop_trigger": "stop",
+            "flying_trigger": "flying"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": {
+        "type": "palladium:or",
+        "conditions": [
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "powerborne:item_in_arm",
+                "arm": "left",
+                "prefer_main": true
+              },
+              {
+                "type": "powerborne:item_in_main_hand",
+                "item": "powerborne:mjolnir"
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "power": "powerborne:god_of_thunder",
+                "ability": "lightning_charge_timer",
+                "min": 10,
+                "max": 999
+              },
+              {
+                "type": "palladium:ability_ticks",
+                "power": "powerborne:god_of_thunder",
+                "ability": "lightning_charge_timer",
+                "min": 11,
+                "max": 999
+              }
+            ]
+          },
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "powerborne:item_in_arm",
+                "arm": "left"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "powerborne:god_of_thunder",
+                "ability": "god_mode"
+              }
+            ]
+          }
+        ]
+      },
+      "third_person_conditions": false
+    },
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/mjolnir.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/#skin.png",
+        "variables": {
+          "skin": {
+            "type": "palladium:condition",
+            "conditions": [
+              {
+                "type": "powerborne:held_item_cmd",
+                "item": "powerborne:mjolnir",
+                "arm": "right",
+                "value": 1
+              }
+            ],
+            "true_value": "mjolnir_awakened",
+            "false_value": "mjolnir"
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/mjolnir.animation.json",
+      "animation_controller": [
+        {
+          "name": "mjolnir_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "spin_trigger": "spin",
+            "stop_trigger": "stop",
+            "flying_trigger": "flying"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": false,
+      "third_person_conditions": [
+        {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:entity_type",
+            "entity_type": "minecraft:armor_stand"
+          }
+        },
+        {
+          "type": "powerborne:item_in_arm",
+          "arm": "right"
+        }
+      ]
+    },
+    {
+      "type": "geckolib:default",
+      "render_type": "glow",
+      "model": "powerborne:geo/mjolnir_glow.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/mjolnir_glow/#FRAME.png",
+        "variables": {
+          "FRAME": {
+            "type": "palladium:entity_ticks",
+            "divide": 2,
+            "modulo": 5
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/mjolnir.animation.json",
+      "animation_controller": [
+        {
+          "name": "mjolnir_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "spin_trigger": "spin",
+            "stop_trigger": "stop",
+            "flying_trigger": "flying"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": false,
+      "third_person_conditions": [
+        {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:entity_type",
+            "entity_type": "minecraft:armor_stand"
+          }
+        },
+        {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "powerborne:item_in_arm",
+                  "arm": "right",
+                  "prefer_main": true
+                },
+                {
+                  "type": "powerborne:item_in_main_hand",
+                  "item": "powerborne:mjolnir"
+                },
+                {
+                  "type": "palladium:animation_timer_ability",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "lightning_charge_timer",
+                  "min": 10,
+                  "max": 999
+                },
+                {
+                  "type": "palladium:ability_ticks",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "lightning_charge_timer",
+                  "min": 10,
+                  "max": 999
+                }
+              ]
+            },
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "powerborne:item_in_arm",
+                  "arm": "right"
+                },
+                {
+                  "type": "palladium:ability_enabled",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "god_mode"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/mjolnir_left.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/#skin.png",
+        "variables": {
+          "skin": {
+            "type": "palladium:condition",
+            "conditions": [
+              {
+                "type": "powerborne:held_item_cmd",
+                "item": "powerborne:mjolnir",
+                "arm": "left",
+                "value": 1
+              }
+            ],
+            "true_value": "mjolnir_awakened",
+            "false_value": "mjolnir"
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/mjolnir.animation.json",
+      "animation_controller": [
+        {
+          "name": "mjolnir_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "spin_trigger": "spin",
+            "stop_trigger": "stop",
+            "flying_trigger": "flying"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": false,
+      "third_person_conditions": [
+        {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:entity_type",
+            "entity_type": "minecraft:armor_stand"
+          }
+        },
+        {
+          "type": "powerborne:item_in_arm",
+          "arm": "left"
+        }
+      ]
+    },
+    {
+      "type": "geckolib:default",
+      "render_type": "glow",
+      "model": "powerborne:geo/mjolnir_left_glow.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/mjolnir_glow/#FRAME.png",
+        "variables": {
+          "FRAME": {
+            "type": "palladium:entity_ticks",
+            "divide": 2,
+            "modulo": 5
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/mjolnir.animation.json",
+      "animation_controller": [
+        {
+          "name": "mjolnir_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "spin_trigger": "spin",
+            "stop_trigger": "stop",
+            "flying_trigger": "flying"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": false,
+      "third_person_conditions": [
+        {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:entity_type",
+            "entity_type": "minecraft:armor_stand"
+          }
+        },
+        {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "powerborne:item_in_arm",
+                  "arm": "left",
+                  "prefer_main": true
+                },
+                {
+                  "type": "powerborne:item_in_main_hand",
+                  "item": "powerborne:mjolnir"
+                },
+                {
+                  "type": "palladium:animation_timer_ability",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "lightning_charge_timer",
+                  "min": 10,
+                  "max": 999
+                },
+                {
+                  "type": "palladium:ability_ticks",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "lightning_charge_timer",
+                  "min": 11,
+                  "max": 999
+                }
+              ]
+            },
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "powerborne:item_in_arm",
+                  "arm": "left"
+                },
+                {
+                  "type": "palladium:ability_enabled",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "god_mode"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/mjolnir_item.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/#skin.png",
+        "variables": {
+          "skin": {
+            "type": "palladium:condition",
+            "conditions": [
+              {
+                "type": "powerborne:held_item_cmd",
+                "item": "powerborne:mjolnir",
+                "arm": "right",
+                "value": 1
+              }
+            ],
+            "true_value": "mjolnir_awakened",
+            "false_value": "mjolnir"
+          }
+        }
+      },
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": false,
+      "third_person_conditions": [
+        {
+          "type": "palladium:entity_type",
+          "entity_type": "minecraft:armor_stand"
+        }
+      ]
+    }
+  ]
+}

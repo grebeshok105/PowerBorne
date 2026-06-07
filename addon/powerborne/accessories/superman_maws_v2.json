@@ -1,0 +1,6 @@
+{
+    "type": "palladium:render_layer",
+    "slot": "powerborne:superman",
+    "render_layer": "powerborne:superman_maws_v2",
+    "disable_rendering": true
+} 

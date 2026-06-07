@@ -1,0 +1,154 @@
+[
+  {
+    "type": "palladium:lightning",
+    "body_part": "chest",
+    "glow_color": "#0341fc",
+    "core_color": "#86BDED",
+    "segments": 7,
+    "spread": 6,
+    "frequency": 1,
+    "glow_opacity": 0.72,
+    "core_opacity": 0.28,
+    "size": [0.14, 0.14],
+    "thickness": 0.235,
+    "offset": [0, 0, -12],
+    "visibility": {
+      "first_person": false,
+      "third_person": true
+    }
+  },
+  {
+    "type": "palladium:lightning",
+    "body_part": "chest",
+    "glow_color": "#0341fc",
+    "core_color": "#86BDED",
+    "segments": 7,
+    "spread": 6,
+    "frequency": 2,
+    "glow_opacity": 0.72,
+    "core_opacity": 0.28,
+    "size": [0.32, 0.32],
+    "thickness": 0.032,
+    "offset": [0, 0, -12],
+    "visibility": {
+      "first_person": false,
+      "third_person": true
+    }
+  },
+  {
+    "type": "palladium:lightning",
+    "body_part": "chest",
+    "glow_color": "#0341fc",
+    "core_color": "#86BDED",
+    "segments": 7,
+    "spread": 6,
+    "frequency": 3,
+    "glow_opacity": 0.72,
+    "core_opacity": 0.28,
+    "size": [0.5, 0.5],
+    "thickness": 0.05,
+    "offset": [0, 0, -12],
+    "visibility": {
+      "first_person": false,
+      "third_person": true
+    }
+  },
+  {
+    "type": "palladium:lightning",
+    "body_part": "chest",
+    "glow_color": "#0341fc",
+    "core_color": "#86BDED",
+    "segments": 7,
+    "spread": 6,
+    "frequency": 4,
+    "glow_opacity": 0.72,
+    "core_opacity": 0.28,
+    "size": [0.68, 0.68],
+    "thickness": 0.067,
+    "offset": [0, 0, -12],
+    "visibility": {
+      "first_person": false,
+      "third_person": true
+    }
+  },
+  {
+    "type": "palladium:lightning",
+    "body_part": "chest",
+    "glow_color": "#0341fc",
+    "core_color": "#86BDED",
+    "segments": 7,
+    "spread": 6,
+    "frequency": 1,
+    "glow_opacity": 0.72,
+    "core_opacity": 0.28,
+    "size": [0.14, 0.14],
+    "thickness": 0.235,
+    "offset": [0, -3, -5],
+    "visibility": {
+      "first_person": true,
+      "third_person": false
+    }
+  },
+  {
+    "type": "palladium:lightning",
+    "body_part": "chest",
+    "glow_color": "#0341fc",
+    "core_color": "#86BDED",
+    "segments": 7,
+    "spread": 6,
+    "frequency": 2,
+    "glow_opacity": 0.72,
+    "core_opacity": 0.28,
+    "size": [0.32, 0.32],
+    "thickness": 0.032,
+    "offset": [0, -3, -5],
+    "visibility": {
+      "first_person": true,
+      "third_person": false
+    }
+  },
+  {
+    "type": "palladium:lightning",
+    "body_part": "chest",
+    "glow_color": "#0341fc",
+    "core_color": "#86BDED",
+    "segments": 7,
+    "spread": 6,
+    "frequency": 3,
+    "glow_opacity": 0.72,
+    "core_opacity": 0.28,
+    "size": [0.5, 0.5],
+    "thickness": 0.05,
+    "offset": [0, -3, -5],
+    "visibility": {
+      "first_person": true,
+      "third_person": false
+    }
+  },
+  {
+    "type": "palladium:lightning",
+    "body_part": "chest",
+    "glow_color": "#0341fc",
+    "core_color": "#86BDED",
+    "segments": 7,
+    "spread": 6,
+    "frequency": 4,
+    "glow_opacity": 0.72,
+    "core_opacity": 0.28,
+    "size": [0.68, 0.68],
+    "thickness": 0.067,
+    "offset": [0, -3, -5],
+    "particles": [
+      {
+        "particle_type": "minecraft:firework",
+        "amount": 1,
+        "motion": [0, -2, 0],
+        "motion_random": [2, 2, 2]
+      }
+    ],
+    "visibility": {
+      "first_person": true,
+      "third_person": false
+    }
+  }
+]

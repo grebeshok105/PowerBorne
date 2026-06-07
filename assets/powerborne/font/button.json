@@ -1,0 +1,18 @@
+{
+    "providers": [
+        {
+            "type": "bitmap",
+            "file": "powerborne:gui/lock.png",
+            "ascent": 11,
+            "height": 18,
+            "chars": ["\u2AD9"]
+        },
+        {
+            "type": "bitmap",
+            "file": "powerborne:gui/lock.png",
+            "ascent": 11,
+            "height": 18,
+            "chars": ["\u2AD8"]
+        }
+    ]
+}

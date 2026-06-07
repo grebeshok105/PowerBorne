@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "IVI",
+    "VSV",
+    "IVI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "V": {
+      "item": "palladium:vibranium_ingot"
+    },
+    "S": {
+      "item": "minecraft:shield"
+    }
+  },
+  "result": {
+    "item": "powerborne:vibranium_shield",
+    "count": 1,
+    "nbt": "{Color1:\"ffffff\",Color2:\"dfdfdf\",Color3:\"ffffff\",Color4:\"dfdfdf\",Color5:\"ffffff\"}"
+  }
+}

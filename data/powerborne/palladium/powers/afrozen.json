@@ -1,0 +1,26 @@
+{
+    "name": "Frozen",
+    "icon": "minecraft:ice",
+    "gui_display_type": "list",
+    "abilities": {
+        "ice_layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "render_layer": "powerborne:frozen"
+        },
+        "swim_speed": {
+            "type": "palladium:attribute_modifier",
+            "uuid": "019d031e-bf86-718d-8310-8b9d7967856e",
+            "hidden": true,
+            "attribute": "forge:swim_speed",
+            "amount": -100
+        },
+        "disable_flight": {
+            "type": "palladium:attribute_modifier",
+            "uuid": "019d031e-e39f-7494-8dd1-15669b63809b",
+            "hidden": true,
+            "attribute": "palladium:flight_speed",
+            "amount": -100
+        }
+    }
+}

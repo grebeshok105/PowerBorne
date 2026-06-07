@@ -1,0 +1,452 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/stormbreaker_right.geo.json",
+      "texture": "powerborne:textures/models/stormbreaker.png",
+      "animation_file": "powerborne:animations/stormbreaker.animation.json",
+      "animation_controller": [
+        {
+          "name": "stormbreaker_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "aim_trigger": "stormbreaker_aim",
+            "stop_trigger": "stormbreaker_idle"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": {
+        "type": "palladium:and",
+        "conditions": [
+          {
+            "type": "powerborne:item_in_arm",
+            "item": "powerborne:stormbreaker",
+            "arm": "right"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:entity_type",
+              "entity_type": "minecraft:armor_stand"
+            }
+          }
+        ]
+      },
+      "third_person_conditions": {
+        "type": "palladium:and",
+        "conditions": [
+          {
+            "type": "powerborne:item_in_arm",
+            "item": "powerborne:stormbreaker",
+            "arm": "right"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:entity_type",
+              "entity_type": "minecraft:armor_stand"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "geckolib:default",
+      "render_type": "glow",
+      "model": "powerborne:geo/stormbreaker_right.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/stormbreaker_glow/#FRAME.png",
+        "variables": {
+          "FRAME": {
+            "type": "palladium:entity_ticks",
+            "divide": 2,
+            "modulo": 5
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/stormbreaker.animation.json",
+      "animation_controller": [
+        {
+          "name": "stormbreaker_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "aim_trigger": "stormbreaker_aim",
+            "stop_trigger": "stormbreaker_idle"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": {
+        "type": "palladium:or",
+        "conditions": [
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "powerborne:item_in_arm",
+                "item": "powerborne:stormbreaker",
+                "arm": "right",
+                "prefer_main": true
+              },
+              {
+                "type": "powerborne:item_in_main_hand",
+                "item": "powerborne:stormbreaker"
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "power": "powerborne:god_of_thunder",
+                "ability": "lightning_charge_timer",
+                "min": 10,
+                "max": 999
+              },
+              {
+                "type": "palladium:ability_ticks",
+                "power": "powerborne:god_of_thunder",
+                "ability": "lightning_charge_timer",
+                "min": 11,
+                "max": 999
+              }
+            ]
+          },
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "powerborne:item_in_arm",
+                "item": "powerborne:stormbreaker",
+                "arm": "right"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "powerborne:god_of_thunder",
+                "ability": "god_mode"
+              }
+            ]
+          }
+        ]
+      },
+      "third_person_conditions": false
+    },
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/stormbreaker_left.geo.json",
+      "texture": "powerborne:textures/models/stormbreaker.png",
+      "animation_file": "powerborne:animations/stormbreaker.animation.json",
+      "animation_controller": [
+        {
+          "name": "stormbreaker_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "aim_trigger": "stormbreaker_aim",
+            "stop_trigger": "stormbreaker_idle"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": {
+        "type": "powerborne:item_in_arm",
+        "item": "powerborne:stormbreaker",
+        "arm": "left"
+      },
+      "third_person_conditions": {
+        "type": "powerborne:item_in_arm",
+        "item": "powerborne:stormbreaker",
+        "arm": "left"
+      }
+    },
+    {
+      "type": "geckolib:default",
+      "render_type": "glow",
+      "model": "powerborne:geo/stormbreaker_left.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/stormbreaker_glow/#FRAME.png",
+        "variables": {
+          "FRAME": {
+            "type": "palladium:entity_ticks",
+            "divide": 2,
+            "modulo": 5
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/stormbreaker.animation.json",
+      "animation_controller": [
+        {
+          "name": "stormbreaker_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "aim_trigger": "stormbreaker_aim",
+            "stop_trigger": "stormbreaker_idle"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": {
+        "type": "palladium:or",
+        "conditions": [
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "powerborne:item_in_arm",
+                "item": "powerborne:stormbreaker",
+                "arm": "left",
+                "prefer_main": true
+              },
+              {
+                "type": "powerborne:item_in_main_hand",
+                "item": "powerborne:stormbreaker"
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "power": "powerborne:god_of_thunder",
+                "ability": "lightning_charge_timer",
+                "min": 10,
+                "max": 999
+              },
+              {
+                "type": "palladium:ability_ticks",
+                "power": "powerborne:god_of_thunder",
+                "ability": "lightning_charge_timer",
+                "min": 11,
+                "max": 999
+              }
+            ]
+          },
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "powerborne:item_in_arm",
+                "item": "powerborne:stormbreaker",
+                "arm": "left"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "powerborne:god_of_thunder",
+                "ability": "god_mode"
+              }
+            ]
+          }
+        ]
+      },
+      "third_person_conditions": false
+    },
+    {
+      "type": "geckolib:default",
+      "render_type": "glow",
+      "model": "powerborne:geo/stormbreaker_right.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/stormbreaker_glow/#FRAME.png",
+        "variables": {
+          "FRAME": {
+            "type": "palladium:entity_ticks",
+            "divide": 2,
+            "modulo": 5
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/stormbreaker.animation.json",
+      "animation_controller": [
+        {
+          "name": "stormbreaker_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "aim_trigger": "stormbreaker_aim",
+            "stop_trigger": "stormbreaker_idle"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": false,
+      "third_person_conditions": [
+        {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:entity_type",
+            "entity_type": "minecraft:armor_stand"
+          }
+        },
+        {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "powerborne:item_in_arm",
+                  "item": "powerborne:stormbreaker",
+                  "arm": "right",
+                  "prefer_main": true
+                },
+                {
+                  "type": "powerborne:item_in_main_hand",
+                  "item": "powerborne:stormbreaker"
+                },
+                {
+                  "type": "palladium:animation_timer_ability",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "lightning_charge_timer",
+                  "min": 10,
+                  "max": 999
+                },
+                {
+                  "type": "palladium:ability_ticks",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "lightning_charge_timer",
+                  "min": 10,
+                  "max": 999
+                }
+              ]
+            },
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "powerborne:item_in_arm",
+                  "item": "powerborne:stormbreaker",
+                  "arm": "right"
+                },
+                {
+                  "type": "palladium:ability_enabled",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "god_mode"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "geckolib:default",
+      "render_type": "glow",
+      "model": "powerborne:geo/stormbreaker_left.geo.json",
+      "texture": {
+        "type": "palladium:default",
+        "base": "powerborne:textures/models/stormbreaker_glow/#FRAME.png",
+        "variables": {
+          "FRAME": {
+            "type": "palladium:entity_ticks",
+            "divide": 2,
+            "modulo": 5
+          }
+        }
+      },
+      "animation_file": "powerborne:animations/stormbreaker.animation.json",
+      "animation_controller": [
+        {
+          "name": "stormbreaker_controller",
+          "transition_tick_time": 0,
+          "triggers": {
+            "aim_trigger": "stormbreaker_aim",
+            "stop_trigger": "stormbreaker_idle"
+          }
+        }
+      ],
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": false,
+      "third_person_conditions": [
+        {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:entity_type",
+            "entity_type": "minecraft:armor_stand"
+          }
+        },
+        {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "powerborne:item_in_arm",
+                  "item": "powerborne:stormbreaker",
+                  "arm": "left",
+                  "prefer_main": true
+                },
+                {
+                  "type": "powerborne:item_in_main_hand",
+                  "item": "powerborne:stormbreaker"
+                },
+                {
+                  "type": "palladium:animation_timer_ability",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "lightning_charge_timer",
+                  "min": 10,
+                  "max": 999
+                },
+                {
+                  "type": "palladium:ability_ticks",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "lightning_charge_timer",
+                  "min": 11,
+                  "max": 999
+                }
+              ]
+            },
+            {
+              "type": "palladium:and",
+              "conditions": [
+                {
+                  "type": "powerborne:item_in_arm",
+                  "item": "powerborne:stormbreaker",
+                  "arm": "left"
+                },
+                {
+                  "type": "palladium:ability_enabled",
+                  "power": "powerborne:god_of_thunder",
+                  "ability": "god_mode"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/stormbreaker_item.geo.json",
+      "texture": "powerborne:textures/models/stormbreaker.png",
+      "bones": {
+        "right_arm": "armorRightArm",
+        "left_arm": "armorLeftArm"
+      },
+      "first_person_conditions": false,
+      "third_person_conditions": [
+        {
+          "type": "palladium:entity_type",
+          "entity_type": "minecraft:armor_stand"
+        },
+        {
+          "type": "powerborne:item_in_arm",
+          "item": "powerborne:stormbreaker",
+          "arm": "right"
+        }
+      ]
+    }
+  ]
+}

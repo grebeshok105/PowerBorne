@@ -1,0 +1,14 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "texture": "powerborne:textures/models/entity/herobrine.png"
+    },
+    {
+      "model_layer": "palladium:humanoid#tight_suit",
+      "render_type": "glow",
+      "texture": "powerborne:textures/models/entity/herobrine_eyes.png"
+    }
+  ]
+}

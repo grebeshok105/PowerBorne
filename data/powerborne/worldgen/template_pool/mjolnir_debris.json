@@ -1,0 +1,69 @@
+{
+    "name": "powerborne:mjolnir_debris",
+    "fallback": "minecraft:empty",
+    "elements": [
+      {
+        "weight": 22,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "powerborne:falling_cobblestone",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      },
+      {
+        "weight": 22,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "powerborne:falling_stone",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      },
+      {
+        "weight": 22,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "powerborne:falling_cobbled_deepslate",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      },
+      {
+        "weight": 22,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "powerborne:falling_smooth_basalt",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      },
+      {
+        "weight": 10,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "powerborne:falling_gravel",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      },
+      {
+        "weight": 5,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "powerborne:falling_coarse_dirt",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      },
+      {
+        "weight": 2,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "minecraft:empty",
+          "processors": "minecraft:empty",
+          "projection": "rigid"
+        }
+      }
+    ]
+  }

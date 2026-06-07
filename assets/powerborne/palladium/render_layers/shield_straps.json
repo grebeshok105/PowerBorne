@@ -1,0 +1,29 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/shield_straps_right.geo.json",
+      "texture": "powerborne:textures/item/vibranium_shield/vibranium.png",
+      "conditions": [
+        {
+          "type": "powerborne:item_in_arm",
+          "item": "powerborne:vibranium_shield",
+          "arm": "right"
+        }
+      ]
+    },
+    {
+      "type": "geckolib:default",
+      "model": "powerborne:geo/shield_straps_left.geo.json",
+      "texture": "powerborne:textures/item/vibranium_shield/vibranium.png",
+      "conditions": [
+        {
+          "type": "powerborne:item_in_arm",
+          "item": "powerborne:vibranium_shield",
+          "arm": "left"
+        }
+      ]
+    }
+  ]
+}

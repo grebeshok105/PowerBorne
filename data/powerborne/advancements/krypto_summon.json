@@ -1,0 +1,23 @@
+{
+    "parent": "powerborne:powerborne",
+    "display": {
+        "icon": {
+            "item": "powerborne:kryptonian_whistle"
+        },
+        "title": {
+            "translate": "advancements.powerborne.krypto_summon.title"
+        },
+        "description": {
+            "translate": "advancements.powerborne.krypto_summon.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

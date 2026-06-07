@@ -1,0 +1,5 @@
+{
+  "model_layer": "palladium:humanoid#tight_suit",
+  "render_type": "glow",
+  "texture": "powerborne:textures/models/suits/superman/red_eyes.png"
+}

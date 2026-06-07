@@ -1,0 +1,39 @@
+modLoader = 'lowcodefml'
+showAsResourcePack = false
+loaderVersion="[47,)"
+license="All rights reserved"
+
+[[mods]]
+modId="powerborne"
+displayName="Powerborne Heroes"
+authors = "RunnyHero, ATROX"
+version="0.2.1"
+logoFile = "powerborne_banner.png"
+logoBlur = false
+description='''
+A superhero addon for Palladium that adds Marvel and DC heroes, suits, and powers.
+'''
+
+[modproperties.powerborne]
+catalogueImageIcon = "powerborne_icon.png"
+
+[[dependencies.powerborne]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.powerborne]]
+modId = "palladium"
+mandatory = true
+versionRange = "[4.5.3,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.powerborne]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"

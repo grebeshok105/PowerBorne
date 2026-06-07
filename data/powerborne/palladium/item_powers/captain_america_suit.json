@@ -1,0 +1,8 @@
+{
+  "slot": "chest",
+  "item": "powerborne:captain_america_suit",
+  "power": [
+    "powerborne:captain_america",
+    "powerborne:suit_stand/captain_america_suit_stand"
+  ]
+}

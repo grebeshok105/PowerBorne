@@ -1,0 +1,8 @@
+{
+    "type": "palladium:default",
+    "sound_type": "minecraft:stone",
+    "destroy_time": 15.0,
+    "explosion_resistance": 1200.0,
+    "requires_correct_tool_for_drops": true,
+    "creative_mode_tab": "minecraft:building_blocks"
+}
