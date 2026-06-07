@@ -1,0 +1,68 @@
+{
+  "name": "Iron Man Suit Stand",
+  "icon": "palladium:suit_stand",
+  "abilities": {
+    "is_stand": {
+      "type": "palladium:dummy",
+      "title": "is_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:entity_type",
+              "entity_type": "minecraft:armor_stand"
+            },
+            {
+              "type": "palladium:entity_type",
+              "entity_type": "palladium:suit_stand"
+            }
+          ]
+        }
+      }
+    },
+    "iron_man_default_layer": {
+      "type": "palladium:render_layer",
+      "render_layer": "powerborne:iron_man",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:stand_suit_variant",
+              "value": "iron_man"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "is_stand"
+            }
+          ]
+        }
+      }
+    },
+    "set_iron_man_default": {
+      "type": "powerborne:set_stand_property",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "property": "stand_suit_variant",
+      "value": "iron_man",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "is_stand"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:stand_suit_variant",
+              "value": "iron_man"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

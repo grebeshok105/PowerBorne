@@ -35,6 +35,16 @@ const HEROES_CONFIG = {
             'super_punch': { type: 'hit_entities', xp: 5 }
         }
     },
+    'powerborne:iron_man': {
+        name: 'iron_man',
+        displayName: 'Iron Man',
+        abilities: {
+            'supersonic_boost': { type: 'action', xp: 1 },
+            'repulsor_blast': { type: 'ability_kill', xp: 4 },
+            'targeting_hud': { type: 'duration', xp: 1, ticksRequired: 120 },
+            'unibeam': { type: 'beam_kill', xp: 6, timerId: 'unibeam_timer' }
+        }
+    },
     'powerborne:god_of_thunder': {
         name: 'thor',
         displayName: 'Thor',
@@ -82,6 +92,15 @@ const HERO_AUTO_MAX_CONFIG = {
         resources: {
             energy_bar_blood_v_max: 500,
             energy_bar_blood_v: 500
+        }
+    },
+    'powerborne:iron_man': {
+        name: 'iron_man',
+        resources: {
+            energy_bar_arc_max: 1000,
+            energy_bar_arc: 1000,
+            iron_man_reactor_swap_ticks: 0,
+            iron_man_reactor_status: 0
         }
     },
     'powerborne:god_of_thunder': {

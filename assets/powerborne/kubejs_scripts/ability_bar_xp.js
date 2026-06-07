@@ -3,7 +3,7 @@ let $AbilityBarRenderer = Java.loadClass('net.threetag.palladium.client.screen.A
 let $PalladiumConfig = Java.loadClass('net.threetag.palladium.PalladiumConfig');
 let $ChatScreen = Java.loadClass('net.minecraft.client.gui.screens.ChatScreen');
 
-const POWERS = ['sentry', 'superman', 'homelander', 'god_of_thunder', 'captain_america'];
+const POWERS = ['sentry', 'superman', 'homelander', 'iron_man', 'god_of_thunder', 'captain_america'];
 const XP_WIDTH = 49;
 const XP_HEIGHT = 3;
 const ABILITIES_WIDTH = 24;

@@ -329,6 +329,60 @@ PalladiumEvents.registerAnimations((event) => {
         }
     });
 
+    event.registerForPower('powerborne/iron_man_repulsor_blast', 'powerborne:iron_man', 100, (builder) => {
+        const progress = animationUtil.getAnimationTimerAbilityValue(builder.getPlayer(), 'powerborne:iron_man', 'repulsor_blast_timer', builder.getPartialTicks());
+        if (progress <= 0.0) return;
+
+        let player = builder.getPlayer();
+        let model = builder.getModel();
+        let headYaw = model.head.yRot * 180 / JavaMath.PI;
+        let pitch = Number(player.getPitch());
+
+        if (builder.isFirstPerson()) {
+            builder.get('right_arm')
+                .setY(-5)
+                .setZ(-2)
+                .setXRotShortestDegrees(-18)
+                .setYRotShortestDegrees(-10)
+                .animate('InOutCubic', progress);
+        } else {
+            builder.get('right_arm')
+                .setXRotShortestDegrees(pitch - 80)
+                .setYRotShortestDegrees(headYaw - 15)
+                .animate('InOutCubic', progress);
+            builder.get('left_arm')
+                .setXRotDegrees(-20)
+                .setYRotDegrees(10)
+                .animate('InOutCubic', progress);
+        }
+    });
+
+    event.registerForPower('powerborne/iron_man_unibeam', 'powerborne:iron_man', 100, (builder) => {
+        const progress = animationUtil.getAnimationTimerAbilityValue(builder.getPlayer(), 'powerborne:iron_man', 'unibeam_timer', builder.getPartialTicks());
+        if (progress <= 0.0) return;
+
+        if (builder.isFirstPerson()) {
+            builder.get('right_arm')
+                .setZRotDegrees(18)
+                .animate('InOutCubic', progress);
+            builder.get('left_arm')
+                .setZRotDegrees(-18)
+                .animate('InOutCubic', progress);
+        } else {
+            builder.get('right_arm')
+                .setXRotDegrees(-40)
+                .setYRotDegrees(28)
+                .animate('InOutCubic', progress);
+            builder.get('left_arm')
+                .setXRotDegrees(-40)
+                .setYRotDegrees(-28)
+                .animate('InOutCubic', progress);
+            builder.get('body')
+                .setXRotDegrees(-5)
+                .animate('InOutCubic', progress);
+        }
+    });
+
     event.register('powerborne/mjolnir_hold', 100, (builder) => {
         let player = builder.getPlayer();
         let mainHand = player.getMainHandItem().id == 'powerborne:mjolnir';

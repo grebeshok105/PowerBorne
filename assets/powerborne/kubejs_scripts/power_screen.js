@@ -2,6 +2,7 @@ const HEROES_CONFIG = {
     'powerborne:sentry': { name: 'sentry', displayName: 'Sentry' },
     'powerborne:superman': { name: 'superman', displayName: 'Superman' },
     'powerborne:homelander': { name: 'homelander', displayName: 'Homelander' },
+    'powerborne:iron_man': { name: 'iron_man', displayName: 'Iron Man' },
     'powerborne:god_of_thunder': { name: 'thor', displayName: 'Thor' },
     'powerborne:captain_america': { name: 'captain_america', displayName: 'Captain America' }
 };
@@ -19,6 +20,10 @@ PalladiumEvents.registerPropertiesClientSided((event) => {
         event.registerProperty("homelander_level", 'integer', 0);
         event.registerProperty("homelander_xp", 'integer', 0);
         event.registerProperty("homelander_skill_points", 'integer', 0);
+
+        event.registerProperty("iron_man_level", 'integer', 0);
+        event.registerProperty("iron_man_xp", 'integer', 0);
+        event.registerProperty("iron_man_skill_points", 'integer', 0);
 
         event.registerProperty("thor_level", 'integer', 0);
         event.registerProperty("thor_xp", 'integer', 0);

@@ -55,13 +55,24 @@ for (const file of jsFiles) {
 
 const requiredFiles = [
   'data/powerborne/palladium/powers/homelander.json',
+  'data/powerborne/palladium/powers/iron_man.json',
   'data/powerborne/palladium/item_powers/homelander_suit.json',
+  'data/powerborne/palladium/item_powers/iron_man_suit.json',
   'data/powerborne/kubejs_scripts/homelander/blood_v_energy.js',
+  'data/powerborne/kubejs_scripts/iron_man/iron_man_energy.js',
   'data/powerborne/tags/damage_type/homelander_immune_to.json',
+  'data/powerborne/tags/damage_type/iron_man_immune_to.json',
   'addon/powerborne/items/homelander_suit.json',
+  'addon/powerborne/items/iron_man_suit.json',
+  'addon/powerborne/items/iron_man_reactor.json',
   'assets/powerborne/palladium/render_layers/homelander.json',
+  'assets/powerborne/palladium/render_layers/iron_man.json',
+  'assets/powerborne/palladium/energy_beams/iron_man_repulsor.json',
+  'assets/powerborne/palladium/energy_beams/iron_man_unibeam.json',
   'assets/powerborne/textures/item/blood_v.png',
-  'assets/powerborne/textures/item/homelander_suit.png'
+  'assets/powerborne/textures/item/homelander_suit.png',
+  'assets/powerborne/textures/item/iron_man_suit.png',
+  'assets/powerborne/textures/item/iron_man_reactor.png'
 ];
 
 for (const path of requiredFiles) {
@@ -74,6 +85,7 @@ const noTreeGatePowerFiles = [
   'data/powerborne/palladium/powers/sentry.json',
   'data/powerborne/palladium/powers/superman.json',
   'data/powerborne/palladium/powers/homelander.json',
+  'data/powerborne/palladium/powers/iron_man.json',
   'data/powerborne/palladium/powers/god_of_thunder.json',
   'data/powerborne/palladium/powers/captain_america.json'
 ];

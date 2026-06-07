@@ -1,0 +1,48 @@
+[
+  {
+    "type": "palladium:lightning",
+    "body_part": "right_arm",
+    "offset": [-1, -11, -6],
+    "glow_color": "#5fdcff",
+    "core_color": "#fff4b8",
+    "segments": 10,
+    "spread": 1.8,
+    "frequency": 2,
+    "glow_opacity": 0.75,
+    "core_opacity": 0.35,
+    "bloom": 3,
+    "size": [0.35, 0.35],
+    "thickness": 0.04,
+    "particles": [
+      {
+        "particle_type": "powerborne:repulsor_spark",
+        "amount": 4,
+        "motion": [0, 1, 0],
+        "motion_random": [1, 1, 1]
+      }
+    ]
+  },
+  {
+    "type": "palladium:lightning",
+    "body_part": "left_arm",
+    "offset": [1, -11, -6],
+    "glow_color": "#5fdcff",
+    "core_color": "#fff4b8",
+    "segments": 10,
+    "spread": 1.8,
+    "frequency": 2,
+    "glow_opacity": 0.75,
+    "core_opacity": 0.35,
+    "bloom": 3,
+    "size": [0.35, 0.35],
+    "thickness": 0.04,
+    "particles": [
+      {
+        "particle_type": "powerborne:repulsor_spark",
+        "amount": 4,
+        "motion": [0, 1, 0],
+        "motion_random": [1, 1, 1]
+      }
+    ]
+  }
+]

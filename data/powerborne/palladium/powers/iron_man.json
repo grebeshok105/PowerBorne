@@ -1,0 +1,607 @@
+{
+  "name": {
+    "translate": "name.powerborne.iron_man"
+  },
+  "background": "minecraft:textures/block/red_concrete.png",
+  "ability_bar_texture": "powerborne:textures/gui/ability_bar.png",
+  "icon": "powerborne:iron_man_suit",
+  "persistent_data": true,
+  "gui_display_type": "tree",
+  "primary_color": "#E6B94E",
+  "secondary_color": "#9F1D24",
+  "energy_bars": {
+    "arc_bar": {
+      "color": "#56D9FF",
+      "max": {
+        "type": "palladium_property",
+        "property": "energy_bar_arc_max",
+        "fallback": 1000
+      },
+      "synced_value": {
+        "type": "palladium_property",
+        "property": "energy_bar_arc"
+      }
+    }
+  },
+  "abilities": {
+    "iron_man_root": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.iron_man.root"
+      },
+      "description": {
+        "translate": "desc.powerborne.iron_man.root"
+      },
+      "gui_position": [
+        0,
+        0
+      ],
+      "icon": {
+        "type": "palladium:item",
+        "item": "powerborne:iron_man_suit"
+      }
+    },
+    "flight_info": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.iron_man.flight"
+      },
+      "description": {
+        "translate": "desc.powerborne.iron_man.flight"
+      },
+      "gui_position": [
+        -1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/iron_man/flight.png"
+      }
+    },
+    "repulsor_info": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.iron_man.repulsor_blast"
+      },
+      "description": {
+        "translate": "desc.powerborne.iron_man.repulsor_blast"
+      },
+      "gui_position": [
+        0,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/iron_man/repulsor_blast.png"
+      }
+    },
+    "hud_info": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.iron_man.targeting_hud"
+      },
+      "description": {
+        "translate": "desc.powerborne.iron_man.targeting_hud"
+      },
+      "gui_position": [
+        1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/iron_man/targeting_hud.png"
+      }
+    },
+    "unibeam_info": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.iron_man.unibeam"
+      },
+      "description": {
+        "translate": "desc.powerborne.iron_man.unibeam"
+      },
+      "gui_position": [
+        0,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/iron_man/unibeam.png"
+      }
+    },
+    "restrict_slots": {
+      "type": "palladium:restrict_slots",
+      "hidden": true,
+      "slots": [
+        "head",
+        "legs",
+        "feet"
+      ]
+    },
+    "lock_armor": {
+      "type": "palladium:lock_armor",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "supersonic_boost"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "repulsor_blast_timer"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "unibeam_timer"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:is_creative_mode"
+            }
+          }
+        ]
+      }
+    },
+    "render_layer": {
+      "type": "palladium:render_layer_by_accessory_slot",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "default_layer": "powerborne:iron_man",
+      "accessory_slot": "powerborne:iron_man",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "power": "powerborne:suit_stand/iron_man_suit_stand",
+              "ability": "is_stand"
+            }
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:iron_man_suit"
+            }
+          }
+        ]
+      }
+    },
+    "hide_layers": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "body_parts": [
+        "cape",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:iron_man_suit"
+            }
+          }
+        ]
+      }
+    },
+    "flight": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "palladium:flight_speed",
+      "title": {
+        "translate": "ability.powerborne.iron_man.flight"
+      },
+      "amount": 0.9,
+      "uuid": "7409cef4-5e88-4d72-9cd9-265f81e97ff7",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:integer_property",
+          "property": "energy_bar_arc",
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "flight_check": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:is_flying"
+        }
+      }
+    },
+    "can_boost": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "power": "powerborne:iron_man",
+              "ability": "flight_check"
+            },
+            {
+              "type": "palladium:ability_ticks",
+              "power": "powerborne:iron_man",
+              "ability": "flight_check",
+              "min": 30,
+              "max": 999999
+            }
+          ]
+        }
+      }
+    },
+    "heroic_flight_type": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:heroic_flight_type",
+      "hidden": true,
+      "amount": 1,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:integer_property",
+          "property": "energy_bar_arc",
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "supersonic_boost": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.iron_man.supersonic_boost"
+      },
+      "description": {
+        "translate": "desc.powerborne.iron_man.supersonic_boost"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/iron_man/supersonic_boost.png"
+      },
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 300
+          },
+          {
+            "type": "palladium:is_fast_flying"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:is_fast_flying"
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "can_boost"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_arc",
+            "min": 75,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "supersonic_boost_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "both",
+      "time": 5,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/item/icons/fast_flight_boost_aim.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:is_flying"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "flight_boost_ticks",
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "repulsor_blast_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 8,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "title": {
+        "translate": "ability.powerborne.iron_man.repulsor_blast"
+      },
+      "description": {
+        "translate": "desc.powerborne.iron_man.repulsor_blast"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/iron_man/repulsor_blast.png"
+      },
+      "conditions": {
+        "enabling": {
+          "type": "palladium:activation",
+          "ticks": 8,
+          "cooldown": 30
+        },
+        "unlocking": {
+          "type": "palladium:integer_property",
+          "property": "energy_bar_arc",
+          "min": 35,
+          "max": 1000
+        }
+      }
+    },
+    "repulsor_blast": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "repulsor_blast_timer"
+            },
+            {
+              "type": "palladium:ability_ticks",
+              "ability": "repulsor_blast_timer",
+              "min": 2,
+              "max": 2
+            }
+          ]
+        }
+      }
+    },
+    "repulsor_beam": {
+      "type": "palladium:energy_beam",
+      "energy_beam": "powerborne:iron_man_repulsor",
+      "max_distance": 24,
+      "hidden": true,
+      "damage_type": "powerborne:repulsor",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "repulsor_blast_timer",
+          "min": 1,
+          "max": 8
+        }
+      }
+    },
+    "repulsor_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "right",
+      "time": 4,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "repulsor_blast_timer"
+        }
+      }
+    },
+    "targeting_hud": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.iron_man.targeting_hud"
+      },
+      "description": {
+        "translate": "desc.powerborne.iron_man.targeting_hud"
+      },
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/iron_man/targeting_hud.png"
+      },
+      "conditions": {
+        "enabling": {
+          "type": "palladium:toggle"
+        },
+        "unlocking": {
+          "type": "palladium:integer_property",
+          "property": "energy_bar_arc",
+          "min": 3,
+          "max": 1000
+        }
+      }
+    },
+    "unibeam_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 120,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "bar_color": "yellow",
+      "title": {
+        "translate": "ability.powerborne.iron_man.unibeam"
+      },
+      "description": {
+        "translate": "desc.powerborne.iron_man.unibeam"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/iron_man/unibeam.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 500
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          }
+        ],
+        "unlocking": {
+          "type": "palladium:integer_property",
+          "property": "energy_bar_arc",
+          "min": 200,
+          "max": 1000
+        }
+      }
+    },
+    "unibeam": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "unibeam_timer",
+          "min": 40,
+          "max": 120
+        }
+      }
+    },
+    "unibeam_beam": {
+      "type": "palladium:energy_beam",
+      "energy_beam": "powerborne:iron_man_unibeam",
+      "max_distance": 24,
+      "hidden": true,
+      "damage_type": "powerborne:unibeam",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "unibeam"
+        }
+      }
+    },
+    "unibeam_charge_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:unibeam_charge",
+      "volume": 0.7,
+      "play_self": true,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "unibeam_timer",
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
+    "unibeam_beam_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:unibeam_beam",
+      "volume": 0.5,
+      "looping": true,
+      "play_self": true,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "unibeam"
+        }
+      }
+    },
+    "unibeam_blast_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:unibeam_blast",
+      "volume": 1.0,
+      "play_self": true,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "unibeam_timer",
+          "min": 40,
+          "max": 40
+        }
+      }
+    },
+    "reactor_swap_lock": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/effect give @s minecraft:slowness 5 2 true",
+      "commands": "",
+      "last_tick_commands": "",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:integer_property",
+          "property": "iron_man_reactor_swap_ticks",
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "health_attribute": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "uuid": "b966953a-d672-4989-82ca-4f1c4b56886b",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 6
+    },
+    "attack_damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "uuid": "73a4feef-0a27-4b7e-b03f-c54cea5694b3"
+    },
+    "damage_immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "powerborne:iron_man_immune_to",
+        "powerborne:is_ad_astra",
+        "powerborne:is_superb_warfare",
+        "powerborne:is_tacz_bullet"
+      ]
+    },
+    "defense_scale": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:defense 1.35 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:defense 1 @s"
+    }
+  }
+}
