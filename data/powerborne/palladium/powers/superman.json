@@ -1,5 +1,7 @@
 {
-  "name": {"translate":"name.powerborne.superman"},
+  "name": {
+    "translate": "name.powerborne.superman"
+  },
   "background": "minecraft:textures/block/blue_wool.png",
   "ability_bar_texture": "powerborne:textures/gui/ability_bar.png",
   "icon": "powerborne:superman_suit",
@@ -31,14 +33,15 @@
         "powerborne:sun_charge"
       ],
       "conditions": {
-        "enabling": [{
-          "type": "powerborne:y_level",
-          "min": 210
-        },
-        {
-          "type": "palladium:day"
-        }
-      ]
+        "enabling": [
+          {
+            "type": "powerborne:y_level",
+            "min": 210
+          },
+          {
+            "type": "palladium:day"
+          }
+        ]
       }
     },
     "sun_charge_animation": {
@@ -58,20 +61,24 @@
             },
             {
               "type": "palladium:not",
-              "conditions": [{
-                "type": "palladium:has_movement_input"
-              }
-            ]
+              "conditions": [
+                {
+                  "type": "palladium:has_movement_input"
+                }
+              ]
             }
           ]
         }
-   
       }
     },
     "superman_root": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.superman.root"},
-      "description": {"translate":"desc.powerborne.superman.root"},
+      "title": {
+        "translate": "ability.powerborne.superman.root"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.root"
+      },
       "gui_position": [
         0,
         0
@@ -140,8 +147,12 @@
     },
     "heat_vision_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.superman.heat_vision"},
-      "description": {"translate":"desc.powerborne.superman.heat_vision"},
+      "title": {
+        "translate": "ability.powerborne.superman.heat_vision"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.heat_vision"
+      },
       "gui_position": [
         -1,
         0.75
@@ -149,20 +160,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/heat_vision.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "superman_root"
-          }
-        ]
       }
     },
     "focus_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.superman.kryptonian_focus"},
-      "description": {"translate":"desc.powerborne.superman.kryptonian_focus"},
+      "title": {
+        "translate": "ability.powerborne.superman.kryptonian_focus"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.kryptonian_focus"
+      },
       "gui_position": [
         0,
         0.75
@@ -170,20 +177,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/kryptonian_focus.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "superman_root"
-          }
-        ]
       }
     },
     "freeze_breath_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.superman.freeze_breath"},
-      "description": {"translate":"desc.powerborne.superman.freeze_breath"},
+      "title": {
+        "translate": "ability.powerborne.superman.freeze_breath"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.freeze_breath"
+      },
       "gui_position": [
         1,
         0.75
@@ -191,20 +194,16 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/freeze_breath.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "superman_root"
-          }
-        ]
       }
     },
     "thunderclap_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.superman.thunderclap"},
-      "description": {"translate":"desc.powerborne.superman.thunderclap"},
+      "title": {
+        "translate": "ability.powerborne.superman.thunderclap"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.thunderclap"
+      },
       "gui_position": [
         -1,
         1.5
@@ -212,23 +211,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/thunderclap.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "heat_vision_buy"
-          }
-        ]
       }
     },
     "solar_energy_u1": {
@@ -237,34 +219,25 @@
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/solar_upgrade.png"
       },
-      "title": {"translate":"ability.powerborne.superman.solar_energy_u1"},
-      "description": {"translate":"desc.powerborne.superman.solar_energy_u1"},
+      "title": {
+        "translate": "ability.powerborne.superman.solar_energy_u1"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.solar_energy_u1"
+      },
       "gui_position": [
         0,
         1.5
-      ],
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "focus_buy"
-          }
-        ]
-      }
+      ]
     },
     "super_speed_buyable": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.super_speed"},
-      "description": {"translate":"desc.powerborne.shared.super_speed"},
+      "title": {
+        "translate": "ability.powerborne.shared.super_speed"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.super_speed"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/super_speed.png"
@@ -272,29 +245,16 @@
       "gui_position": [
         1,
         1.5
-      ],
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "freeze_breath_buy"
-          }
-        ]
-      }
+      ]
     },
     "punch_damage_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.damage_upgrade"},
-      "description": {"translate":"desc.powerborne.shared.damage_upgrade"},
+      "title": {
+        "translate": "ability.powerborne.shared.damage_upgrade"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.damage_upgrade"
+      },
       "gui_position": [
         -1,
         2.25
@@ -302,23 +262,6 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/damage.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "thunderclap_buy"
-          }
-        ]
       }
     },
     "solar_energy_u2": {
@@ -327,34 +270,25 @@
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/solar_upgrade.png"
       },
-      "title": {"translate":"ability.powerborne.superman.solar_energy_u2"},
-      "description": {"translate":"desc.powerborne.superman.solar_energy_u2"},
+      "title": {
+        "translate": "ability.powerborne.superman.solar_energy_u2"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.solar_energy_u2"
+      },
       "gui_position": [
         0,
         2.25
-      ],
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "solar_energy_u1"
-          }
-        ]
-      }
+      ]
     },
     "defense_upgrade": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.defense_upgrade"},
-      "description": {"translate":"desc.powerborne.shared.defense_upgrade"},
+      "title": {
+        "translate": "ability.powerborne.shared.defense_upgrade"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.defense_upgrade"
+      },
       "gui_position": [
         1,
         2.25
@@ -362,53 +296,23 @@
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/defense.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_speed_buyable"
-          }
-        ]
       }
     },
     "super_punch_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.superman.super_punch"},
-      "description": {"translate":"desc.powerborne.superman.super_punch"},
+      "title": {
+        "translate": "ability.powerborne.superman.super_punch"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.super_punch"
+      },
       "gui_position": [
         -1,
-        3.0
+        3
       ],
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/super_punch.png"
-      },
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "punch_damage_buy"
-          }
-        ]
       }
     },
     "solar_energy_u3": {
@@ -417,64 +321,42 @@
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/solar_upgrade.png"
       },
-      "title": {"translate":"ability.powerborne.superman.solar_energy_u3"},
-      "description": {"translate":"desc.powerborne.superman.solar_energy_u3"},
+      "title": {
+        "translate": "ability.powerborne.superman.solar_energy_u3"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.solar_energy_u3"
+      },
       "gui_position": [
         0,
-        3.0
-      ],
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "solar_energy_u2"
-          }
-        ]
-      }
+        3
+      ]
     },
     "flight_boost_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.flight_boost"},
-      "description": {"translate":"desc.powerborne.shared.flight_boost"},
+      "title": {
+        "translate": "ability.powerborne.shared.flight_boost"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.flight_boost"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/flight_boost.png"
       },
       "gui_position": [
         1,
-        3.0
-      ],
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "defense_upgrade"
-          }
-        ]
-      }
+        3
+      ]
     },
     "super_flare_buy": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.superman.super_flare"},
-      "description": {"translate":"desc.powerborne.superman.super_flare"},
+      "title": {
+        "translate": "ability.powerborne.superman.super_flare"
+      },
+      "description": {
+        "translate": "desc.powerborne.superman.super_flare"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/super_flare.png"
@@ -482,32 +364,7 @@
       "gui_position": [
         0,
         3.75
-      ],
-      "conditions": {
-        "unlocking": [
-          {
-            "type": "palladium:property_buyable",
-            "property": "superman_skill_points",
-            "icon": "powerborne:superman_suit",
-            "score": 1,
-            "description": {
-              "text": "Skill Point"
-            }
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_punch_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "flight_boost_buy"
-          },
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "solar_energy_u3"
-          }
-        ]
-      }
+      ]
     },
     "heat_vision_timer": {
       "type": "palladium:animation_timer",
@@ -515,7 +372,9 @@
       "hidden": true,
       "hidden_in_bar": false,
       "bar_color": "red",
-      "title": {"translate":"ability.powerborne.superman.heat_vision"},
+      "title": {
+        "translate": "ability.powerborne.superman.heat_vision"
+      },
       "list_index": 0,
       "icon": {
         "type": "palladium:texture",
@@ -549,10 +408,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "heat_vision_buy"
-          },
           {
             "type": "palladium:integer_property",
             "property": "energy_bar_solar",
@@ -640,7 +495,9 @@
     },
     "freeze_breath": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.superman.freeze_breath"},
+      "title": {
+        "translate": "ability.powerborne.superman.freeze_breath"
+      },
       "hidden": true,
       "list_index": 1,
       "icon": {
@@ -676,10 +533,6 @@
         ],
         "unlocking": [
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "freeze_breath_buy"
-          },
-          {
             "type": "palladium:integer_property",
             "property": "energy_bar_solar",
             "min": 3,
@@ -703,7 +556,7 @@
       "swinging_arm": "none",
       "ignore_player_movement": true,
       "entity_data": {
-        "Damage": 0.0,
+        "Damage": 0,
         "Gravity": 0,
         "Size": -0.5,
         "Lifetime": 10,
@@ -920,7 +773,9 @@
     },
     "flight_boost": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.flight_boost"},
+      "title": {
+        "translate": "ability.powerborne.shared.flight_boost"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/flight_boost.png"
@@ -939,10 +794,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "flight_boost_buy"
-          },
           {
             "type": "palladium:is_fast_flying"
           },
@@ -971,7 +822,9 @@
     },
     "thunderclap_kjs_anim": {
       "type": "palladium:animation_timer",
-      "title": {"translate":"ability.powerborne.superman.thunderclap"},
+      "title": {
+        "translate": "ability.powerborne.superman.thunderclap"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/thunderclap.png"
@@ -1002,10 +855,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "thunderclap_buy"
-          },
           {
             "type": "palladium:integer_property",
             "property": "energy_bar_solar",
@@ -1062,7 +911,7 @@
       "type": "powerborne:screen_shake",
       "hidden": true,
       "base_intensity": 0.5,
-      "max_intensity": 3.0,
+      "max_intensity": 3,
       "conditions": {
         "enabling": {
           "type": "palladium:animation_timer_ability",
@@ -1128,7 +977,9 @@
     },
     "super_speed": {
       "type": "palladium:dummy",
-      "title": {"translate":"ability.powerborne.shared.super_speed"},
+      "title": {
+        "translate": "ability.powerborne.shared.super_speed"
+      },
       "list_index": 3,
       "icon": {
         "type": "palladium:texture",
@@ -1151,10 +1002,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_speed_buyable"
-          },
           {
             "type": "palladium:not",
             "conditions": [
@@ -1371,13 +1218,7 @@
             "type": "palladium:has_effect",
             "effect": "powerborne:solar_exhaustion"
           }
-        },
-        "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "punch_damage_buy"
-          }
-        ]
+        }
       }
     },
     "damage_immunity": {
@@ -1428,17 +1269,15 @@
             "type": "palladium:has_effect",
             "effect": "powerborne:solar_exhaustion"
           }
-        },
-        "unlocking": {
-          "type": "palladium:ability_unlocked",
-          "ability": "defense_upgrade"
         }
       }
     },
     "wheel_2": {
       "type": "palladium:ability_wheel",
       "bar_color": "red",
-      "title": {"translate":"ability.powerborne.superman.kryptonian_focus"},
+      "title": {
+        "translate": "ability.powerborne.superman.kryptonian_focus"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/kryptonian_focus.png"
@@ -1477,10 +1316,6 @@
             ]
           },
           {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_flare_buy"
-          },
-          {
             "type": "palladium:not",
             "conditions": {
               "type": "palladium:has_effect",
@@ -1492,7 +1327,9 @@
     },
     "wheel": {
       "type": "palladium:ability_wheel",
-      "title": {"translate":"ability.powerborne.superman.kryptonian_focus"},
+      "title": {
+        "translate": "ability.powerborne.superman.kryptonian_focus"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/kryptonian_focus.png"
@@ -1512,13 +1349,6 @@
           {
             "type": "palladium:not",
             "conditions": {
-              "type": "palladium:ability_unlocked",
-              "ability": "wheel_2"
-            }
-          },
-          {
-            "type": "palladium:not",
-            "conditions": {
               "type": "palladium:has_effect",
               "effect": "powerborne:solar_exhaustion"
             }
@@ -1533,7 +1363,9 @@
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/xray_vision.png"
       },
-      "title": {"translate":"ability.powerborne.superman.xray_vision"},
+      "title": {
+        "translate": "ability.powerborne.superman.xray_vision"
+      },
       "hidden_in_bar": true,
       "max_value": 10,
       "conditions": {
@@ -1543,10 +1375,6 @@
           "cooldown": 140
         },
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "focus_buy"
-          },
           {
             "type": "palladium:not",
             "conditions": {
@@ -1756,7 +1584,9 @@
         "type": "palladium:texture",
         "texture": "minecraft:textures/mob_effect/night_vision.png"
       },
-      "title": {"translate":"effect.minecraft.night_vision"},
+      "title": {
+        "translate": "effect.minecraft.night_vision"
+      },
       "hidden": true,
       "hidden_in_bar": true,
       "last_tick_commands": "effect clear @s minecraft:night_vision",
@@ -1782,7 +1612,9 @@
       "max_value": 40,
       "hidden": true,
       "hidden_in_bar": true,
-      "title": {"translate":"ability.powerborne.superman.super_punch"},
+      "title": {
+        "translate": "ability.powerborne.superman.super_punch"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/super_punch.png"
@@ -1801,10 +1633,6 @@
           }
         ],
         "unlocking": [
-          {
-            "type": "palladium:ability_unlocked",
-            "ability": "super_punch_buy"
-          },
           {
             "type": "palladium:not",
             "conditions": {
@@ -1857,7 +1685,9 @@
     "super_flare": {
       "type": "palladium:repeating_animation_timer",
       "max_value": 999,
-      "title": {"translate":"ability.powerborne.superman.super_flare"},
+      "title": {
+        "translate": "ability.powerborne.superman.super_flare"
+      },
       "icon": {
         "type": "palladium:texture",
         "texture": "powerborne:textures/gui/abilities/superman/super_flare.png"

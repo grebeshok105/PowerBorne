@@ -23,6 +23,18 @@ const HEROES_CONFIG = {
             'super_punch': { type: 'hit_entities', xp: 5 }
         }
     },
+    'powerborne:homelander': {
+        name: 'homelander',
+        displayName: 'Homelander',
+        abilities: {
+            'heat_vision_beam': { type: 'beam_kill', xp: 5, timerId: 'heat_vision_timer' },
+            'freeze_breath': { type: 'freeze_mob', xp: 4 },
+            'thunderclap': { type: 'hit_entities', xp: 2 },
+            'sonic_scream': { type: 'hit_entities', xp: 2 },
+            'speed_trail': { type: 'speed_running', xp: 1 },
+            'super_punch': { type: 'hit_entities', xp: 5 }
+        }
+    },
     'powerborne:god_of_thunder': {
         name: 'thor',
         displayName: 'Thor',
@@ -50,6 +62,47 @@ const HEROES_CONFIG = {
         }
     }
 };
+
+const HERO_AUTO_MAX_CONFIG = {
+    'powerborne:sentry': {
+        name: 'sentry',
+        resources: {
+            energy_bar_void: 200
+        }
+    },
+    'powerborne:superman': {
+        name: 'superman',
+        resources: {
+            energy_bar_solar_max: 500,
+            energy_bar_solar: 500
+        }
+    },
+    'powerborne:homelander': {
+        name: 'homelander',
+        resources: {
+            energy_bar_blood_v_max: 500,
+            energy_bar_blood_v: 500
+        }
+    },
+    'powerborne:god_of_thunder': {
+        name: 'thor',
+        resources: {
+            energy_bar_lightning: 200
+        }
+    },
+    'powerborne:captain_america': {
+        name: 'captain_america',
+        resources: {}
+    }
+};
+
+function getHeroAutoMaxKey(heroName, suffix) {
+    return `powerborne_${heroName}_${suffix}`;
+}
+
+function isHeroAutoMaxBlocked(player, heroName) {
+    return player.persistentData.getBoolean(getHeroAutoMaxKey(heroName, 'auto_max_blocked'));
+}
 
 global.levelingSystem = {
     getHeroName(powerId) {
@@ -257,8 +310,134 @@ global.levelingSystem = {
             xpForNext: xpForNext,
             totalXPForNext: totalXPForNext
         };
+    },
+
+    maxHero(player, heroName) {
+        const maxLevel = 10;
+        const maxXP = this.getTotalXPForLevel(maxLevel);
+        this.internalSetLevel(player, heroName, maxLevel);
+        this.internalSetXP(player, heroName, maxXP);
+        this.internalSetSkillPoints(player, heroName, 0);
+    },
+
+    resetHero(player, heroName) {
+        this.internalSetLevel(player, heroName, 0);
+        this.internalSetXP(player, heroName, 0);
+        this.internalSetSkillPoints(player, heroName, 0);
+    },
+
+    resetAllHeroes(player) {
+        Object.keys(HERO_AUTO_MAX_CONFIG).forEach(powerId => {
+            this.resetHero(player, HERO_AUTO_MAX_CONFIG[powerId].name);
+        });
     }
 };
+
+global.heroAutoMax = {
+    getConfig(powerId) {
+        return HERO_AUTO_MAX_CONFIG[powerId] || null;
+    },
+
+    getHeroNames() {
+        return Object.keys(HERO_AUTO_MAX_CONFIG).map(powerId => HERO_AUTO_MAX_CONFIG[powerId].name);
+    },
+
+    maxHero(player, powerId, refillResources) {
+        const config = this.getConfig(powerId);
+        if (!config) return false;
+
+        global.levelingSystem.maxHero(player, config.name);
+        player.persistentData.remove(getHeroAutoMaxKey(config.name, 'auto_max_blocked'));
+        if (abilityUtil.hasPower(player, powerId)) {
+            player.persistentData.putBoolean(getHeroAutoMaxKey(config.name, 'had_power'), true);
+        }
+        if (refillResources !== false) {
+            Object.keys(config.resources).forEach(property => {
+                palladium.setProperty(player, property, config.resources[property]);
+            });
+        } else {
+            Object.keys(config.resources).forEach(property => {
+                if (property.endsWith('_max')) {
+                    palladium.setProperty(player, property, config.resources[property]);
+                }
+            });
+        }
+        return true;
+    },
+
+    maxAllHeroes(player, refillResources) {
+        Object.keys(HERO_AUTO_MAX_CONFIG).forEach(powerId => {
+            this.maxHero(player, powerId, refillResources);
+        });
+    },
+
+    resetHero(player, heroName, blockAutoMax) {
+        let matchedPower = null;
+        Object.keys(HERO_AUTO_MAX_CONFIG).forEach(powerId => {
+            if (HERO_AUTO_MAX_CONFIG[powerId].name === heroName) matchedPower = powerId;
+        });
+        if (!matchedPower) return false;
+
+        const config = HERO_AUTO_MAX_CONFIG[matchedPower];
+        global.levelingSystem.resetHero(player, config.name);
+        Object.keys(config.resources).forEach(property => {
+            palladium.setProperty(player, property, 0);
+        });
+        const hadKey = getHeroAutoMaxKey(config.name, 'had_power');
+        const blockedKey = getHeroAutoMaxKey(config.name, 'auto_max_blocked');
+        if (blockAutoMax && abilityUtil.hasPower(player, matchedPower)) {
+            player.persistentData.putBoolean(blockedKey, true);
+        } else {
+            player.persistentData.remove(hadKey);
+            player.persistentData.remove(blockedKey);
+        }
+        return true;
+    },
+
+    resetAllHeroes(player, blockAutoMax) {
+        Object.keys(HERO_AUTO_MAX_CONFIG).forEach(powerId => {
+            this.resetHero(player, HERO_AUTO_MAX_CONFIG[powerId].name, blockAutoMax);
+        });
+    }
+};
+
+global.isAbilityUnlockedOrAutoMaxed = function(player, powerId, abilityId) {
+    const config = global.heroAutoMax.getConfig(powerId);
+    if (config && !isHeroAutoMaxBlocked(player, config.name) && global.levelingSystem.getLevel(player, config.name) >= 10) {
+        return true;
+    }
+    return abilityUtil.isUnlocked(player, powerId, abilityId);
+};
+
+PlayerEvents.tick(event => {
+    const player = event.player;
+
+    Object.keys(HERO_AUTO_MAX_CONFIG).forEach(powerId => {
+        const config = HERO_AUTO_MAX_CONFIG[powerId];
+        const hadKey = getHeroAutoMaxKey(config.name, 'had_power');
+        const blockedKey = getHeroAutoMaxKey(config.name, 'auto_max_blocked');
+        const hasPower = abilityUtil.hasPower(player, powerId);
+
+        const hadPower = player.persistentData.getBoolean(hadKey);
+        const blocked = isHeroAutoMaxBlocked(player, config.name);
+
+        if (!hasPower) {
+            if (hadPower) player.persistentData.remove(hadKey);
+            player.persistentData.remove(blockedKey);
+            return;
+        }
+
+        if (!hadPower) {
+            player.persistentData.putBoolean(hadKey, true);
+            if (!blocked) global.heroAutoMax.maxHero(player, powerId, true);
+            return;
+        }
+
+        if (!blocked && global.levelingSystem.getLevel(player, config.name) < 10) {
+            global.heroAutoMax.maxHero(player, powerId, false);
+        }
+    });
+});
 
 PlayerEvents.tick(event => {
     const player = event.player;
@@ -322,4 +501,3 @@ EntityEvents.death(event => {
         });
     });
 });
-

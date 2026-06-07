@@ -602,7 +602,7 @@ PlayerEvents.tick(event => {
     let isEnabled = abilityInstance.isEnabled();
     let isFlying = abilityUtil.isEnabled(player, "powerborne:god_of_thunder", "is_flying");
     let isFastFlying = abilityUtil.isEnabled(player, "powerborne:god_of_thunder", "is_fast_flying");
-    let isFlightUnlocked = abilityUtil.isUnlocked(player, "powerborne:god_of_thunder", "flight_buy");
+    let isFlightUnlocked = global.isAbilityUnlockedOrAutoMaxed(player, "powerborne:god_of_thunder", "flight_buy");
     let handler = player.palladium$getFlightHandler();
     let wasFlyingLastTick = handler && handler.prevFlightBoost > 0;
 

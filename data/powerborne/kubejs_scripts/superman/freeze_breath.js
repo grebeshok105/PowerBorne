@@ -15,6 +15,7 @@ PalladiumEvents.customProjectileTick((event) => {
             if (
                 target.isLiving() && target.attackable() &&
                 !abilityUtil.hasPower(target, "powerborne:superman") &&
+                !abilityUtil.hasPower(target, "powerborne:homelander") &&
                 !abilityUtil.hasPower(target, "powerborne:hb") &&
                 !abilityUtil.hasPower(target, "powerborne:krypto") &&
                 owner != target &&
@@ -31,7 +32,8 @@ PalladiumEvents.customProjectileTick((event) => {
                 
                 // Award XP for freezing mob (when effect reaches 100+ ticks, which is "fully frozen")
                 if (newDuration >= 100 && currentDuration < 100 && owner && owner.isPlayer() && !target.persistentData.getBoolean('powerborne_freeze_xp_awarded')) {
-                    global.levelingSystem.awardXPForAbility(owner, "powerborne:superman", "freeze_breath");
+                    let freezePowerId = abilityUtil.hasPower(owner, "powerborne:homelander") ? "powerborne:homelander" : "powerborne:superman";
+                    global.levelingSystem.awardXPForAbility(owner, freezePowerId, "freeze_breath");
                     target.persistentData.putBoolean('powerborne_freeze_xp_awarded', true);
                 }
 

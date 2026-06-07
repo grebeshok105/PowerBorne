@@ -319,7 +319,7 @@ PlayerEvents.tick(event => {
     let hasStormbreaker = item && !item.isEmpty() && item.id === STORMBREAKER_ID;
     let isFlying = abilityUtil.isEnabled(player, STORMBREAKER_POWER, "is_flying");
     let isFastFlying = abilityUtil.isEnabled(player, STORMBREAKER_POWER, "is_fast_flying");
-    let isFlightUnlocked = abilityUtil.isUnlocked(player, STORMBREAKER_POWER, "flight_buy");
+    let isFlightUnlocked = global.isAbilityUnlockedOrAutoMaxed(player, STORMBREAKER_POWER, "flight_buy");
     let handler = player.palladium$getFlightHandler();
     let wasFlyingLastTick = handler && handler.prevFlightBoost > 0;
 

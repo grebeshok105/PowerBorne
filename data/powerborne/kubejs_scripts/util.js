@@ -4,6 +4,8 @@ PalladiumEvents.registerProperties((event) => {
         event.registerProperty("energy_bar_lightning", 'integer', 0);
         event.registerProperty("energy_bar_solar", 'integer', 0);
         event.registerProperty("energy_bar_solar_max", 'integer', 100);
+        event.registerProperty("energy_bar_blood_v", 'integer', 0);
+        event.registerProperty("energy_bar_blood_v_max", 'integer', 500);
         event.registerProperty("mjolnir_throw_mode", 'integer', 0);
         event.registerProperty("flight_boost_ticks", 'integer', 0);
         event.registerProperty("screen_shake_timer", 'integer', 0);
@@ -18,6 +20,10 @@ PalladiumEvents.registerProperties((event) => {
         event.registerProperty("superman_xp", 'integer', 0);
         event.registerProperty("superman_skill_points", 'integer', 0);
         event.registerProperty("super_punch_cooldown", 'integer', 0);
+
+        event.registerProperty("homelander_level", 'integer', 0);
+        event.registerProperty("homelander_xp", 'integer', 0);
+        event.registerProperty("homelander_skill_points", 'integer', 0);
 
         event.registerProperty("thor_level", 'integer', 0);
         event.registerProperty("thor_xp", 'integer', 0);
@@ -134,6 +140,9 @@ EntityEvents.hurt(event => {
             event.cancel();
         }
         if (abilityUtil.isEnabled(entity, "powerborne:superman", "speed_trail")) {
+            event.cancel();
+        }
+        if (abilityUtil.isEnabled(entity, "powerborne:homelander", "speed_trail")) {
             event.cancel();
         }
         if (abilityUtil.isEnabled(entity, "powerborne:god_of_thunder", "god_mode") && entity.isSprinting()) {
@@ -334,12 +343,18 @@ ServerEvents.commandRegistry(event => {
         'energy_bar_void': { min: 0, max: 200 },
         'energy_bar_lightning': { min: 0, max: 200 },
         'energy_bar_solar': { min: 0, max: 500 },
+        'energy_bar_solar_max': { min: 0, max: 500 },
+        'energy_bar_blood_v': { min: 0, max: 500 },
+        'energy_bar_blood_v_max': { min: 0, max: 500 },
         'sentry_level': { min: 0, max: 10 },
         'sentry_xp': { min: 0, max: 9999 },
         'sentry_skill_points': { min: 0, max: 99 },
         'superman_level': { min: 0, max: 10 },
         'superman_xp': { min: 0, max: 9999 },
         'superman_skill_points': { min: 0, max: 99 },
+        'homelander_level': { min: 0, max: 10 },
+        'homelander_xp': { min: 0, max: 9999 },
+        'homelander_skill_points': { min: 0, max: 99 },
         'thor_level': { min: 0, max: 10 },
         'thor_xp': { min: 0, max: 9999 },
         'thor_skill_points': { min: 0, max: 99 },
@@ -415,6 +430,56 @@ ServerEvents.commandRegistry(event => {
         return builder.buildFuture();
     };
 
+    const HERO_COMMAND_NAMES = ['all', 'sentry', 'superman', 'homelander', 'thor', 'captain_america'];
+
+    let getHeroCommandSuggestions = function (context, builder) {
+        HERO_COMMAND_NAMES.forEach(hero => builder.suggest(hero));
+        return builder.buildFuture();
+    };
+
+    function sendCommandFeedback(ctx, message) {
+        let sourcePlayer = ctx.source.player;
+        if (sourcePlayer) {
+            sourcePlayer.tell(message);
+        } else {
+            console.info('[powerborne] ' + message);
+        }
+    }
+
+    function runHeroStateCommand(ctx, mode) {
+        let targetPlayer = getTargetPlayerOrSendFailure(ctx, 'target');
+        if (!targetPlayer) return 0;
+
+        let heroName = String(Arguments.STRING.getResult(ctx, 'hero'));
+        if (!HERO_COMMAND_NAMES.includes(heroName)) {
+            sendCommandFeedback(ctx, 'В§cInvalid hero: ' + heroName + '. Valid heroes: ' + HERO_COMMAND_NAMES.join(', '));
+            return 0;
+        }
+
+        if (!global.heroAutoMax) {
+            sendCommandFeedback(ctx, 'В§cPowerborne hero auto-max helper is not loaded.');
+            return 0;
+        }
+
+        if (mode === 'max') {
+            if (heroName === 'all') {
+                global.heroAutoMax.maxAllHeroes(targetPlayer, true);
+            } else {
+                global.heroAutoMax.maxHero(targetPlayer, heroName === 'thor' ? 'powerborne:god_of_thunder' : 'powerborne:' + heroName, true);
+            }
+            sendCommandFeedback(ctx, 'Maxed ' + heroName + ' for ' + targetPlayer.name.string + '.');
+            return 1;
+        }
+
+        if (heroName === 'all') {
+            global.heroAutoMax.resetAllHeroes(targetPlayer, true);
+        } else {
+            global.heroAutoMax.resetHero(targetPlayer, heroName, true);
+        }
+        sendCommandFeedback(ctx, 'Reset ' + heroName + ' for ' + targetPlayer.name.string + '. Re-equip the suit to auto-max again.');
+        return 1;
+    }
+
     event.register(
         Commands.literal('powerborne')
             .requires(function (src) { return src.hasPermission(2); })
@@ -472,7 +537,7 @@ ServerEvents.commandRegistry(event => {
                                                 let message = 'Set property ' + propertyName + ' for ' + targetPlayer.name.string + ' to ' + newValue;
 
                                                 // Sync leveling properties (no effects for direct set)
-                                                const heroNames = ['sentry', 'superman', 'thor', 'captain_america'];
+                                                const heroNames = ['sentry', 'superman', 'homelander', 'thor', 'captain_america'];
                                                 let synced = false;
                                                 if (propertyName.endsWith('_xp')) {
                                                     const heroName = propertyName.slice(0, -3);
@@ -505,7 +570,7 @@ ServerEvents.commandRegistry(event => {
                             .then(
                                 Commands.argument('hero', Arguments.STRING.create(event))
                                     .suggests((context, builder) => {
-                                        ['sentry', 'superman', 'thor', 'captain_america'].forEach(hero => {
+                                        ['sentry', 'superman', 'homelander', 'thor', 'captain_america'].forEach(hero => {
                                             builder.suggest(hero);
                                         });
                                         return builder.buildFuture();
@@ -518,8 +583,8 @@ ServerEvents.commandRegistry(event => {
                                                 let heroName = String(Arguments.STRING.getResult(ctx, 'hero'));
                                                 let amount = Arguments.INTEGER.getResult(ctx, 'amount');
 
-                                                if (!['sentry', 'superman', 'thor', 'captain_america'].includes(heroName)) {
-                                                    ctx.source.playerOrException.tell('§cInvalid hero: ' + heroName + '. Valid heroes: sentry, superman, thor, captain_america');
+                                                if (!['sentry', 'superman', 'homelander', 'thor', 'captain_america'].includes(heroName)) {
+                                                    ctx.source.playerOrException.tell('§cInvalid hero: ' + heroName + '. Valid heroes: sentry, superman, homelander, thor, captain_america');
                                                     return 0;
                                                 }
 
@@ -533,6 +598,28 @@ ServerEvents.commandRegistry(event => {
                                                 return 1;
                                             })
                                     )
+                            )
+                    )
+            )
+            .then(
+                Commands.literal('max_hero')
+                    .then(
+                        Commands.argument('target', Arguments.PLAYER.create(event))
+                            .then(
+                                Commands.argument('hero', Arguments.STRING.create(event))
+                                    .suggests(getHeroCommandSuggestions)
+                                    .executes(ctx => runHeroStateCommand(ctx, 'max'))
+                            )
+                    )
+            )
+            .then(
+                Commands.literal('reset_hero')
+                    .then(
+                        Commands.argument('target', Arguments.PLAYER.create(event))
+                            .then(
+                                Commands.argument('hero', Arguments.STRING.create(event))
+                                    .suggests(getHeroCommandSuggestions)
+                                    .executes(ctx => runHeroStateCommand(ctx, 'reset'))
                             )
                     )
             )
@@ -571,6 +658,7 @@ global.hasLockArmorEnabled = (player) => {
     const powers = [
         "powerborne:god_of_thunder",
         "powerborne:superman",
+        "powerborne:homelander",
         "powerborne:sentry",
         "powerborne:void"
     ];

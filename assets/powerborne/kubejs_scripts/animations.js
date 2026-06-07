@@ -153,6 +153,89 @@ PalladiumEvents.registerAnimations((event) => {
 
     });
 
+    event.registerForPower('powerborne/homelander_sonic_scream', 'powerborne:homelander', 100, (builder) => {
+        const progress = animationUtil.getAnimationTimerAbilityValue(builder.getPlayer(), 'powerborne:homelander', 'sonic_scream_timer', builder.getPartialTicks());
+        if (progress > 0.0) {
+            builder.get('head')
+                .setXRotDegrees(-10)
+                .animate('InOutCubic', progress);
+
+            if (builder.isFirstPerson()) {
+                builder.get('right_arm')
+                    .setZRotDegrees(35)
+                    .animate('InOutCubic', progress);
+
+                builder.get('left_arm')
+                    .setZRotDegrees(-35)
+                    .animate('InOutCubic', progress);
+            } else {
+                builder.get('right_arm')
+                    .setXRotDegrees(-55)
+                    .setYRotDegrees(35)
+                    .animate('InOutCubic', progress);
+
+                builder.get('left_arm')
+                    .setXRotDegrees(-55)
+                    .setYRotDegrees(-35)
+                    .animate('InOutCubic', progress);
+            }
+        }
+    });
+
+    event.registerForPower('powerborne/homelander_super_clap', 'powerborne:homelander', 100, (builder) => {
+        const progress = animationUtil.getAnimationTimerAbilityValue(builder.getPlayer(), 'powerborne:homelander', 'super_clap_timer', builder.getPartialTicks());
+        if (progress > 0.0) {
+            if (builder.isFirstPerson()) {
+                builder.get('right_arm')
+                    .setZRotDegrees(90)
+                    .animate('Linear', progress);
+
+                builder.get('left_arm')
+                    .setZRotDegrees(-90)
+                    .animate('Linear', progress);
+            } else {
+                builder.get('right_arm')
+                    .setXRotDegrees(-90)
+                    .setYRotDegrees(90)
+                    .animate('Linear', progress);
+
+                builder.get('left_arm')
+                    .setXRotDegrees(-90)
+                    .setYRotDegrees(-90)
+                    .animate('Linear', progress);
+            }
+        }
+    });
+
+    event.registerForPower('powerborne/homelander_super_clap_followthrough', 'powerborne:homelander', 100, (builder) => {
+        const progress = animationUtil.getAnimationTimerAbilityValue(builder.getPlayer(), 'powerborne:homelander', 'super_clap_followthrough', builder.getPartialTicks());
+        if (progress > 0.0) {
+            if (builder.isFirstPerson()) {
+                builder.get('right_arm')
+                    .setXRotDegrees(-50)
+                    .setYRotDegrees(-9)
+                    .setZRotDegrees(10)
+                    .animate('InOutExpo', progress);
+
+                builder.get('left_arm')
+                    .setXRotDegrees(-50)
+                    .setYRotDegrees(9)
+                    .setZRotDegrees(-10)
+                    .animate('InOutExpo', progress);
+            } else {
+                builder.get('right_arm')
+                    .setXRotDegrees(-90)
+                    .setYRotDegrees(-25)
+                    .animate('InOutExpo', progress);
+
+                builder.get('left_arm')
+                    .setXRotDegrees(-90)
+                    .setYRotDegrees(25)
+                    .animate('InOutExpo', progress);
+            }
+        }
+    });
+
     event.registerForPower('powerborne/super_punch', 'powerborne:superman', 100, (builder) => {
         const rawProgress = animationUtil.getAnimationTimerAbilityValue(builder.getPlayer(), 'powerborne:superman', 'super_punch_timer', builder.getPartialTicks());
         if (rawProgress > 0.2) {
@@ -182,6 +265,66 @@ PalladiumEvents.registerAnimations((event) => {
                 builder.get('right_arm')
                     .setY(-6)
                     .animate('Linear', progress);
+            }
+        }
+    });
+
+
+    event.registerForPower('powerborne/homelander_sun_charge', 'powerborne:homelander', 20, (builder) => {
+        let progress = animationUtil.getAnimationTimerAbilityValue(
+            builder.getPlayer(), 'powerborne:homelander', 'sun_charge_animation', builder.getPartialTicks());
+        if (progress > 0 && !builder.isFirstPerson()) {
+            builder.get('right_arm')
+                .setXRotDegrees(-15)
+                .setYRotDegrees(100)
+                .setZRotDegrees(60)
+                .animate('InOutCubic', progress);
+            builder.get('left_arm')
+                .setXRotDegrees(-15)
+                .setYRotDegrees(-100)
+                .setZRotDegrees(-60)
+                .animate('InOutCubic', progress);
+        }
+    });
+
+    event.registerForPower('powerborne/homelander_thunderclap_f', 'powerborne:homelander', 100, (builder) => {
+        const progress = animationUtil.getAnimationTimerAbilityValue(builder.getPlayer(), 'powerborne:homelander', 'thunderclap_kjs_anim', builder.getPartialTicks());
+        if (progress > 0.0) {
+            if (builder.isFirstPerson()) {
+                builder.get('right_arm').setZRotDegrees(90).animate('Linear', progress);
+                builder.get('left_arm').setZRotDegrees(-90).animate('Linear', progress);
+            } else {
+                builder.get('right_arm').setXRotDegrees(-90).setYRotDegrees(90).animate('Linear', progress);
+                builder.get('left_arm').setXRotDegrees(-90).setYRotDegrees(-90).animate('Linear', progress);
+            }
+        }
+    });
+
+    event.registerForPower('powerborne/homelander_thunderclap_f1', 'powerborne:homelander', 100, (builder) => {
+        const progress = animationUtil.getAnimationTimerAbilityValue(builder.getPlayer(), 'powerborne:homelander', 'thunderclap_kjs_anim1', builder.getPartialTicks());
+        if (progress > 0.0) {
+            if (builder.isFirstPerson()) {
+                builder.get('right_arm').setXRotDegrees(-50).setYRotDegrees(-9).setZRotDegrees(10).animate('InOutExpo', progress);
+                builder.get('left_arm').setXRotDegrees(-50).setYRotDegrees(9).setZRotDegrees(-10).animate('InOutExpo', progress);
+            } else {
+                builder.get('right_arm').setXRotDegrees(-90).setYRotDegrees(-25).animate('InOutExpo', progress);
+                builder.get('left_arm').setXRotDegrees(-90).setYRotDegrees(25).animate('InOutExpo', progress);
+            }
+        }
+    });
+
+    event.registerForPower('powerborne/homelander_super_punch', 'powerborne:homelander', 100, (builder) => {
+        const rawProgress = animationUtil.getAnimationTimerAbilityValue(builder.getPlayer(), 'powerborne:homelander', 'super_punch_timer', builder.getPartialTicks());
+        if (rawProgress > 0.2) {
+            const progress = Math.min((rawProgress - 0.2) / 0.8, 1.0);
+            if (!builder.isFirstPerson()) {
+                builder.get('right_arm').setXRotDegrees(-90).setZ(2).animate('Linear', progress);
+                builder.get('left_arm').setXRotDegrees(-70).setYRotDegrees(-45).setZRotDegrees(-25).setZ(-2).animate('Linear', progress);
+                builder.get('body').setYRotDegrees(-45).animate('Linear', progress);
+                builder.get('head').setYRotShortestDegrees(-46).animate('Linear', progress);
+                builder.get('left_leg').setYRotDegrees(-26).animate('Linear', progress);
+            } else {
+                builder.get('right_arm').setY(-6).animate('Linear', progress);
             }
         }
     });

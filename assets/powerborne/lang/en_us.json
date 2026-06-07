@@ -32,9 +32,7 @@
   "accessory.powerborne.skinless": "Skinless Mode",
   "key.powerborne.toggle_helmet": "Toggle Helmet",
   "key.categories.powerborne": "Powerborne",
-
   "palladium.tailoring_recipe.category.powerborne.powerborne": "Powerborne Heroes",
-
   "name.powerborne.captain_america": "Captain America",
   "ability.powerborne.captain_america.root": "Captain America",
   "desc.powerborne.captain_america.root": "Attack Damage: §a+2§f\nDefense: §a+10%",
@@ -62,7 +60,6 @@
   "desc.powerborne.captain_america.vibranium_absorption": "Shield loses §a50%§f less durability when blocking. Increases overheat threshold",
   "desc.powerborne.captain_america.damage_upgrade": "Attack Damage: §a+2",
   "desc.powerborne.captain_america.defense_upgrade": "Defense: §a+40%",
-
   "name.powerborne.superman": "Superman",
   "ability.powerborne.superman.root": "Superman        ",
   "desc.powerborne.superman.root": "Attack Damage: §a+4§f\nDefense: §a+50%§f\nMax §eSolar Charge§f: 100",
@@ -85,7 +82,6 @@
   "desc.powerborne.superman.super_flare": "Release all Solar Charge in a massive blast. Causes §6Solar Exhaustion",
   "ability.powerborne.superman.super_punch": "Super Punch",
   "desc.powerborne.superman.super_punch": "Hold §3Right Click§f to charge, release to punch",
-
   "ability.powerborne.shared.super_speed": "Super Speed",
   "desc.powerborne.shared.super_speed": "Toggle Speed and Jump Boost while sprinting",
   "ability.powerborne.shared.flight_boost": "Flight Boost",
@@ -94,7 +90,6 @@
   "desc.powerborne.shared.damage_upgrade": "Attack Damage: §a+3",
   "ability.powerborne.shared.defense_upgrade": "Defense Upgrade",
   "desc.powerborne.shared.defense_upgrade": "Defense: §a+50%",
-
   "name.powerborne.sentry": "Sentry",
   "ability.powerborne.sentry.root": "Sentry       ",
   "desc.powerborne.sentry.root": "Attack Damage: §a+4§f\nDefense: §a+50%",
@@ -116,14 +111,11 @@
   "desc.powerborne.sentry.photon_forcefield": "Create a healing forcefield that pushes entities away",
   "ability.powerborne.sentry.void_transform": "Void Transform",
   "desc.powerborne.sentry.void_transform": "Transform into\n§lThe Void§r when §7Void Corruption§f is full",
-
   "name.powerborne.god_of_thunder": "God of Thunder",
-
   "name.powerborne.stormbreaker": "Stormbreaker",
   "ability.powerborne.stormbreaker.throw": "Stormbreaker Throw",
   "desc.powerborne.stormbreaker.throw": "Hold §3Right Click§f and release to throw",
   "desc.powerborne.stormbreaker.lightning_blast": "Shoot a beam of lightning from Stormbreaker",
-
   "ability.powerborne.thor.root": "God of Thunder",
   "desc.powerborne.thor.root": "Attack Damage: §a+4§f\nDefense: §a+60%",
   "ability.powerborne.thor.throw_mjolnir": "Mjolnir Throw",
@@ -165,7 +157,6 @@
   "ability.powerborne.thor.bifrost_save": "Set Bifrost Point",
   "desc.powerborne.thor.bifrost_save": "Hold §3Sneak§f and activate to save your §bBifrost§f point",
   "text.powerborne.bifrost.point_set": "Set §bBifrost§f point to %s, %s, %s in %s",
-
   "name.powerborne.void": "The Void",
   "ability.powerborne.void.root": "The Void          ",
   "desc.powerborne.void.root": "Transform into The Void for 30 minutes",
@@ -179,13 +170,11 @@
   "desc.powerborne.void.shadow_field": "Launch a projectile that creates a Shadow Field on impact",
   "ability.powerborne.void.void_banishment": "Void Banishment",
   "desc.powerborne.void.void_banishment": "Banish entities into shadow",
-
   "accessory_slot.powerborne.sentry": "Sentry",
   "accessory.powerborne.sentry_black_and_gold": "Black and Gold",
   "accessory.powerborne.sentry_mcu": "MCU",
   "accessory.powerborne.sentry_horseman": "Horseman of Death",
   "accessory.powerborne.sentry_void_merged": "Void Merged",
-
   "accessory_slot.powerborne.superman": "Superman",
   "accessory.powerborne.superman_beyond": "Beyond",
   "accessory.powerborne.superman_maws": "MAWS",
@@ -196,7 +185,6 @@
   "accessory.powerborne.superman_absolute": "Absolute",
   "accessory.powerborne.superman_dceu": "DCEU",
   "accessory.powerborne.superman_dcu": "DCU",
-
   "accessory_slot.powerborne.thor": "Thor",
   "accessory.powerborne.thor_classic": "Classic",
   "accessory.powerborne.thor_herald": "Herald of Thunder",
@@ -206,10 +194,8 @@
   "accessory.powerborne.thor_infinity_war_v2": "Infinity War V2",
   "accessory.powerborne.thor_love_and_thunder": "Love and Thunder",
   "accessory.powerborne.thor_love_and_thunder_extreme": "Love and Thunder (Extreme)",
-
   "powerborne.itemGroup.suit_scrolls": "Powerborne Scrolls",
   "powerborne.itemGroup.weapons": "Powerborne Weapons",
-
   "tooltip.powerborne.sun_charge": "Sun Charge: ",
   "tooltip.powerborne.when_in_hand": "When in Hand:",
   "tooltip.powerborne.absorbs_sunlight": "Absorbs Sunlight",
@@ -218,27 +204,22 @@
   "tooltip.powerborne.suit": "Suit: ",
   "tooltip.powerborne.unlocks": "Unlocks: ",
   "tooltip.powerborne.mjolnir.awakened": "Awakened",
-
   "messages.powerborne.already_unlocked": "Already unlocked: ",
   "messages.powerborne.accessory_unlocked": "Accessory Unlocked",
   "messages.powerborne.level_up": "§6§l[LEVEL UP!] §7Your §b%s §7reached level §a%s§7! §e+%s §eSkill Points",
   "messages.powerborne.not_worthy": "§cYou are not worthy!",
   "messages.powerborne.not_owned_weapon": "§cYou do not own this weapon!",
   "messages.powerborne.cant_do_this_now": "§cYou can't do this now!",
-
   "overlay.powerborne.xray.name": "Name: %s",
   "overlay.powerborne.xray.health": "Health: %s",
-
   "advancements.powerborne.worthiness.title": "Worthiness",
   "advancements.powerborne.worthiness.description": "Not everyone is worthy",
   "advancements.powerborne.hostile_killer.title": "Monster Slayer",
   "advancements.powerborne.hostile_killer.description": "Kill 200 hostile monsters",
   "advancements.powerborne.worthy.title": "Worthy",
   "advancements.powerborne.worthy.description": "Complete the goals to become Worthy",
-
   "advancements.powerborne.powerborne.title": "Powerborne",
   "advancements.powerborne.powerborne.description": "A world of extraordinary powers awaits",
-
   "advancements.powerborne.superman_origin.title": "Last Son of Krypton",
   "advancements.powerborne.superman_origin.description": "Become Superman",
   "advancements.powerborne.sentry_origin.title": "The Golden Sentry",
@@ -258,7 +239,6 @@
   "advancements.powerborne.stormbreaker.title": "A King's Weapon",
   "advancements.powerborne.stormbreaker.description": "Craft Stormbreaker at a Smithing Table",
   "entity.powerborne.krypto": "Krypto",
-
   "subtitles.void_transform": "Sentry transforms",
   "subtitles.void_detransform": "Void transforms",
   "subtitles.sentry_beam_loop": "Light projection",
@@ -280,5 +260,40 @@
   "subtitles.electricity_beam_loop": "Electricity beam",
   "subtitles.chain_lightning_hit": "Chain lightning hits",
   "subtitles.storm_strike": "Storm Strike",
-  "subtitles.shield_beam_loop": "Shield deflects beam"
-} 
+  "subtitles.shield_beam_loop": "Shield deflects beam",
+  "item.powerborne.homelander_suit": "Homelander Suit",
+  "item.powerborne.blood_v": "Blood V",
+  "name.powerborne.homelander": "Homelander",
+  "accessory_slot.powerborne.homelander": "Homelander",
+  "ability.powerborne.homelander.flight": "Flight",
+  "ability.powerborne.homelander.flight_burst": "Flight Burst",
+  "ability.powerborne.homelander.laser_vision": "Laser Vision",
+  "ability.powerborne.homelander.sonic_scream": "Sonic Scream",
+  "ability.powerborne.homelander.super_clap": "Super Clap",
+  "desc.powerborne.homelander.flight_burst": "Burst forward while fast flying. Costs Blood V.",
+  "desc.powerborne.homelander.laser_vision": "Hold to fire burning eye lasers. Drains Blood V.",
+  "desc.powerborne.homelander.sonic_scream": "A cone scream that disorients and slows nearby targets.",
+  "desc.powerborne.homelander.super_clap": "Release a close shockwave that damages and knocks enemies back.",
+  "ability.powerborne.homelander.root": "Homelander        ",
+  "desc.powerborne.homelander.root": "Attack Damage: §a+7§f\nDefense: §a+100%§f\nMax §bBlood V§f: 500",
+  "ability.powerborne.homelander.heat_vision": "Laser Vision",
+  "desc.powerborne.homelander.heat_vision": "Shoot burning eye lasers that set entities on fire and destroy blocks",
+  "ability.powerborne.homelander.freeze_breath": "Freeze Breath",
+  "desc.powerborne.homelander.freeze_breath": "Freezes entities and blocks with an ice-cold blast",
+  "ability.powerborne.homelander.thunderclap": "Super Clap",
+  "desc.powerborne.homelander.thunderclap": "Create a shockwave that damages and knocks back entities",
+  "ability.powerborne.homelander.kryptonian_focus": "Enhanced Senses",
+  "desc.powerborne.homelander.kryptonian_focus": "Access copied Superman focus abilities, including X-Ray Vision and Night Vision",
+  "ability.powerborne.homelander.xray_vision": "X-Ray Vision",
+  "ability.powerborne.homelander.solar_energy_u1": "Blood V Capacity I",
+  "desc.powerborne.homelander.solar_energy_u1": "Max §bBlood V§f: 200",
+  "ability.powerborne.homelander.solar_energy_u2": "Blood V Capacity II",
+  "desc.powerborne.homelander.solar_energy_u2": "Max §bBlood V§f: 350",
+  "ability.powerborne.homelander.solar_energy_u3": "Blood V Capacity III",
+  "desc.powerborne.homelander.solar_energy_u3": "Max §bBlood V§f: 500",
+  "ability.powerborne.homelander.super_flare": "Super Flare",
+  "desc.powerborne.homelander.super_flare": "Release all Blood V in a massive blast. Causes exhaustion",
+  "ability.powerborne.homelander.super_punch": "Super Punch",
+  "desc.powerborne.homelander.super_punch": "Hold Right Click to charge, release to punch",
+  "tooltip.powerborne.homelander": "Homelander"
+}

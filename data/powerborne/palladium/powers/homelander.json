@@ -1,0 +1,1836 @@
+{
+  "name": {
+    "translate": "name.powerborne.homelander"
+  },
+  "background": "minecraft:textures/block/red_wool.png",
+  "ability_bar_texture": "powerborne:textures/gui/ability_bar.png",
+  "icon": "powerborne:homelander_suit",
+  "persistent_data": true,
+  "gui_display_type": "tree",
+  "primary_color": "#E1C04D",
+  "secondary_color": "#7C0F18",
+  "energy_bars": {
+    "blood_v_bar": {
+      "color": "#19B8FF",
+      "max": {
+        "type": "palladium_property",
+        "property": "energy_bar_blood_v_max",
+        "fallback": 500
+      },
+      "synced_value": {
+        "type": "palladium_property",
+        "property": "energy_bar_blood_v"
+      }
+    }
+  },
+  "abilities": {
+    "sun_particles": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "particle_type": "minecraft:dust",
+      "options": "1.0 1.0 0.25 0.5",
+      "emitter": [
+        "powerborne:sun_charge"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "powerborne:y_level",
+            "min": 210
+          },
+          {
+            "type": "palladium:day"
+          }
+        ]
+      }
+    },
+    "sun_charge_animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "max_value": 10,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "powerborne:y_level",
+              "min": 210
+            },
+            {
+              "type": "palladium:day"
+            },
+            {
+              "type": "palladium:not",
+              "conditions": [
+                {
+                  "type": "palladium:has_movement_input"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "homelander_root": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.homelander.root"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.root"
+      },
+      "gui_position": [
+        0,
+        0
+      ],
+      "icon": {
+        "type": "palladium:item",
+        "item": "powerborne:homelander_suit"
+      }
+    },
+    "restrict_slots": {
+      "type": "palladium:restrict_slots",
+      "hidden": true,
+      "slots": [
+        "head",
+        "legs",
+        "feet"
+      ]
+    },
+    "lock_armor": {
+      "type": "palladium:lock_armor",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "freeze_breath"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "heat_vision_timer"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "thunderclap_kjs_anim"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "super_speed"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "flight_boost"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "xray_animation"
+              },
+              {
+                "type": "palladium:ability_on_cooldown",
+                "ability": "super_flare"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "powerborne:is_creative_mode"
+            }
+          }
+        ]
+      }
+    },
+    "heat_vision_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.homelander.heat_vision"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.heat_vision"
+      },
+      "gui_position": [
+        -1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/heat_vision.png"
+      }
+    },
+    "focus_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.homelander.kryptonian_focus"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.kryptonian_focus"
+      },
+      "gui_position": [
+        0,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/kryptonian_focus.png"
+      }
+    },
+    "freeze_breath_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.homelander.freeze_breath"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.freeze_breath"
+      },
+      "gui_position": [
+        1,
+        0.75
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/freeze_breath.png"
+      }
+    },
+    "thunderclap_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.homelander.thunderclap"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.thunderclap"
+      },
+      "gui_position": [
+        -1,
+        1.5
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/thunderclap.png"
+      }
+    },
+    "solar_energy_u1": {
+      "type": "palladium:dummy",
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/solar_upgrade.png"
+      },
+      "title": {
+        "translate": "ability.powerborne.homelander.solar_energy_u1"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.solar_energy_u1"
+      },
+      "gui_position": [
+        0,
+        1.5
+      ]
+    },
+    "super_speed_buyable": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.shared.super_speed"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.super_speed"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/super_speed.png"
+      },
+      "gui_position": [
+        1,
+        1.5
+      ]
+    },
+    "punch_damage_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.shared.damage_upgrade"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.damage_upgrade"
+      },
+      "gui_position": [
+        -1,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/damage.png"
+      }
+    },
+    "solar_energy_u2": {
+      "type": "palladium:dummy",
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/solar_upgrade.png"
+      },
+      "title": {
+        "translate": "ability.powerborne.homelander.solar_energy_u2"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.solar_energy_u2"
+      },
+      "gui_position": [
+        0,
+        2.25
+      ]
+    },
+    "defense_upgrade": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.shared.defense_upgrade"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.defense_upgrade"
+      },
+      "gui_position": [
+        1,
+        2.25
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/defense.png"
+      }
+    },
+    "super_punch_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.homelander.super_punch"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.super_punch"
+      },
+      "gui_position": [
+        -1,
+        3
+      ],
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/super_punch.png"
+      }
+    },
+    "solar_energy_u3": {
+      "type": "palladium:dummy",
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/solar_upgrade.png"
+      },
+      "title": {
+        "translate": "ability.powerborne.homelander.solar_energy_u3"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.solar_energy_u3"
+      },
+      "gui_position": [
+        0,
+        3
+      ]
+    },
+    "flight_boost_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.shared.flight_boost"
+      },
+      "description": {
+        "translate": "desc.powerborne.shared.flight_boost"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/flight_boost.png"
+      },
+      "gui_position": [
+        1,
+        3
+      ]
+    },
+    "super_flare_buy": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.homelander.super_flare"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.super_flare"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/super_flare.png"
+      },
+      "gui_position": [
+        0,
+        3.75
+      ]
+    },
+    "heat_vision_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 9999,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "bar_color": "red",
+      "title": {
+        "translate": "ability.powerborne.homelander.heat_vision"
+      },
+      "list_index": 0,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/heat_vision.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 500
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "super_flare"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "freeze_breath"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_blood_v",
+            "min": 3,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_effect",
+              "effect": "powerborne:solar_exhaustion"
+            }
+          }
+        ]
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.heat_vision"
+      }
+    },
+    "heat_vision_eyes": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "powerborne:homelander_eyes",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "heat_vision_timer"
+        }
+      }
+    },
+    "heat_vision_beam": {
+      "type": "palladium:energy_beam",
+      "energy_beam": "powerborne:homelander_laser_vision",
+      "set_on_fire_seconds": 4,
+      "max_distance": 25,
+      "smelt_blocks": true,
+      "cause_fire": true,
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "power": "powerborne:homelander",
+              "ability": "heat_vision_eyes"
+            },
+            {
+              "type": "palladium:ability_ticks",
+              "power": "powerborne:homelander",
+              "ability": "heat_vision_eyes",
+              "min": 5,
+              "max": 999999
+            }
+          ]
+        }
+      }
+    },
+    "heat_vision_loop_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:heat_vision_loop_st",
+      "volume": 0.3,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "heat_vision_beam"
+        }
+      }
+    },
+    "heat_vision_loop_sound_others": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:heat_vision_loop",
+      "volume": 0.3,
+      "looping": true,
+      "play_self": false,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "heat_vision_beam"
+        }
+      }
+    },
+    "freeze_breath": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.homelander.freeze_breath"
+      },
+      "hidden": true,
+      "list_index": 1,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/freeze_breath.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 500
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "heat_vision_timer"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "super_flare"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_blood_v",
+            "min": 3,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_effect",
+              "effect": "powerborne:solar_exhaustion"
+            }
+          }
+        ]
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.freeze_breath"
+      }
+    },
+    "freeze_projectile": {
+      "type": "palladium:projectile",
+      "entity_type": "palladium:custom_projectile",
+      "hidden": true,
+      "velocity": 0.9,
+      "swinging_arm": "none",
+      "ignore_player_movement": true,
+      "entity_data": {
+        "Damage": 0,
+        "Gravity": 0,
+        "Size": -0.5,
+        "Lifetime": 10,
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Tags": [
+          "powerborne.freeze_breath_projectile"
+        ],
+        "CommandOnBlockHit": "function powerborne:abilities/layered_snow_replace",
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:item_snowball",
+            "Spread": 0,
+            "Amount": 1
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "freeze_breath"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 1,
+            "disabled_ticks": 3
+          }
+        ]
+      }
+    },
+    "beam_anim_r": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "emitter": [
+        "powerborne:freeze_breath"
+      ],
+      "particle_type": "minecraft:snowflake",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "freeze_breath"
+        }
+      }
+    },
+    "freeze_breath_loop_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:freeze_breath_loop_st",
+      "volume": 0.4,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "freeze_breath"
+        }
+      }
+    },
+    "freeze_breath_loop_sound_others": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:freeze_breath_loop",
+      "volume": 0.3,
+      "looping": true,
+      "play_self": false,
+      "play_others": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "freeze_breath"
+        }
+      }
+    },
+    "render_layer": {
+      "type": "palladium:render_layer_by_accessory_slot",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "default_layer": "powerborne:homelander",
+      "accessory_slot": "powerborne:homelander",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "power": "powerborne:suit_stand/homelander_suit_stand",
+              "ability": "is_stand"
+            }
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:homelander_suit"
+            }
+          }
+        ]
+      }
+    },
+    "hide_layers": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "body_parts": [
+        "cape",
+        "chest_overlay",
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:homelander_suit"
+            }
+          }
+        ]
+      }
+    },
+    "hide_head_overlay": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "head_overlay"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "slot": "chest",
+            "item": {
+              "item": "powerborne:homelander_suit"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:accessory_selected",
+              "accessory_slot": "powerborne:settings",
+              "accessory": "powerborne:skinless"
+            }
+          }
+        ]
+      }
+    },
+    "flight": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "palladium:flight_speed",
+      "title": "Flight",
+      "amount": 1.1,
+      "uuid": "019841e4-cd59-74ce-81e6-5296cd1e9d3d"
+    },
+    "flight_check": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:is_flying"
+        }
+      }
+    },
+    "can_boost": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "power": "powerborne:homelander",
+              "ability": "flight_check"
+            },
+            {
+              "type": "palladium:ability_ticks",
+              "power": "powerborne:homelander",
+              "ability": "flight_check",
+              "min": 50,
+              "max": 999999
+            }
+          ]
+        }
+      }
+    },
+    "flight_boost": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.homelander.flight_burst"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/flight_boost.png"
+      },
+      "hidden": true,
+      "list_index": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 400
+          },
+          {
+            "type": "palladium:is_fast_flying"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:is_fast_flying"
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "can_boost"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_blood_v",
+            "min": 3,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_effect",
+              "effect": "powerborne:solar_exhaustion"
+            }
+          }
+        ]
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.flight_burst"
+      }
+    },
+    "thunderclap_kjs_anim": {
+      "type": "palladium:animation_timer",
+      "title": {
+        "translate": "ability.powerborne.homelander.thunderclap"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/thunderclap.png"
+      },
+      "hidden": true,
+      "max_value": 5,
+      "list_index": 2,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          },
+          {
+            "type": "palladium:activation",
+            "ticks": 13,
+            "cooldown": 200
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "super_flare"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_blood_v",
+            "min": 3,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_effect",
+              "effect": "powerborne:solar_exhaustion"
+            }
+          }
+        ]
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.thunderclap"
+      }
+    },
+    "thunderclap_kjs_anim1": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "max_value": 10,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_ticks",
+          "power": "powerborne:homelander",
+          "ability": "thunderclap_kjs_anim",
+          "min": 3,
+          "max": 15
+        }
+      }
+    },
+    "thunderclap": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "thunderclap_kjs_anim"
+            },
+            {
+              "type": "palladium:ability_ticks",
+              "ability": "thunderclap_kjs_anim",
+              "min": 8,
+              "max": 8
+            }
+          ]
+        }
+      }
+    },
+    "thunderclap_screen_shake": {
+      "type": "powerborne:screen_shake",
+      "hidden": true,
+      "base_intensity": 0.5,
+      "max_intensity": 3,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "thunderclap_kjs_anim1",
+          "min": 5,
+          "max": 10
+        }
+      }
+    },
+    "show_both_arms": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "thunderclap_kjs_anim"
+            },
+            {
+              "type": "palladium:animation_timer_ability",
+              "ability": "thunderclap_kjs_anim1",
+              "min": 6,
+              "max": 40
+            }
+          ]
+        }
+      }
+    },
+    "flight_boost_aim": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "arm": "both",
+      "time": 5,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/item/icons/fast_flight_boost_aim.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:is_flying"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "flight_boost_ticks",
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "heroic_flight_type": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:heroic_flight_type",
+      "hidden": true,
+      "amount": 1
+    },
+    "super_speed": {
+      "type": "palladium:dummy",
+      "title": {
+        "translate": "ability.powerborne.shared.super_speed"
+      },
+      "list_index": 3,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/super_speed.png"
+      },
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "key_type": "key_bind",
+            "cooldown": 750
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "super_flare"
+            }
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_flying"
+              },
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_blood_v",
+            "min": 3,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:or",
+              "conditions": [
+                {
+                  "type": "palladium:has_effect",
+                  "effect": "powerborne:solar_exhaustion"
+                },
+                {
+                  "type": "palladium:has_effect",
+                  "effect": "powerborne:kryptonite_poisoning"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "speed_trail": {
+      "type": "palladium:trail",
+      "hidden": true,
+      "trail": "powerborne:homelander_speed",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "super_speed"
+          }
+        ]
+      }
+    },
+    "speed_trail_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "minecraft:item.elytra.flying",
+      "volume": 0.3,
+      "looping": true,
+      "play_self": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "speed_trail"
+        }
+      }
+    },
+    "super_speed_haste": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "effect give @s minecraft:haste infinite 2 true"
+      ],
+      "commands": "",
+      "last_tick_commands": [
+        "effect clear @s minecraft:haste"
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "super_speed"
+        }
+      }
+    },
+    "speed_attribute": {
+      "type": "palladium:attribute_modifier",
+      "uuid": "019d0323-e1da-719a-bb30-0a3284e1a46e",
+      "hidden": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.55,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "speed_trail"
+        }
+      }
+    },
+    "leap_attribute": {
+      "type": "palladium:attribute_modifier",
+      "uuid": "019d8580-26eb-7589-807f-845e78af0cd7",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:leaping",
+      "amount": 50,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:activation",
+          "ticks": 15,
+          "cooldown": 200,
+          "key_type": "space_bar"
+        },
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "speed_trail"
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "jump_attribute": {
+      "type": "palladium:attribute_modifier",
+      "uuid": "019d0324-07f0-712f-8908-fc5c6ef15a8a",
+      "hidden": true,
+      "attribute": "palladium:jump_power",
+      "amount": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "speed_trail"
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "step_assist": {
+      "type": "palladium:attribute_modifier",
+      "uuid": "019d0324-2935-74ab-95a7-8fde38b308ab",
+      "hidden": true,
+      "attribute": "forge:step_height_addition",
+      "amount": 1,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "super_speed"
+        }
+      }
+    },
+    "water_walk": {
+      "type": "palladium:water_walk",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "speed_trail"
+          }
+        ]
+      }
+    },
+    "homelander_healing": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 120,
+      "amount": 1,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:has_effect",
+            "effect": "powerborne:solar_exhaustion"
+          }
+        }
+      }
+    },
+    "health_attribute": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "uuid": "019d0324-5e48-7530-9e1c-b819abca960e",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 8,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:has_effect",
+            "effect": "powerborne:solar_exhaustion"
+          }
+        }
+      }
+    },
+    "attack_damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 4,
+      "uuid": "0197d205-8ac0-73c3-a4ce-b1146e5c53a6"
+    },
+    "punch_damage_upgrade": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3,
+      "uuid": "019bc263-142f-71ee-867d-05771c2c3f5d",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:has_effect",
+            "effect": "powerborne:solar_exhaustion"
+          }
+        }
+      }
+    },
+    "damage_immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "powerborne:homelander_immune_to",
+        "powerborne:is_ad_astra",
+        "powerborne:is_superb_warfare",
+        "powerborne:is_tacz_bullet"
+      ]
+    },
+    "space_breathing": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": {
+          "type": "powerborne:is_in_space"
+        }
+      }
+    },
+    "defense_scale": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:defense 1.5 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:defense 1 @s",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:has_effect",
+            "effect": "powerborne:solar_exhaustion"
+          }
+        }
+      }
+    },
+    "defense_scale_upgrade": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": "/scale set pehkui:defense 2.0 @s",
+      "commands": "",
+      "last_tick_commands": "/scale set pehkui:defense 1 @s",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:has_effect",
+            "effect": "powerborne:solar_exhaustion"
+          }
+        }
+      }
+    },
+    "wheel_2": {
+      "type": "palladium:ability_wheel",
+      "bar_color": "red",
+      "title": {
+        "translate": "ability.powerborne.homelander.kryptonian_focus"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/kryptonian_focus.png"
+      },
+      "list_index": 4,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "abilities": [
+        "xray_animation",
+        "night_vision",
+        "super_flare"
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:held"
+        },
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:integer_property",
+                    "property": "energy_bar_blood_v",
+                    "min": 500,
+                    "max": 500
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "super_flare"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_effect",
+              "effect": "powerborne:solar_exhaustion"
+            }
+          }
+        ]
+      }
+    },
+    "wheel": {
+      "type": "palladium:ability_wheel",
+      "title": {
+        "translate": "ability.powerborne.homelander.kryptonian_focus"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/kryptonian_focus.png"
+      },
+      "list_index": 4,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "abilities": [
+        "xray_animation",
+        "night_vision"
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:held"
+        },
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_effect",
+              "effect": "powerborne:solar_exhaustion"
+            }
+          }
+        ]
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.kryptonian_focus"
+      }
+    },
+    "xray_animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/xray_vision.png"
+      },
+      "title": {
+        "translate": "ability.powerborne.homelander.xray_vision"
+      },
+      "hidden_in_bar": true,
+      "max_value": 10,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:activation",
+          "ticks": 60,
+          "cooldown": 140
+        },
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_on_cooldown",
+              "ability": "xray_animation"
+            }
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_effect",
+              "effect": "powerborne:solar_exhaustion"
+            }
+          }
+        ]
+      }
+    },
+    "xray_eyes": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "powerborne:xray_eyes",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "xray_animation"
+        }
+      }
+    },
+    "xray_glow": {
+      "type": "palladium:entity_glow",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "mode": "others",
+      "distance": 50,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 3,
+          "max": 10
+        }
+      }
+    },
+    "xray_vision_sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "playsound powerborne:xray_vision player @s"
+      ],
+      "commands": "",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "ability": "xray_animation"
+        }
+      }
+    },
+    "xray_shader_1": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_1.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
+    "xray_shader_2": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_2.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 2,
+          "max": 2
+        }
+      }
+    },
+    "xray_shader_3": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_3.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 3,
+          "max": 3
+        }
+      }
+    },
+    "xray_shader_4": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_4.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 4,
+          "max": 4
+        }
+      }
+    },
+    "xray_shader_5": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_5.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 5,
+          "max": 5
+        }
+      }
+    },
+    "xray_shader_6": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_6.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 6,
+          "max": 6
+        }
+      }
+    },
+    "xray_shader_7": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_7.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 7,
+          "max": 7
+        }
+      }
+    },
+    "xray_shader_8": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_8.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 8,
+          "max": 8
+        }
+      }
+    },
+    "xray_shader_9": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_9.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 9,
+          "max": 9
+        }
+      }
+    },
+    "xray_shader_10": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "powerborne:shaders/post/xray_shader_10.json",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "xray_animation",
+          "min": 10,
+          "max": 10
+        }
+      }
+    },
+    "respiration": {
+      "type": "powerborne:respiration",
+      "hidden": true,
+      "multiplier": 10
+    },
+    "night_vision": {
+      "type": "palladium:command",
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "minecraft:textures/mob_effect/night_vision.png"
+      },
+      "title": {
+        "translate": "effect.minecraft.night_vision"
+      },
+      "hidden": true,
+      "hidden_in_bar": true,
+      "last_tick_commands": "effect clear @s minecraft:night_vision",
+      "commands": "effect give @s minecraft:night_vision infinite 0 true",
+      "first_tick_commands": "",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle"
+          }
+        ],
+        "unlocking": {
+          "type": "palladium:not",
+          "conditions": {
+            "type": "palladium:has_effect",
+            "effect": "powerborne:solar_exhaustion"
+          }
+        }
+      }
+    },
+    "super_punch_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 40,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "title": {
+        "translate": "ability.powerborne.homelander.super_punch"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/super_punch.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "super_punch_cooldown",
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:ability_enabled",
+              "ability": "thunderclap_kjs_anim"
+            }
+          },
+          {
+            "type": "palladium:integer_property",
+            "property": "energy_bar_blood_v",
+            "min": 3,
+            "max": 999
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_effect",
+              "effect": "powerborne:solar_exhaustion"
+            }
+          }
+        ]
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.super_punch"
+      }
+    },
+    "super_punch_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:leather_crack_loop",
+      "volume": 0.1,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:animation_timer_ability",
+              "ability": "super_punch_timer",
+              "min": 10,
+              "max": 38
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "super_punch_timer"
+            }
+          ]
+        }
+      }
+    },
+    "super_flare": {
+      "type": "palladium:repeating_animation_timer",
+      "max_value": 999,
+      "title": {
+        "translate": "ability.powerborne.homelander.super_flare"
+      },
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/super_flare.png"
+      },
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:activation",
+          "ticks": 65,
+          "cooldown": 120
+        },
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "super_flare"
+              },
+              {
+                "type": "palladium:on_ground"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:has_effect",
+              "effect": "powerborne:solar_exhaustion"
+            }
+          }
+        ]
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.super_flare"
+      }
+    },
+    "super_flare_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "powerborne:super_flare",
+      "volume": 2,
+      "looping": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:animation_timer_ability",
+          "ability": "super_flare",
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
+    "super_flare_small": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:super_flare_small",
+      "max_distance": 0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "super_flare",
+            "min": 5,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "super_flare_big": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "energy_beam": "powerborne:super_flare_big",
+      "max_distance": 0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "super_flare",
+            "min": 48,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "sonic_scream_timer": {
+      "type": "palladium:animation_timer",
+      "max_value": 18,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": {
+        "translate": "ability.powerborne.homelander.sonic_scream"
+      },
+      "description": {
+        "translate": "desc.powerborne.homelander.sonic_scream"
+      },
+      "list_index": 5,
+      "icon": {
+        "type": "palladium:texture",
+        "texture": "powerborne:textures/gui/abilities/homelander/sonic_scream.png"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:is_fast_flying"
+            }
+          },
+          {
+            "type": "palladium:activation",
+            "ticks": 16,
+            "cooldown": 300
+          }
+        ],
+        "unlocking": {
+          "type": "palladium:integer_property",
+          "property": "energy_bar_blood_v",
+          "min": 20,
+          "max": 500
+        }
+      }
+    },
+    "sonic_scream": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "sonic_scream_timer"
+            },
+            {
+              "type": "palladium:ability_ticks",
+              "ability": "sonic_scream_timer",
+              "min": 12,
+              "max": 12
+            }
+          ]
+        }
+      }
+    }
+  }
+}

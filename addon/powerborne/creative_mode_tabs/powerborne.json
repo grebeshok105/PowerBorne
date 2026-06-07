@@ -3,9 +3,11 @@
     "title": "Powerborne",
     "items": [
         "powerborne:superman_suit",
+        "powerborne:homelander_suit",
         "powerborne:sentry_suit",
         "powerborne:thor_suit",
         "powerborne:captain_america_suit",
+        "powerborne:blood_v",
         "powerborne:kryptonian_whistle",
         "powerborne:uru_ore",
         "powerborne:raw_uru",
